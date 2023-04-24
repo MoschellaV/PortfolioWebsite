@@ -10,10 +10,12 @@ const NavContactButton = ({ children, ...props }) => {
         <Button
             variant="contained"
             sx={{
-                backgroundColor: theme.palette.primary.main,
-                // "&:hover": {
-                //     anim here
-                // },
+                backgroundColor: theme.palette.secondary.main,
+                color: theme.palette.primary.main,
+                "&:hover": {
+                    backgroundColor: theme.palette.primary.main,
+                    color: theme.palette.secondary.main,
+                },
                 borderRadius: "0",
                 margin: "0 0 0 2.5vw",
                 padding: "1rem",
@@ -34,7 +36,7 @@ const NavLink = ({ children, ...props }) => {
             variant="h6"
             component="a"
             sx={{
-                color: theme.palette.primary.main,
+                color: theme.palette.secondary.main,
                 textDecoration: "none",
                 margin: "0 2.5vw",
                 "&:hover": {
@@ -62,19 +64,29 @@ const DrawerOptions = ({ navItems, setDrawerOpen }) => {
                 ))}
                 <ListItem sx={{ margin: 0 }}>
                     <NavContactButton href="#contact" onClick={() => setDrawerOpen(false)}>
-                        <Typography variant="h6">Reach out</Typography>
+                        <NavLink
+                            variant="h6"
+                            sx={{
+                                margin: "normal",
+                                textDecoration: "none",
+                                color: "inherit",
+                            }}
+                        >
+                            Reach out
+                        </NavLink>
                     </NavContactButton>
                 </ListItem>
             </List>
         </Box>
     );
 };
+
 const Navbar = () => {
     const theme = useTheme();
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const NameLogoSX = {
-        color: theme.palette.primary.main,
+        color: theme.palette.secondary.main,
         textDecoration: "none",
         "&:hover": {
             cursor: "pointer",
@@ -122,7 +134,16 @@ const Navbar = () => {
                             );
                         })}
                         <NavContactButton href="#contact">
-                            <Typography variant="h6">Reach out</Typography>
+                            <NavLink
+                                variant="h6"
+                                sx={{
+                                    margin: "normal",
+                                    textDecoration: "none",
+                                    color: "inherit",
+                                }}
+                            >
+                                Reach out
+                            </NavLink>
                         </NavContactButton>
                     </Box>
                 </Hidden>
@@ -134,20 +155,21 @@ const Navbar = () => {
                         onClick={handleDrawerToggle}
                         sx={{ mr: "1rem" }}
                     >
-                        <MenuIcon sx={{ fontSize: "35px", color: theme.palette.primary.main }} />
+                        <MenuIcon sx={{ fontSize: "35px", color: theme.palette.secondary.main }} />
                     </IconButton>
                     <Drawer
                         anchor={"right"}
                         open={drawerOpen}
                         onClose={handleDrawerToggle}
                         ModalProps={{ keepMounted: true }}
+                        PaperProps={{ sx: { backgroundColor: theme.palette.primary.main } }} // Set the background color here
                     >
                         <IconButton
                             onClick={handleDrawerToggle}
                             aria-label="close"
                             sx={{ margin: "2rem 1rem 0rem auto" }}
                         >
-                            <CloseIcon sx={{ fontSize: "35px", color: theme.palette.primary.main }} />
+                            <CloseIcon sx={{ fontSize: "35px", color: theme.palette.secondary.main }} />
                         </IconButton>
                         <DrawerOptions navItems={navItems} setDrawerOpen={setDrawerOpen} />
                     </Drawer>
