@@ -3,13 +3,15 @@ import Head from "next/head";
 import styles from "@/styles/Hero.module.css";
 import { HeroModel } from "@/components";
 import { Box } from "@mui/material";
+import { useScrollY } from "@/context/providers";
 
 export default function Home() {
+    const scrollY = useScrollY();
     const [shouldScrollOff, setShouldScrollOff] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            window.scrollY >= 1000 ? setShouldScrollOff(true) : setShouldScrollOff(false);
+            scrollY >= 1000 ? setShouldScrollOff(true) : setShouldScrollOff(false);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -28,7 +30,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <HeroModel shouldScrollOff={shouldScrollOff} />
+                <HeroModel />
                 <Box id="about">
                     <h1>about</h1>
                 </Box>

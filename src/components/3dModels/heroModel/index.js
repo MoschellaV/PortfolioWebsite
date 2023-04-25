@@ -1,7 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
+import { useScrollY } from "@/context/providers";
 
-const HeroModel = ({ shouldScrollOff }) => {
+const HeroModel = () => {
+    const scrollY = useScrollY();
+    const [shouldScrollOff, setShouldScrollOff] = useState(false);
+
+    useEffect(() => {
+        setShouldScrollOff(scrollY >= 1000);
+    }, [scrollY]);
+
+    console.log(shouldScrollOff);
     return (
         <>
             <Box
