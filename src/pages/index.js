@@ -1,25 +1,34 @@
-import React, { useState, useEffect } from "react";
 import Head from "next/head";
+import React, { useState, useEffect } from "react";
+import { useScrollY } from "@/context/providers";
 import styles from "@/styles/Hero.module.css";
 import { HeroModel } from "@/components";
-import { Box, Typography } from "@mui/material";
-import { useScrollY } from "@/context/providers";
+import { Box, Typography, useTheme } from "@mui/material";
 
 export default function Home() {
+    const theme = useTheme();
     const scrollY = useScrollY();
-    const [shouldScrollOff, setShouldScrollOff] = useState(false);
+    const [opacityMainText, setOpacityMainText] = useState(1);
+    const [opacityScrollText, setOpacityScrollText] = useState(0.5);
+
+    const handleScrollForOpacity = (scrollY, maxOpacity, scrollRange, setValue) => {
+        const newOpacity = Math.max(0, maxOpacity - scrollY / scrollRange);
+
+        setValue(newOpacity);
+    };
 
     useEffect(() => {
-        const handleScroll = () => {
-            scrollY >= 1000 ? setShouldScrollOff(true) : setShouldScrollOff(false);
+        const onScroll = () => {
+            handleScrollForOpacity(scrollY, 0.5, 150, setOpacityScrollText);
+            handleScrollForOpacity(scrollY, 1, 250, setOpacityMainText);
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", onScroll);
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", onScroll);
         };
-    }, []);
+    }, [scrollY]);
 
     return (
         <>
@@ -52,6 +61,7 @@ export default function Home() {
                             justifyContent: "center",
                             ml: "3rem",
                             zIndex: 10,
+                            opacity: opacityMainText,
                         }}
                     >
                         <Typography
@@ -62,10 +72,11 @@ export default function Home() {
                                 letterSpacing: "0.4rem",
                                 color: "transparent",
                                 "-webkit-text-stroke-width": "3px",
-                                "-webkit-text-stroke-color": "#F6F6F6",
+                                "-webkit-text-stroke-color": theme.palette.secondary.main,
                             }}
                         >
-                            Sup, <span style={{ "-webkit-text-stroke-color": "#BC6E18" }}>hire</span> <br />
+                            Sup, <span style={{ "-webkit-text-stroke-color": theme.palette.orange.main }}>hire</span>
+                            <br />
                             me please
                         </Typography>
                         <Typography component="p" variant="h4" sx={{ mt: 3 }}>
@@ -77,6 +88,27 @@ export default function Home() {
                 <HeroModel />
                 <Box id="about">
                     <h1>about</h1>
+                </Box>
+                <Box
+                    sx={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                        marginBottom: "20px",
+                        display: "flex",
+                        position: "absolute",
+                        top: "auto",
+                        bottom: "0%",
+                        left: "0%",
+                        right: "0%",
+                    }}
+                >
+                    <Typography
+                        component="p"
+                        variant="h6"
+                        sx={{ mt: 3, color: theme.palette.secondary.main, opacity: opacityScrollText }}
+                    >
+                        scroll to explore
+                    </Typography>
                 </Box>
             </main>
         </>
