@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Box } from "@mui/material";
 import { useScrollY } from "@/context/providers";
+import { Box } from "@mui/material";
 
 const HeroModel = () => {
     const scrollY = useScrollY();
@@ -10,7 +10,6 @@ const HeroModel = () => {
         setShouldScrollOff(scrollY >= 1000);
     }, [scrollY]);
 
-    console.log(shouldScrollOff);
     return (
         <>
             <Box
@@ -23,6 +22,7 @@ const HeroModel = () => {
                     left: "0",
                     right: "0",
                     bottom: "0",
+                    zIndex: "0",
                 }}
             >
                 <Box sx={{ width: "100%", height: "100%" }}>

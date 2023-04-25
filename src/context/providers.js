@@ -45,6 +45,9 @@ export const theme = createTheme({
         secondary: {
             main: "#F6F6F6",
         },
+        orange: {
+            main: "#BC6E18",
+        },
     },
     typography: {
         fontFamily: "MonumentExtended, sans-serif",
@@ -52,10 +55,13 @@ export const theme = createTheme({
             textTransform: "none",
         },
         h1: {
+            fontSize: "clamp(4rem, 5.4vw, 9rem)",
             fontWeight: 800,
+            color: "#F6F6F6",
         },
         h4: {
             fontSize: 22,
+            color: "#F6F6F6",
         },
         h6: {
             fontSize: 16,

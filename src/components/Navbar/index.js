@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useScrollY } from "@/context/providers";
 import { Typography, Box, Button, Link, Hidden, Drawer, List, ListItem, useTheme, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -10,11 +11,11 @@ const NavContactButton = ({ children, ...props }) => {
         <Button
             variant="contained"
             sx={{
-                backgroundColor: theme.palette.secondary.main,
-                color: theme.palette.primary.main,
+                backgroundColor: !props.darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+                color: props.darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
                 "&:hover": {
-                    backgroundColor: theme.palette.primary.main,
-                    color: theme.palette.secondary.main,
+                    backgroundColor: props.darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+                    color: !props.darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
                 },
                 borderRadius: "0",
                 margin: "0 0 0 2.5vw",
@@ -36,7 +37,7 @@ const NavLink = ({ children, ...props }) => {
             variant="h6"
             component="a"
             sx={{
-                color: theme.palette.secondary.main,
+                color: props.darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
                 textDecoration: "none",
                 margin: "0 2.5vw",
                 "&:hover": {
@@ -51,20 +52,22 @@ const NavLink = ({ children, ...props }) => {
     );
 };
 
-const DrawerOptions = ({ navItems, setDrawerOpen }) => {
+const DrawerOptions = ({ navItems, setDrawerOpen, darkNav }) => {
     return (
         <Box>
             <List sx={{ display: "flex", flexDirection: "column", margin: "0 2rem 0 0" }}>
                 {navItems.map(({ label, location }) => (
                     <ListItem key={label} sx={{ marginBottom: "1rem" }}>
-                        <NavLink variant="h6" href={location} onClick={() => setDrawerOpen(false)}>
+                        <NavLink darkNav={darkNav} variant="h6" href={location} onClick={() => setDrawerOpen(false)}>
                             {label}
                         </NavLink>
                     </ListItem>
                 ))}
                 <ListItem sx={{ margin: 0 }}>
-                    <NavContactButton href="#contact" onClick={() => setDrawerOpen(false)}>
+                    <NavContactButton darkNav={!darkNav} href="#contact" onClick={() => setDrawerOpen(false)}>
                         <NavLink
+                            component="p"
+                            darkNav={!darkNav}
                             variant="h6"
                             sx={{
                                 margin: "normal",
@@ -83,10 +86,20 @@ const DrawerOptions = ({ navItems, setDrawerOpen }) => {
 
 const Navbar = () => {
     const theme = useTheme();
+    const scrollY = useScrollY();
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [darkNav, setDarkNav] = useState(false);
+
+    useEffect(() => {
+        setDarkNav(scrollY >= 1000);
+    }, [scrollY]);
+
+    const handleDrawerToggle = () => {
+        setDrawerOpen(!drawerOpen);
+    };
 
     const NameLogoSX = {
-        color: theme.palette.secondary.main,
+        color: darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
         textDecoration: "none",
         "&:hover": {
             cursor: "pointer",
@@ -113,10 +126,6 @@ const Navbar = () => {
         },
     ];
 
-    const handleDrawerToggle = () => {
-        setDrawerOpen(!drawerOpen);
-    };
-
     return (
         <Box component="nav" sx={{ position: "fixed", top: "0", width: "100%", zIndex: 100 }}>
             <Box sx={{ display: "flex", justifyContent: "space-between", margin: "2rem 0 2rem 3rem" }}>
@@ -128,13 +137,14 @@ const Navbar = () => {
                     <Box sx={{ display: "flex", alignItems: "flex-end" }}>
                         {navItems.map(({ label, location }) => {
                             return (
-                                <NavLink key={label} variant="h6" href={location}>
+                                <NavLink darkNav={darkNav} key={label} variant="h6" href={location}>
                                     {label}
                                 </NavLink>
                             );
                         })}
-                        <NavContactButton href="#contact">
+                        <NavContactButton darkNav={!darkNav} href="#contact">
                             <NavLink
+                                component="p"
                                 variant="h6"
                                 sx={{
                                     margin: "normal",
@@ -155,23 +165,37 @@ const Navbar = () => {
                         onClick={handleDrawerToggle}
                         sx={{ mr: "1rem" }}
                     >
-                        <MenuIcon sx={{ fontSize: "35px", color: theme.palette.secondary.main }} />
+                        <MenuIcon
+                            sx={{
+                                fontSize: "35px",
+                                color: darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+                            }}
+                        />
                     </IconButton>
                     <Drawer
                         anchor={"right"}
                         open={drawerOpen}
                         onClose={handleDrawerToggle}
                         ModalProps={{ keepMounted: true }}
-                        PaperProps={{ sx: { backgroundColor: theme.palette.primary.main } }} // Set the background color here
+                        PaperProps={{
+                            sx: {
+                                backgroundColor: darkNav ? theme.palette.secondary.main : theme.palette.primary.main,
+                            },
+                        }} // Set the background color here
                     >
                         <IconButton
                             onClick={handleDrawerToggle}
                             aria-label="close"
                             sx={{ margin: "2rem 1rem 0rem auto" }}
                         >
-                            <CloseIcon sx={{ fontSize: "35px", color: theme.palette.secondary.main }} />
+                            <CloseIcon
+                                sx={{
+                                    fontSize: "35px",
+                                    color: darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+                                }}
+                            />
                         </IconButton>
-                        <DrawerOptions navItems={navItems} setDrawerOpen={setDrawerOpen} />
+                        <DrawerOptions navItems={navItems} setDrawerOpen={setDrawerOpen} darkNav={darkNav} />
                     </Drawer>
                 </Hidden>
             </Box>
