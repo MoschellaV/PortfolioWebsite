@@ -10,7 +10,6 @@ export const ScrollYProvider = ({ children }) => {
     useEffect(() => {
         const handleScroll = () => {
             setScrollY(window.scrollY);
-            console.log(window.scrollY);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -47,6 +46,10 @@ export const theme = createTheme({
         },
         orange: {
             main: "#BC6E18",
+            bright: "#ff9500",
+        },
+        black: {
+            main: "#000",
         },
     },
     typography: {
@@ -57,7 +60,19 @@ export const theme = createTheme({
         h1: {
             fontSize: "clamp(4rem, 5.4vw, 9rem)",
             fontWeight: 800,
-            color: "#F6F6F6",
+            letterSpacing: "0.4rem",
+            color: "transparent",
+            "-webkit-text-stroke-width": "3px",
+            "-webkit-text-stroke-color": "#F6F6F6",
+        },
+        h3: {
+            fontSize: 40,
+            fontWeight: 800,
+            lineHeight: 1.5,
+            letterSpacing: "0.3rem",
+            color: "transparent",
+            "-webkit-text-stroke-width": "2px",
+            "-webkit-text-stroke-color": "#171717",
         },
         h4: {
             fontSize: 22,
@@ -65,6 +80,10 @@ export const theme = createTheme({
         },
         h6: {
             fontSize: 16,
+        },
+        p: {
+            fontSize: "clamp(0.9rem, 1.15vw, 1.4rem)",
+            lineHeight: 2,
         },
     },
 });

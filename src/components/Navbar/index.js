@@ -37,7 +37,7 @@ const NavLink = ({ children, ...props }) => {
             variant="h6"
             component="a"
             sx={{
-                color: props.darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+                color: props.darkNav ? theme.palette.black.main : theme.palette.secondary.main,
                 textDecoration: "none",
                 margin: "0 2.5vw",
                 "&:hover": {
@@ -99,7 +99,7 @@ const Navbar = () => {
     };
 
     const NameLogoSX = {
-        color: darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+        color: darkNav ? theme.palette.black.main : theme.palette.secondary.main,
         textDecoration: "none",
         "&:hover": {
             cursor: "pointer",
@@ -168,7 +168,7 @@ const Navbar = () => {
                         <MenuIcon
                             sx={{
                                 fontSize: "35px",
-                                color: darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+                                color: darkNav ? theme.palette.black.main : theme.palette.secondary.main,
                             }}
                         />
                     </IconButton>
@@ -179,7 +179,7 @@ const Navbar = () => {
                         ModalProps={{ keepMounted: true }}
                         PaperProps={{
                             sx: {
-                                backgroundColor: darkNav ? theme.palette.secondary.main : theme.palette.primary.main,
+                                backgroundColor: darkNav ? theme.palette.secondary.main : theme.palette.black.main,
                             },
                         }} // Set the background color here
                     >
@@ -191,7 +191,7 @@ const Navbar = () => {
                             <CloseIcon
                                 sx={{
                                     fontSize: "35px",
-                                    color: darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+                                    color: darkNav ? theme.palette.black.main : theme.palette.secondary.main,
                                 }}
                             />
                         </IconButton>

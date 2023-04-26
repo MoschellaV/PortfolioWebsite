@@ -55,17 +55,7 @@ const HeroSection = ({ setSceneLoaded }) => {
                         opacity: opacityMainText,
                     }}
                 >
-                    <Typography
-                        component="h1"
-                        variant="h1"
-                        sx={{
-                            mt: 3,
-                            letterSpacing: "0.4rem",
-                            color: "transparent",
-                            "-webkit-text-stroke-width": "3px",
-                            "-webkit-text-stroke-color": theme.palette.secondary.main,
-                        }}
-                    >
+                    <Typography component="h1" variant="h1" sx={{ mt: 3 }}>
                         Sup, <span style={{ "-webkit-text-stroke-color": theme.palette.orange.main }}>hire</span>
                         <br />
                         me please

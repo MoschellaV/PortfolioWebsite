@@ -63,7 +63,7 @@ const HeroModel = ({ setSceneLoaded }) => {
                     ></spline-viewer>
                 </Box>
             </Box>
-            <Box sx={{ minHeight: shouldScrollOff ? "1000px" : "1770px" }}></Box>
+            <Box sx={{ minHeight: shouldScrollOff ? "200px" : "1770px" }}></Box>
         </>
     );
 };

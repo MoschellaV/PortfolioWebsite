@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Box, useTheme } from "@mui/material";
 
 import HeroSection from "@/components/HeroSection";
-import { LoadingPage } from "@/components";
+import { AboutSection, LoadingPage } from "@/components";
 
 export default function Home() {
     const theme = useTheme();
@@ -42,12 +42,10 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Box>{!removeLoadingPage && <LoadingPage startFadeOut={startFadeOut} />}</Box>
+                {!removeLoadingPage && <LoadingPage startFadeOut={startFadeOut} />}
 
                 <HeroSection setSceneLoaded={setSceneLoaded} />
-                <Box id="about">
-                    <h1>about</h1>
-                </Box>
+                <AboutSection />
             </main>
         </>
     );
