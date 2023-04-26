@@ -9,7 +9,15 @@ const AboutSection = () => {
     return (
         <>
             <Grid id="about" container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                <Grid item xs={12} md={6} sx={{ backgroundColor: theme.palette.primary.main, minHeight: "140vh" }}>
+                <Grid
+                    item
+                    xs={12}
+                    md={6}
+                    sx={{
+                        backgroundColor: theme.palette.primary.main,
+                        minHeight: { sx: "100vh", md: "140vh" },
+                    }}
+                >
                     <Carousel />
                 </Grid>
                 <Grid
@@ -23,7 +31,12 @@ const AboutSection = () => {
                         minHeight: "100vh",
                     }}
                 >
-                    <Box sx={{ mr: { xs: 2, sm: 4, md: 6, lg: 10 }, ml: { xs: 2, sm: 4, md: 6, lg: 10 } }}>
+                    <Box
+                        sx={{
+                            mr: { xs: 2, sm: 4, md: 6, lg: 10 },
+                            ml: { xs: 6, lg: 10 },
+                        }}
+                    >
                         <Typography component="h3" variant="h3" sx={{ mb: 2, mr: -500 }}>
                             <span style={{ "-webkit-text-stroke-color": theme.palette.orange.bright }}>About </span>
                             About About About About About <br />

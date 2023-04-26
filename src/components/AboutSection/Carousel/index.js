@@ -35,7 +35,7 @@ const Carousel = () => {
 
     return (
         <>
-            <Box sx={{ position: "relative", minHeight: "100vh", mr: 5, mt: 5 }}>
+            <Box sx={{ position: "relative", minHeight: "100vh", mr: 5, mt: 5, mb: 5, ml: { xs: 5, md: 0 } }}>
                 <Box
                     sx={{ display: "flex", minHeight: "100vh", alignItems: "center", justifyContent: "space-between" }}
                 >
