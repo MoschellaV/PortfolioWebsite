@@ -58,13 +58,26 @@ const DrawerOptions = ({ navItems, setDrawerOpen, darkNav }) => {
             <List sx={{ display: "flex", flexDirection: "column", margin: "0 2rem 0 0" }}>
                 {navItems.map(({ label, location }) => (
                     <ListItem key={label} sx={{ marginBottom: "1rem" }}>
-                        <NavLink darkNav={darkNav} variant="h6" href={location} onClick={() => setDrawerOpen(false)}>
+                        <NavLink
+                            darkNav={darkNav}
+                            variant="h6"
+                            onClick={() => {
+                                smoothScrollTo(location);
+                                setDrawerOpen(false);
+                            }}
+                        >
                             {label}
                         </NavLink>
                     </ListItem>
                 ))}
                 <ListItem sx={{ margin: 0 }}>
-                    <NavContactButton darkNav={!darkNav} href="#contact" onClick={() => setDrawerOpen(false)}>
+                    <NavContactButton
+                        darkNav={!darkNav}
+                        onClick={() => {
+                            smoothScrollTo("contact");
+                            setDrawerOpen(false);
+                        }}
+                    >
                         <NavLink
                             component="p"
                             darkNav={!darkNav}
@@ -110,26 +123,37 @@ const Navbar = () => {
     const navItems = [
         {
             label: "Home",
-            location: "#home",
+            location: "home",
         },
         {
             label: "About",
-            location: "#about",
+            location: "about",
         },
         {
             label: "Experience",
-            location: "#experience",
+            location: "experience",
         },
         {
             label: "Projects",
-            location: "#projects",
+            location: "projects",
         },
     ];
+
+    function smoothScrollTo(id) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest",
+            });
+        }
+    }
 
     return (
         <Box component="nav" sx={{ position: "fixed", top: "0", width: "100%", zIndex: 100 }}>
             <Box sx={{ display: "flex", justifyContent: "space-between", margin: "2rem 0 2rem 3rem" }}>
-                <Typography variant="h4" component="a" href="#home" sx={{ ...NameLogoSX }}>
+                <Typography variant="h4" component="a" onClick={() => smoothScrollTo("home")} sx={{ ...NameLogoSX }}>
                     Vince
                     <br /> Moschella
                 </Typography>
@@ -137,12 +161,17 @@ const Navbar = () => {
                     <Box sx={{ display: "flex", alignItems: "flex-end" }}>
                         {navItems.map(({ label, location }) => {
                             return (
-                                <NavLink darkNav={darkNav} key={label} variant="h6" href={location}>
+                                <NavLink
+                                    darkNav={darkNav}
+                                    key={label}
+                                    variant="h6"
+                                    onClick={() => smoothScrollTo(location)}
+                                >
                                     {label}
                                 </NavLink>
                             );
                         })}
-                        <NavContactButton darkNav={!darkNav} href="#contact">
+                        <NavContactButton darkNav={!darkNav} onClick={() => smoothScrollTo("contact")}>
                             <NavLink
                                 component="p"
                                 variant="h6"

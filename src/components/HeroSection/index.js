@@ -31,6 +31,7 @@ const HeroSection = ({ setSceneLoaded }) => {
     return (
         <>
             <Box
+                id="home"
                 sx={{
                     display: "flex",
                     width: {

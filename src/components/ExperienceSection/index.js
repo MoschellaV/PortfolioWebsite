@@ -26,6 +26,7 @@ const ExperienceSection = () => {
     return (
         <>
             <Box
+                id="experience"
                 sx={{
                     position: "relative",
                     width: "100vw",
