@@ -1,5 +1,5 @@
 import React from "react";
-import { CircularProgress, useTheme } from "@mui/material/";
+import { useTheme } from "@mui/material/";
 import Box from "@mui/material/Box";
 
 export default function LoadingPage({ startFadeOut }) {
@@ -10,7 +10,7 @@ export default function LoadingPage({ startFadeOut }) {
             sx={{
                 width: "100%",
                 height: "100%",
-                position: "absolute",
+                position: "fixed",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",

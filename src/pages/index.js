@@ -1,9 +1,7 @@
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
-import { Box, useTheme } from "@mui/material";
-
-import HeroSection from "@/components/HeroSection";
-import { AboutSection, LoadingPage } from "@/components";
+import { useTheme } from "@mui/material";
+import { HeroSection, AboutSection, ExperienceSection, LoadingPage } from "@/components";
 
 export default function Home() {
     const theme = useTheme();
@@ -46,6 +44,7 @@ export default function Home() {
 
                 <HeroSection setSceneLoaded={setSceneLoaded} />
                 <AboutSection />
+                <ExperienceSection />
             </main>
         </>
     );

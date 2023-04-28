@@ -77,7 +77,7 @@ const Carousel = () => {
                     </Box>
                     {/* </Box> */}
                 </Box>
-                <Image src={pics[picIndex].url} alt="linkedin icon" fill style={{ zIndex: 1 }} />
+                <Image src={pics[picIndex].url} alt={pics[picIndex].label} fill style={{ zIndex: 1 }} />
             </Box>
         </>
     );

@@ -65,6 +65,15 @@ export const theme = createTheme({
             "-webkit-text-stroke-width": "3px",
             "-webkit-text-stroke-color": "#F6F6F6",
         },
+        h2: {
+            fontSize: 100,
+            fontWeight: 800,
+            lineHeight: 1.5,
+            letterSpacing: "0.6rem",
+            color: "transparent",
+            "-webkit-text-stroke-width": "3px",
+            "-webkit-text-stroke-color": "#fff",
+        },
         h3: {
             fontSize: 40,
             fontWeight: 800,
@@ -84,6 +93,16 @@ export const theme = createTheme({
         p: {
             fontSize: "clamp(0.9rem, 1.15vw, 1.4rem)",
             lineHeight: 2,
+        },
+        jobTitleText: {
+            fontSize: 30,
+            fontWeight: 400,
+            color: "#171717",
+        },
+        jobSubTitleText: {
+            fontSize: 20,
+            fontWeight: 400,
+            color: "#171717",
         },
     },
 });
