@@ -11,15 +11,18 @@ const Carousel = () => {
     const pics = [
         {
             label: "1",
-            url: "/images/aboutImage1.png",
+            url: "/images/aboutImages/aboutImage1.png",
+            altText: "alt text here",
         },
         {
             label: "2",
-            url: "/images/aboutImage2.png",
+            url: "/images/aboutImages/aboutImage2.png",
+            altText: "alt text here",
         },
         {
             label: "3",
-            url: "/images/aboutImage3.png",
+            url: "/images/aboutImages/aboutImage3.png",
+            altText: "alt text here",
         },
     ];
 
@@ -75,9 +78,8 @@ const Carousel = () => {
                             <KeyboardArrowRightIcon />
                         </IconButton>
                     </Box>
-                    {/* </Box> */}
                 </Box>
-                <Image src={pics[picIndex].url} alt={pics[picIndex].label} fill style={{ zIndex: 1 }} />
+                <Image src={pics[picIndex].url} alt={pics[picIndex].altText} fill style={{ zIndex: 1 }} />
             </Box>
         </>
     );
