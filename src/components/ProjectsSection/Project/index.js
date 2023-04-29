@@ -84,12 +84,24 @@ const Project = ({ projectData }) => {
                             <Box>
                                 {mapChips}
                                 {projectData.githubLink && (
-                                    <IconButton aria-label="Github" color="secondary" sx={{ mr: 1 }}>
+                                    <IconButton
+                                        href={projectData.githubLink}
+                                        target="_blank"
+                                        aria-label="Github"
+                                        color="secondary"
+                                        sx={{ mr: 1 }}
+                                    >
                                         <GitHubIcon fontSize="large" />
                                     </IconButton>
                                 )}
                                 {projectData.externalLink && (
-                                    <IconButton aria-label="Go to ___" color="secondary" sx={{ mr: 1 }}>
+                                    <IconButton
+                                        href={projectData.externalLink}
+                                        target="_blank"
+                                        aria-label={`Go to ${projectData.externalLink}`}
+                                        color="secondary"
+                                        sx={{ mr: 1 }}
+                                    >
                                         <OpenInNewIcon fontSize="large" />
                                     </IconButton>
                                 )}

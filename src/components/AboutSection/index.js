@@ -54,12 +54,20 @@ const AboutSection = () => {
                     </Box>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                         <Box sx={{ mr: 4 }}>
-                            <Link href="https://github.com/MoschellaV" sx={{ "&:hover": { opacity: 0.7 } }}>
+                            <Link
+                                href="https://github.com/MoschellaV"
+                                target="_blank"
+                                sx={{ "&:hover": { opacity: 0.7 } }}
+                            >
                                 <Image src="/images/github.svg" alt="github icon" width={80} height={80} />{" "}
                             </Link>
                         </Box>
                         <Box sx={{ ml: 4 }}>
-                            <Link href="https://www.linkedin.com/in/moschellav/" sx={{ "&:hover": { opacity: 0.7 } }}>
+                            <Link
+                                href="https://www.linkedin.com/in/moschellav/"
+                                target="_blank"
+                                sx={{ "&:hover": { opacity: 0.7 } }}
+                            >
                                 <Image src="/images/linkedin.svg" alt="linkedin icon" width={80} height={80} />
                             </Link>
                         </Box>
