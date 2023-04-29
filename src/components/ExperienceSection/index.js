@@ -36,11 +36,9 @@ const ExperienceSection = () => {
                 }}
             >
                 <Typography
-                    component="h3"
+                    component="p"
                     variant="h3"
                     sx={{
-                        // pt: 1,
-                        // pb: 1,
                         ml: -20,
                         mr: -500,
                         "-webkit-text-stroke-color": theme.palette.secondary.main,
@@ -68,7 +66,7 @@ const ExperienceSection = () => {
             <Box sx={{ mt: 2 }}>
                 <WorkCard jobInfo={jobInfo} />
             </Box>
-            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "20vw" }}>
+            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "20vw", m: 5 }}>
                 <Typography
                     variant="h3"
                     component="p"

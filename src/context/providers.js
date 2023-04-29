@@ -46,7 +46,7 @@ export const theme = createTheme({
         },
         orange: {
             main: "#BC6E18",
-            bright: "#ff9500",
+            bright: "#E48115",
         },
         black: {
             main: "#000",
@@ -103,6 +103,20 @@ export const theme = createTheme({
             fontSize: 20,
             fontWeight: 400,
             color: "#171717",
+        },
+        projectTitle: {
+            fontSize: 40,
+            fontWeight: 400,
+            color: "#171717",
+        },
+        projectTechnology: {
+            fontSize: 25,
+            color: "#E48115",
+        },
+        projectPoints: {
+            fontSize: "clamp(0.9rem, 1.05vw, 1.2rem)",
+            opacity: 0.7,
+            lineHeight: 2,
         },
     },
 });

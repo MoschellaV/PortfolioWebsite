@@ -57,7 +57,7 @@ const HeroSection = ({ setSceneLoaded }) => {
                     }}
                 >
                     <Typography component="h1" variant="h1" sx={{ mt: 3 }}>
-                        Sup, <span style={{ "-webkit-text-stroke-color": theme.palette.orange.main }}>hire</span>
+                        Sup, <span style={{ "-webkit-text-stroke-color": theme.palette.orange.bright }}>hire</span>
                         <br />
                         me please
                     </Typography>
