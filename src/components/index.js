@@ -10,3 +10,6 @@ export { default as ProjectsSection } from "./ProjectsSection";
 // 3d models
 export { default as HeroModel } from "./3dModels/HeroModel";
 export { default as GameController } from "./3dModels/GameController";
+
+// email formatting
+export { default as UserDataEmail } from "./EmailFormatting/UserDataEmail";

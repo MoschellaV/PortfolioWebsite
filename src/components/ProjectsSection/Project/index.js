@@ -3,7 +3,6 @@ import { Box, Typography, Chip, IconButton, useTheme } from "@mui/material";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import GameController from "@/components/3dModels/GameController";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -47,7 +46,7 @@ const Project = ({ projectData }) => {
                 }}
             >
                 <Box sx={{ height: "90vh", position: "relative", border: `4px solid ${theme.palette.primary.main}` }}>
-                    <GameController />
+                    {projectData.model}
                     <Box
                         sx={{
                             position: "absolute",
@@ -115,7 +114,7 @@ const Project = ({ projectData }) => {
                             position: "absolute",
                             bottom: 0,
                             width: "100%",
-                            height: "6vh",
+                            height: "7vh",
                             backgroundColor: theme.palette.primary.main,
                             display: "flex",
                             justifyContent: "flex-end",
