@@ -3,7 +3,7 @@ import Project from "./Project";
 import { Box, Grid, Typography, useTheme } from "@mui/material";
 
 // 3d models
-import GameController from "../3dModels/GameController";
+import GameController from "../3dModels/ProjectModels/GameController";
 
 const ProjectSection = () => {
     const theme = useTheme();
