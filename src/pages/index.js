@@ -20,9 +20,6 @@ export default function Home() {
         let removeTimer;
 
         if (sceneLoaded) {
-            const getTopOfPage = document.getElementById("home");
-            getTopOfPage.scrollIntoView();
-
             fadeOutTimer = setTimeout(() => {
                 setStartFadeOut(true);
             }, 2000); // tells loading page to start fading after X seconds
