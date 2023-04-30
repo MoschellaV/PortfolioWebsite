@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { UserDataProvider, ScrollYProvider, theme } from "@/context/providers";
 import "@/styles/globals.css";
-import { Navbar } from "@/components";
+import { Footer, Navbar } from "@/components";
 
 export default function App({ Component, pageProps }) {
     return (
@@ -13,6 +13,7 @@ export default function App({ Component, pageProps }) {
                         <CssBaseline />
                         <Navbar />
                         <Component {...pageProps} />
+                        <Footer />
                     </ThemeProvider>
                 </ScrollYProvider>
             </UserDataProvider>

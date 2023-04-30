@@ -114,7 +114,7 @@ const Project = ({ projectData }) => {
                             position: "absolute",
                             bottom: 0,
                             width: "100%",
-                            height: "7vh",
+                            height: "7.4vh",
                             backgroundColor: theme.palette.primary.main,
                             display: "flex",
                             justifyContent: "flex-end",
