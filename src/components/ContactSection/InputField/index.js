@@ -28,6 +28,8 @@ const InputField = ({ isMultiline, textFieldWidth, value, setValue }) => {
                     width: `${textFieldWidth}vw`,
                 },
             }}
+            noValidate
+            autoComplete="off"
             multiline={isMultiline}
             hiddenLabel
             id="name"

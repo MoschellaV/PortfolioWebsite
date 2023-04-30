@@ -68,7 +68,7 @@ const ContactSection = () => {
 
     return (
         <>
-            <Box sx={{ mt: "20vh" }}>
+            <Box id="contact" sx={{ mt: "20vh" }}>
                 <Typography
                     component="h3"
                     variant="h2"
@@ -78,12 +78,21 @@ const ContactSection = () => {
                 </Typography>
             </Box>
 
-            <Box sx={{ m: 5, mt: 1, p: 3, backgroundColor: theme.palette.primary.main, borderRadius: 5 }}>
+            <Box
+                sx={{
+                    m: { xs: 1, sm: 2, md: 5 },
+                    mt: 1,
+                    p: 3,
+                    height: "90vh",
+                    backgroundColor: theme.palette.primary.main,
+                    borderRadius: 5,
+                }}
+            >
                 <Typography variant="terminalText" component="p">
                     vincemoschella@Vinces-MacBook-Pro ~ % <br />
                     connect-with-vince \
                 </Typography>
-                <Box sx={{ ml: 3 }}>
+                <Box sx={{ ml: { xs: 2, md: 3 } }}>
                     {/* NAME */}
                     <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
                         <Typography variant="terminalText" component="p" sx={{ mr: 1 }}>
