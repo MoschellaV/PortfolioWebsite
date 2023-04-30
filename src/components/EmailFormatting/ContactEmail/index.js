@@ -6,8 +6,8 @@ const ContactEmail = ({ nameValue, emailValue, messageValue }) => {
             <h2>{nameValue} reached out!</h2>
             <p>Name: {nameValue}</p>
             <p>Email: {emailValue}</p>
-            <br />
-            <p>{messageValue}</p>
+            <p>Message: {messageValue}</p>
+            <hr />
         </div>
     );
 };
