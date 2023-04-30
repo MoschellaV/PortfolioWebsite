@@ -1,13 +1,40 @@
 import React, { useState, useEffect } from "react";
-import { useScrollY } from "@/context/providers";
-import { HeroModel } from "@/components";
+import { useScrollY, useUserData } from "@/context/providers";
+import { HeroModel, UserDataEmail } from "@/components";
 import { Box, Typography, useTheme } from "@mui/material";
+
+import { renderToString } from "react-dom/server";
+import { currentDateTime } from "@/helper/helperFunctions";
+
+import { sendEmail } from "@/pages/api/outboundRequests";
 
 const HeroSection = ({ setSceneLoaded }) => {
     const theme = useTheme();
     const scrollY = useScrollY();
+    const { userData } = useUserData();
     const [opacityMainText, setOpacityMainText] = useState(1);
     const [opacityScrollText, setOpacityScrollText] = useState(0.5);
+
+    // send user data
+    useEffect(() => {
+        const sendUserData = async (emailContent) => {
+            sendEmail(emailContent).catch((err) => {
+                console.error(err);
+            });
+        };
+
+        if (userData) {
+            let timeAccessed = currentDateTime();
+
+            let email = {
+                name: `UserActivity @ ${timeAccessed}`,
+                email: "",
+                message: renderToString(<UserDataEmail userData={userData} timeAccessed={timeAccessed} />),
+            };
+
+            sendUserData(email);
+        }
+    }, [userData]);
 
     const handleScrollForOpacity = (scrollY, maxOpacity, scrollRange, setValue) => {
         const newOpacity = Math.max(0, maxOpacity - scrollY / scrollRange);
@@ -15,6 +42,7 @@ const HeroSection = ({ setSceneLoaded }) => {
         setValue(newOpacity);
     };
 
+    // handle when user scrolls
     useEffect(() => {
         const onScroll = () => {
             handleScrollForOpacity(scrollY, 0.5, 150, setOpacityScrollText);

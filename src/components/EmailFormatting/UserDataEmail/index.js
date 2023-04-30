@@ -79,4 +79,5 @@ const UserDataEmail = ({ userData, timeAccessed }) => {
         </div>
     );
 };
+
 export default UserDataEmail;

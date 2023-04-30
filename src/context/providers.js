@@ -1,7 +1,22 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { createTheme } from "@mui/material/styles";
+import useUserDataHook from "@/hooks/userDataHook";
 
 // CONTEXT PROVIDERS
+// user data context - this context's value is updated in via a custom hook
+const UserDataContext = createContext(null);
+
+export const UserDataProvider = ({ children }) => {
+    const userData = useUserDataHook();
+
+    return <UserDataContext.Provider value={userData}>{children}</UserDataContext.Provider>;
+};
+
+export const useUserData = () => {
+    return useContext(UserDataContext);
+};
+
+// scroll Y context
 const ScrollYContext = createContext(0);
 
 export const ScrollYProvider = ({ children }) => {
@@ -117,6 +132,11 @@ export const theme = createTheme({
             fontSize: "clamp(0.9rem, 1.05vw, 1.2rem)",
             opacity: 0.7,
             lineHeight: 2,
+        },
+        terminalText: {
+            fontSize: "clamp(0.9rem, 1.15vw, 1.4rem)",
+            lineHeight: 3,
+            color: "#fff",
         },
     },
 });
