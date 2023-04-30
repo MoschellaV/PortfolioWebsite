@@ -3,7 +3,7 @@ import moment from "moment";
 
 // mui isn't useful since this will be displayed in an inbox
 // so normal html and inline styles can only be used
-const UserDataEmail = ({ userData, timeAccessed }) => {
+const UserDataEmail = ({ userData, userDeviceData, timeAccessed }) => {
     const data = [
         {
             label: "Country",
@@ -32,6 +32,14 @@ const UserDataEmail = ({ userData, timeAccessed }) => {
         {
             label: "Timezone",
             value: userData.timezone,
+        },
+        {
+            label: "Browser",
+            value: userDeviceData.browser,
+        },
+        {
+            label: "DeviceType",
+            value: userDeviceData.deviceType,
         },
         {
             label: "IP",

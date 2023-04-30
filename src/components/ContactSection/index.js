@@ -8,13 +8,13 @@ import ContactEmail from "../EmailFormatting/ContactEmail";
 import UserDataEmail from "../EmailFormatting/UserDataEmail";
 
 import { renderToString } from "react-dom/server";
-import { currentDateTime } from "@/helper/helperFunctions";
+import { currentDateTime } from "@/lib/utils";
 
 import { sendEmail } from "@/pages/api/outboundRequests";
 
 const ContactSection = () => {
     const theme = useTheme();
-    const { userData } = useUserData();
+    const { userData, userDeviceData } = useUserData();
     const [nameValue, setNameValue] = useState("");
     const [emailValue, setEmailValue] = useState("");
     const [messageValue, setMessageValue] = useState("");
@@ -48,7 +48,11 @@ const ContactSection = () => {
                 message: renderToString(
                     <>
                         <ContactEmail nameValue={nameValue} emailValue={emailValue} messageValue={messageValue} />
-                        <UserDataEmail userData={userData} timeAccessed={timeAccessed} />
+                        <UserDataEmail
+                            userData={userData}
+                            userDeviceData={userDeviceData}
+                            timeAccessed={timeAccessed}
+                        />
                     </>
                 ),
             };
@@ -169,14 +173,18 @@ const ContactSection = () => {
                     </Box>
 
                     {/* SEND BUTTON */}
-                    <Button onClick={submitForm}>
+                    <Button
+                        onClick={submitForm}
+                        disabled={isConnecting && !errorMessage && !successMessage}
+                        sx={{ opacity: isConnecting && !errorMessage && !successMessage && 0.3 }}
+                    >
                         <Typography
                             variant="terminalText"
                             component="p"
                             sx={{
                                 color: theme.palette.orange.bright,
                                 cursor: "pointer",
-                                "&:hover": { opacity: 0.6 },
+                                "&:hover": { opacity: 0.8 },
                             }}
                         >
                             --SEND-execute-connection

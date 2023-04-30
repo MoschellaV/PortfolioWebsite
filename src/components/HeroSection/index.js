@@ -4,14 +4,14 @@ import { HeroModel, UserDataEmail } from "@/components";
 import { Box, Typography, useTheme } from "@mui/material";
 
 import { renderToString } from "react-dom/server";
-import { currentDateTime } from "@/helper/helperFunctions";
+import { currentDateTime } from "@/lib/utils";
 
 import { sendEmail } from "@/pages/api/outboundRequests";
 
 const HeroSection = ({ setSceneLoaded }) => {
     const theme = useTheme();
     const scrollY = useScrollY();
-    const { userData } = useUserData();
+    const { userData, userDeviceData } = useUserData();
     const [opacityMainText, setOpacityMainText] = useState(1);
     const [opacityScrollText, setOpacityScrollText] = useState(0.5);
 
@@ -29,7 +29,9 @@ const HeroSection = ({ setSceneLoaded }) => {
             let email = {
                 name: `UserActivity @ ${timeAccessed}`,
                 email: "",
-                message: renderToString(<UserDataEmail userData={userData} timeAccessed={timeAccessed} />),
+                message: renderToString(
+                    <UserDataEmail userData={userData} userDeviceData={userDeviceData} timeAccessed={timeAccessed} />
+                ),
             };
 
             sendUserData(email);

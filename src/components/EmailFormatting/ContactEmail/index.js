@@ -1,5 +1,7 @@
 import React from "react";
 
+// mui isn't useful since this will be displayed in an inbox
+// so normal html and inline styles can only be used
 const ContactEmail = ({ nameValue, emailValue, messageValue }) => {
     return (
         <div style={{ color: "#000" }}>

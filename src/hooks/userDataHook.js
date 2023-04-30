@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { getUserData } from "@/pages/api/outboundRequests";
+import { getDeviceType, getBrowser } from "@/lib/userUtils";
 
 const useUserDataHook = () => {
     const [userData, setUserData] = useState(null);
+    const [userDeviceData, setUserDeviceData] = useState(null);
 
     // fetch user data
     useEffect(() => {
@@ -16,10 +18,17 @@ const useUserDataHook = () => {
                 });
         };
 
+        const deviceData = {
+            browser: getBrowser(),
+            deviceType: getDeviceType(),
+        };
+
+        setUserDeviceData(deviceData);
+
         fetchUserData();
     }, []);
 
-    return { userData };
+    return { userData, userDeviceData };
 };
 
 export default useUserDataHook;
