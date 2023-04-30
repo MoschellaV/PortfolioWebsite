@@ -19,7 +19,7 @@ const ExperienceSection = () => {
             technologies: "React, Flask, SQL, Scripting",
             descriptionText:
                 "Nullam eu pellentesque augue. Cras purus libero, pulvinar nec augue sit amet, dictum cursus urna. Nullam venenatis diam tellus, eget sollicitud leo fringilla a. Sed convallis gravida justo ac eleifend. Mauris viverra et tortor in maximus.",
-            jobDuration: "Jan 2023 - May 2023",
+            jobDuration: "Jan 2023 - Present",
         },
     ];
 
