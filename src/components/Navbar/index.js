@@ -52,7 +52,7 @@ const NavLink = ({ children, ...props }) => {
     );
 };
 
-const DrawerOptions = ({ navItems, setDrawerOpen, darkNav }) => {
+const DrawerOptions = ({ navItems, setDrawerOpen, darkNav, smoothScrollTo }) => {
     return (
         <Box>
             <List sx={{ display: "flex", flexDirection: "column", margin: "0 2rem 0 0" }}>
@@ -62,8 +62,10 @@ const DrawerOptions = ({ navItems, setDrawerOpen, darkNav }) => {
                             darkNav={darkNav}
                             variant="h6"
                             onClick={() => {
-                                smoothScrollTo(location);
                                 setDrawerOpen(false);
+                                setTimeout(() => {
+                                    smoothScrollTo(location);
+                                }, 50);
                             }}
                         >
                             {label}
@@ -139,7 +141,7 @@ const Navbar = () => {
         },
     ];
 
-    function smoothScrollTo(id) {
+    const smoothScrollTo = (id) => {
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({
@@ -148,7 +150,7 @@ const Navbar = () => {
                 inline: "nearest",
             });
         }
-    }
+    };
 
     return (
         <Box component="nav" sx={{ position: "fixed", top: "0", width: "100%", zIndex: 100 }}>
@@ -224,7 +226,12 @@ const Navbar = () => {
                                 }}
                             />
                         </IconButton>
-                        <DrawerOptions navItems={navItems} setDrawerOpen={setDrawerOpen} darkNav={darkNav} />
+                        <DrawerOptions
+                            navItems={navItems}
+                            setDrawerOpen={setDrawerOpen}
+                            darkNav={darkNav}
+                            smoothScrollTo={smoothScrollTo}
+                        />
                     </Drawer>
                 </Hidden>
             </Box>

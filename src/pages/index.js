@@ -1,6 +1,5 @@
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
-import { useTheme } from "@mui/material";
 import {
     HeroSection,
     AboutSection,
@@ -11,8 +10,6 @@ import {
 } from "@/components";
 
 export default function Home() {
-    const theme = useTheme();
-
     // for loading main scene
     const [sceneLoaded, setSceneLoaded] = useState(false);
     const [startFadeOut, setStartFadeOut] = useState(false);
@@ -23,6 +20,9 @@ export default function Home() {
         let removeTimer;
 
         if (sceneLoaded) {
+            const getTopOfPage = document.getElementById("home");
+            getTopOfPage.scrollIntoView();
+
             fadeOutTimer = setTimeout(() => {
                 setStartFadeOut(true);
             }, 2000); // tells loading page to start fading after X seconds
