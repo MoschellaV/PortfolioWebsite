@@ -63,6 +63,20 @@ export const theme = createTheme({
             main: "#BC6E18",
             bright: "#E48115",
         },
+        blue: {
+            main: "#64DCED",
+        },
+        red: {
+            main: "#FF1A05",
+            light: "#EC6A5E",
+        },
+        green: {
+            main: "#0EA900",
+            light: "#61C554",
+        },
+        yellow: {
+            light: "#F4BF4F",
+        },
         black: {
             main: "#000",
         },

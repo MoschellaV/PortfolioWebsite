@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import styles from "@/styles/contactSection.module.css";
 import { useUserData } from "@/context/providers";
-import { Box, Typography, useTheme, Button } from "@mui/material";
+import { Box, Typography, Button, useTheme } from "@mui/material";
 
 import InputField from "./InputField";
 import ContactEmail from "../EmailFormatting/ContactEmail";
@@ -18,11 +19,23 @@ const ContactSection = () => {
     const [emailValue, setEmailValue] = useState("");
     const [messageValue, setMessageValue] = useState("");
 
+    const [isConnecting, setIsConnecting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+
     const submitForm = () => {
         const sendUserData = async (emailContent) => {
-            sendEmail(emailContent).catch((err) => {
-                console.error(err);
-            });
+            setIsConnecting(true);
+            setSuccessMessage("");
+            setErrorMessage("");
+            sendEmail(emailContent)
+                .then((res) => {
+                    if (res.status == 200) setSuccessMessage("Message sent successfully! Vince will be in touch soon.");
+                })
+                .catch((err) => {
+                    console.error(err);
+                    setErrorMessage("Message not sent. Please check your network connection and try again.");
+                });
         };
 
         // if email is sent & data is pulled
@@ -62,9 +75,28 @@ const ContactSection = () => {
             setEmailValue("");
             setMessageValue("");
         } else {
-            console.log("fill fields");
+            setIsConnecting(false);
+            setSuccessMessage("");
+            setErrorMessage("Unable to send message. Please fill in all fields.");
         }
     };
+
+    const controlButtonColors = [theme.palette.red.light, theme.palette.yellow.light, theme.palette.green.light];
+
+    const renderControlButtons = controlButtonColors.map((color, index) => {
+        return (
+            <Box
+                key={index}
+                sx={{
+                    width: 20,
+                    height: 20,
+                    borderRadius: "50%",
+                    backgroundColor: color,
+                    mr: 1.5,
+                }}
+            />
+        );
+    });
 
     return (
         <>
@@ -80,14 +112,19 @@ const ContactSection = () => {
 
             <Box
                 sx={{
-                    m: { xs: 1, sm: 2, md: 5 },
-                    mt: 1,
+                    m: { xs: 1, sm: 1, md: 4 },
+                    mt: { xs: 1, sm: 1, md: 1, lg: 1 },
                     p: 3,
-                    height: "90vh",
+                    pt: 3,
+                    pb: 5,
+                    minHeight: "90vh",
                     backgroundColor: theme.palette.primary.main,
                     borderRadius: 5,
                 }}
             >
+                {/* CONTROL BUTTONS */}
+                <Box sx={{ display: "flex", mb: 3 }}>{renderControlButtons}</Box>
+
                 <Typography variant="terminalText" component="p">
                     vincemoschella@Vinces-MacBook-Pro ~ % <br />
                     connect-with-vince \
@@ -103,6 +140,7 @@ const ContactSection = () => {
                             " \
                         </Typography>
                     </Box>
+
                     {/* EMAIL */}
                     <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
                         <Typography variant="terminalText" component="p" sx={{ mr: 1 }}>
@@ -113,6 +151,7 @@ const ContactSection = () => {
                             " \
                         </Typography>
                     </Box>
+
                     {/* MESSAGE */}
                     <Box sx={{ display: "flex", mb: 0.5, position: "relative" }}>
                         <Typography variant="terminalText" component="p" sx={{ alignSelf: "flex-start", mr: 1 }}>
@@ -128,16 +167,53 @@ const ContactSection = () => {
                             "
                         </Typography>
                     </Box>
+
+                    {/* SEND BUTTON */}
                     <Button onClick={submitForm}>
                         <Typography
                             variant="terminalText"
                             component="p"
-                            sx={{ color: theme.palette.orange.bright, cursor: "pointer" }}
+                            sx={{
+                                color: theme.palette.orange.bright,
+                                cursor: "pointer",
+                                "&:hover": { opacity: 0.6 },
+                            }}
                         >
                             --SEND-execute-connection
                         </Typography>
                     </Button>
                 </Box>
+
+                {/* CONNECTING MESSAGE */}
+                {isConnecting && (
+                    <Typography variant="terminalText" component="p">
+                        vincemoschella@Vinces-MacBook-Pro ~ %{" "}
+                        <span style={{ color: theme.palette.blue.main }}>connecting</span>
+                        <br />
+                        Establishing connection, please wait
+                        <span className={!successMessage && !errorMessage && styles.loading} />
+                    </Typography>
+                )}
+
+                {/* ERROR MESSAGE */}
+                {errorMessage && (
+                    <Typography variant="terminalText" component="p">
+                        vincemoschella@Vinces-MacBook-Pro ~ % connection-failed
+                        <br />
+                        <span style={{ color: theme.palette.red.main }}>Error: </span>
+                        {errorMessage}
+                    </Typography>
+                )}
+
+                {/* SUCCESS MESSAGE */}
+                {successMessage && (
+                    <Typography variant="terminalText" component="p">
+                        vincemoschella@Vinces-MacBook-Pro ~ % connection-established
+                        <br />
+                        <span style={{ color: theme.palette.green.main }}>Success: </span>
+                        {successMessage}
+                    </Typography>
+                )}
             </Box>
         </>
     );

@@ -11,9 +11,6 @@ const InputField = ({ isMultiline, textFieldWidth, value, setValue }) => {
                 "& .MuiInput-underline:before": {
                     borderBottomColor: "white",
                 },
-                "& .MuiInput-underline:hover:before": {
-                    borderBottomColor: theme.palette.orange.main,
-                },
                 "&:focus-within .MuiInput-underline:before": {
                     borderBottomColor: theme.palette.secondary.main,
                 },
