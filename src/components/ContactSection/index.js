@@ -39,7 +39,7 @@ const ContactSection = () => {
         };
 
         // if email is sent & data is pulled
-        if (userData && nameValue && emailValue && messageValue) {
+        if ((userData || userDeviceData) && nameValue && emailValue && messageValue) {
             let timeAccessed = currentDateTime();
 
             let email = {

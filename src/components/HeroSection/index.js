@@ -23,7 +23,7 @@ const HeroSection = ({ setSceneLoaded }) => {
             });
         };
 
-        if (userData) {
+        if (userData || userDeviceData) {
             let timeAccessed = currentDateTime();
 
             let email = {
