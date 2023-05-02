@@ -16,7 +16,7 @@ const useUserDataHook = () => {
                 .catch((err) => {
                     const errObj = {
                         errStatus: err.code,
-                        errMessage: err.messsage,
+                        errMessage: err.message,
                     };
 
                     setUserData(errObj);
