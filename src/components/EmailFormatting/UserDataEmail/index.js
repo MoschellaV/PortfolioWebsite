@@ -59,30 +59,59 @@ const UserDataEmail = ({ userData, userDeviceData, timeAccessed }) => {
         },
     ];
 
+    const errData = [
+        {
+            label: "Error Status",
+            value: userData.errStatus ?? "Unkown",
+        },
+        {
+            label: "Error Message",
+            value: userData.message ?? "Unkown",
+        },
+    ];
+
     const renderRows = data.map((data, index) => {
-        return index % 2 === 0 ? (
-            <tr key={index} style={{ backgroundColor: "#dddddd" }}>
-                <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.label}</td>
-                <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.value}</td>
-            </tr>
-        ) : (
-            <tr key={index}>
-                <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.label}</td>
-                <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.value}</td>
-            </tr>
-        );
+        return index % 2 === 0
+            ? data.value !== "Unknown" && (
+                  <tr key={index} style={{ backgroundColor: "#dddddd" }}>
+                      <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.label}</td>
+                      <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.value}</td>
+                  </tr>
+              )
+            : data.value !== "Unknown" && (
+                  <tr key={index}>
+                      <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.label}</td>
+                      <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.value}</td>
+                  </tr>
+              );
     });
 
     return (
         <div style={{ color: "#000" }}>
             <h2>Website Accessed at {timeAccessed}</h2>
-            <table style={{ borderCollapse: "collapse", width: "100%" }}>
-                <tr>
-                    <th style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>Data Type</th>
-                    <th style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>Value</th>
-                </tr>
-                {renderRows}
-            </table>
+            {errData && (
+                <div>
+                    <p>
+                        <strong>{errData[0].label}: </strong>
+                        {errData[0].value}
+                    </p>
+                    <p>
+                        <strong>{errData[1].label}: </strong>
+                        {errData[1].value}
+                    </p>
+                    <p>Unable to retrive data. The error is likely caused by an ad blocker or some other tool.</p>
+                </div>
+            )}
+
+            {data && (
+                <table style={{ borderCollapse: "collapse", width: "100%" }}>
+                    <tr>
+                        <th style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>Data Type</th>
+                        <th style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>Value</th>
+                    </tr>
+                    {renderRows}
+                </table>
+            )}
         </div>
     );
 };
