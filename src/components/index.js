@@ -12,6 +12,10 @@ export { default as ContactSection } from "./ContactSection";
 // 3d models
 export { default as HeroModel } from "./3dModels/HeroModel";
 export { default as GameController } from "./3dModels/ProjectModels/GameController";
+export { default as SortingBars } from "./3dModels/ProjectModels/SortingBars";
+export { default as CraftACard } from "./3dModels/ProjectModels/CraftACard";
+export { default as PortfolioWebsite } from "./3dModels/ProjectModels/PortfolioWebsite";
+export { default as RingClone } from "./3dModels/ProjectModels/RingClone";
 
 // email formatting
 export { default as UserDataEmail } from "./EmailFormatting/UserDataEmail";

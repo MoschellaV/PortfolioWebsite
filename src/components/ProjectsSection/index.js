@@ -4,6 +4,10 @@ import { Box, Grid, Typography, useTheme } from "@mui/material";
 
 // 3d models
 import GameController from "../3dModels/ProjectModels/GameController";
+import SortingBars from "../3dModels/ProjectModels/SortingBars";
+import CraftACard from "../3dModels/ProjectModels/CraftACard";
+import PortfolioWebsite from "../3dModels/ProjectModels/PortfolioWebsite";
+import RingClone from "../3dModels/ProjectModels/RingClone";
 
 const ProjectSection = () => {
     const theme = useTheme();
@@ -12,22 +16,83 @@ const ProjectSection = () => {
         {
             name: "Ring Clone",
             technologies: "OpenCV/Flask/React",
-            chips: ["Solo", "Open Source", "In Progress"],
+            chips: ["In Progress", "Computer vision", "Sneaky surveillance"],
             points: [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                "Ut enim ad minim veniam, quis nostrud exercitation.",
-                "Duis aute irure dolor in reprehenderit in voluptate.",
+                "Raspberry Pi, face detection using Python & OpenCV.",
+                "Node/Express server for data transmission.",
+                "Cross-platform mobile app with React Native.",
+                "MySQL for data management & user account integration.",
             ],
-            githubLink: null, // leave as null if there is not link
+            githubLink: null, // "https://github.com/MoschellaV/RingClone", // leave as null if there is not link
             externalLink: null, // leave as null if there is not link
+            model: <RingClone />,
+        },
+        {
+            name: "Portfolio Website",
+            technologies: "Next.js/Spline",
+            chips: ["3D Models", "Handcrafted", "Magic Touch", "User Experience"],
+            points: [
+                "Employed Next.js for swift, reliable web app.",
+                "3D modeled all assets using Spline.",
+                "Integrated & optimized models for user experience.",
+                "Used Figma for prototyping and design iteration.",
+            ],
+            githubLink: "https://github.com/MoschellaV/portfolio_website",
+            externalLink: null,
+            model: <PortfolioWebsite />,
+        },
+        {
+            name: "CraftACard",
+            technologies: "MERN Stack",
+            chips: ["Full-Stack", "Data Storage", "NoSQL Here"],
+            points: [
+                "Built with MERN stack with data storage and sending.",
+                "Responsive UI with React & React-Bootstrap.",
+                "Secure & efficient user data storage using MongoDB.",
+                "Backend powered by Node.js/Express for API integrations.",
+                "Hosted on Heroku for easy deployment & scaling.",
+            ],
+            githubLink: "https://github.com/MoschellaV/CraftACardWebProject",
+            externalLink: "https://craftacard.herokuapp.com/",
+            model: <CraftACard />,
+        },
+        {
+            name: "Sorting Visualizer",
+            technologies: "React/Mantine",
+            chips: ["Algorithms", "Mesmerizing", "Interactive", "Sorting sorcery"],
+            points: [
+                "Built with MERN stack with data storage and sending.",
+                "Responsive UI with React & React-Bootstrap.",
+                "Secure & efficient user data storage using MongoDB.",
+                "Backend powered by Node.js/Express for API integrations.",
+                "Hosted on Heroku for easy deployment & scaling.",
+            ],
+            githubLink: "https://github.com/MoschellaV/SortingVisualizer",
+            externalLink: "https://moschella-sorting-visualizer.netlify.app/",
+            model: <SortingBars />,
+        },
+        {
+            name: "Kuiper Space",
+            technologies: "Unity",
+            chips: ["2D Game", "Dynamic Mechanics", "Enemy Algorithm", "High School Project"],
+            points: [
+                "2D space shooter, destroy asteroids to gain score.",
+                "Online leaderboard for player competition.",
+                "Multiple playable ships with unique behaviors.",
+                "Varied enemies and custom particle effects.",
+                "Difficulty increases with player score via algorithm.",
+            ],
+            githubLink: "https://github.com/MoschellaV/KuiperSpace",
+            externalLink: "https://vmoschella.itch.io/kuiper-space",
             model: <GameController />,
         },
     ];
 
     const renderProjects = projectsInfo.map((projectData, index) => {
+        let numProjects = projectsInfo.length;
         return (
             <Grid key={index} xs={12} lg={6}>
-                <Project projectData={projectData} />
+                <Project projectData={projectData} projectIndex={index} numProjects={numProjects} />
             </Grid>
         );
     });

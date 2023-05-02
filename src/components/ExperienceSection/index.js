@@ -18,7 +18,7 @@ const ExperienceSection = () => {
             },
             technologies: "React, Flask, SQL, Scripting",
             descriptionText:
-                "Nullam eu pellentesque augue. Cras purus libero, pulvinar nec augue sit amet, dictum cursus urna. Nullam venenatis diam tellus, eget sollicitud leo fringilla a. Sed convallis gravida justo ac eleifend. Mauris viverra et tortor in maximus.",
+                "While at KnockNow, I had the opportunity to learn and grow as a developer. I played a pivotal role in various projects some of which include leading the redesign of company's flagship app while collaborating with the design team. I also worked closely with the data science team to integrate AI-driven research into multiple aspects of the KnockNow app.  My proficiency in both front-end and back-end technologies has allowed me to substantially contribute to the company's growth, while at the same time fostering my professional growth in the field of software engineering.",
             jobDuration: "Jan 2023 - Present",
         },
     ];

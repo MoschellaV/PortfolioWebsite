@@ -124,7 +124,7 @@ export const theme = createTheme({
             lineHeight: 2,
         },
         jobTitleText: {
-            fontSize: 30,
+            fontSize: 35,
             fontWeight: 400,
             color: "#171717",
         },
@@ -143,7 +143,7 @@ export const theme = createTheme({
             color: "#E48115",
         },
         projectPoints: {
-            fontSize: "clamp(0.9rem, 1.05vw, 1.2rem)",
+            fontSize: "clamp(0.9rem, 1vw, 1.15rem)",
             opacity: 0.7,
             lineHeight: 2,
         },

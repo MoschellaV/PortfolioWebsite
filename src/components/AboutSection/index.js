@@ -43,13 +43,12 @@ const AboutSection = () => {
                             About About About About About About
                         </Typography>
                         <Typography component="p" variant="p">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id neque ac risus
-                            efficitur commodo ac in ante. Praesent a eleifend arcu. Proin eget enim ut orci dignissim
-                            rhoncus nec a metus. Nam vitae est eget nisl vulputate fermentum at vel felis. Cras
-                            consectetur faucibus nisi, ut gravida tellus posuere at. In venenatis tincidunt leo sit amet
-                            pharetra. Duis non eros in ante tristique elementum. Etiam viverra non est nec pharetra.
-                            Vestibulum venenatis lectus et sollicitudin ornare. Ut quis odio orci. Suspendisse elit
-                            neque, aliquam eget libero a, accumsan dapibus nisl.
+                            Hi, I'm Vince Moschella, a second-year Computer Science student at the University of Guelph
+                            and an aspiring full stack developer. My passion lies in utilizing my technical knowledge
+                            and problem-solving abilities to create innovative solutions in the digital world. Embracing
+                            new challenges and opportunities, I'm determined to make a positive impact through my work.
+                            As a dedicated and ambitious individual, I will continuously strive to broaden my skill set
+                            and stay ahead of the curve in the ever-evolving tech landscape.
                         </Typography>
                     </Box>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>

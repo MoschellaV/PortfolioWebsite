@@ -140,7 +140,7 @@ const WorkCard = ({ jobInfo }) => {
                                 </Box>
                             </Grid>
                         </Grid>
-                        <Typography component="p" variant="p" sx={{ mr: 4, mt: 3 }}>
+                        <Typography component="p" variant="p" sx={{ mr: { xs: 0, md: 4 }, mt: 3 }}>
                             {props.descriptionText}
                         </Typography>
                     </Grid>
