@@ -16,7 +16,7 @@ const HeroModel = ({ setSceneLoaded }) => {
         let heroLoadedTimeout;
 
         const checkHeroLoaded = () => {
-            if (splineViewerHeroRef.current) {
+            if (splineViewerHeroRef.current && splineViewerHeroRef.current.shadowRoot) {
                 const element = splineViewerHeroRef.current.shadowRoot.getElementById("spline");
 
                 if (element) {
