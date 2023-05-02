@@ -7,6 +7,7 @@ import {
     LoadingPage,
     ProjectsSection,
     ContactSection,
+    FadeInWrapper,
 } from "@/components";
 
 export default function Home() {

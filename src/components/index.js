@@ -1,6 +1,7 @@
 export { default as Navbar } from "./Navbar";
 export { default as Footer } from "./Footer";
 export { default as LoadingPage } from "./LoadingPage";
+export { default as FadeInWrapper } from "./FadeInWrapper";
 
 // sections
 export { default as HeroSection } from "./HeroSection";
