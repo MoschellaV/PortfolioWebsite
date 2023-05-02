@@ -23,6 +23,8 @@ const ContactSection = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
+    const terminalStartText = "vincemoschella@Vinces-MacBook-Pro ~ %";
+
     const submitForm = () => {
         const sendUserData = async (emailContent) => {
             setIsConnecting(true);
@@ -130,7 +132,7 @@ const ContactSection = () => {
                 <Box sx={{ display: "flex", mb: 3 }}>{renderControlButtons}</Box>
 
                 <Typography variant="terminalText" component="p">
-                    vincemoschella@Vinces-MacBook-Pro ~ % <br />
+                    {terminalStartText} <br />
                     connect-with-vince \
                 </Typography>
                 <Box sx={{ ml: { xs: 2, md: 3 } }}>
@@ -195,8 +197,7 @@ const ContactSection = () => {
                 {/* CONNECTING MESSAGE */}
                 {isConnecting && (
                     <Typography variant="terminalText" component="p">
-                        vincemoschella@Vinces-MacBook-Pro ~ %{" "}
-                        <span style={{ color: theme.palette.blue.main }}>connecting</span>
+                        {terminalStartText} <span style={{ color: theme.palette.blue.main }}>connecting</span>
                         <br />
                         Establishing connection, please wait
                         <span className={!successMessage && !errorMessage && styles.loading} />
@@ -206,7 +207,7 @@ const ContactSection = () => {
                 {/* ERROR MESSAGE */}
                 {errorMessage && (
                     <Typography variant="terminalText" component="p">
-                        vincemoschella@Vinces-MacBook-Pro ~ % connection-failed
+                        {terminalStartText} connection-failed
                         <br />
                         <span style={{ color: theme.palette.red.main }}>Error: </span>
                         {errorMessage}
@@ -216,7 +217,7 @@ const ContactSection = () => {
                 {/* SUCCESS MESSAGE */}
                 {successMessage && (
                     <Typography variant="terminalText" component="p">
-                        vincemoschella@Vinces-MacBook-Pro ~ % connection-established
+                        {terminalStartText} connection-established
                         <br />
                         <span style={{ color: theme.palette.green.main }}>Success: </span>
                         {successMessage}

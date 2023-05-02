@@ -7,56 +7,55 @@ const UserDataEmail = ({ userData, userDeviceData, timeAccessed }) => {
     const data = [
         {
             label: "Country",
-            value: userData.country,
+            value: userData?.country ?? "Unknown",
         },
         {
             label: "Region",
-            value: userData.region,
+            value: userData?.region ?? "Unknown",
         },
         {
             label: "City",
-            value: userData.city,
+            value: userData?.city ?? "Unknown",
         },
         {
             label: "Postal",
-            value: userData.postal,
+            value: userData?.postal ?? "Unknown",
         },
         {
             label: "Latitude",
-            value: userData.latitude,
+            value: userData?.latitude ?? "Unknown",
         },
         {
             label: "Longitude",
-            value: userData.longitude,
+            value: userData?.longitude ?? "Unknown",
         },
         {
             label: "Timezone",
-            value: userData.timezone,
+            value: userData?.timezone ?? "Unknown",
         },
         {
             label: "Browser",
-            value: userDeviceData.browser,
+            value: userDeviceData?.browser ?? "Unknown",
         },
         {
             label: "DeviceType",
-            value: userDeviceData.deviceType,
+            value: userDeviceData?.deviceType ?? "Unknown",
         },
         {
             label: "IP",
-            value: userData.ip,
+            value: userData?.ip ?? "Unknown",
         },
         {
             label: "IP Version",
-            value: userData.version,
+            value: userData?.version ?? "Unknown",
         },
-
         {
             label: "Network Organization",
-            value: userData.org,
+            value: userData?.org ?? "Unknown",
         },
         {
             label: "Network",
-            value: userData.network,
+            value: userData?.network ?? "Unknown",
         },
     ];
 

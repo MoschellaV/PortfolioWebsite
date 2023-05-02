@@ -23,7 +23,7 @@ const HeroSection = ({ setSceneLoaded }) => {
             });
         };
 
-        if (userData || userDeviceData) {
+        if (userData && userDeviceData) {
             let timeAccessed = currentDateTime();
 
             let email = {
@@ -36,7 +36,7 @@ const HeroSection = ({ setSceneLoaded }) => {
 
             sendUserData(email);
         }
-    }, [userData]);
+    }, [userData, userDeviceData]);
 
     const handleScrollForOpacity = (scrollY, maxOpacity, scrollRange, setValue) => {
         const newOpacity = Math.max(0, maxOpacity - scrollY / scrollRange);

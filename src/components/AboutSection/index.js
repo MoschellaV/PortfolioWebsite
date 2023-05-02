@@ -6,6 +6,9 @@ import Carousel from "./Carousel";
 const AboutSection = () => {
     const theme = useTheme();
 
+    const aboutText =
+        "Hi, I'm Vince Moschella, a second-year Computer Science student at the University of Guelph and an aspiring full stack developer. My passion lies in utilizing my technical knowledge and problem-solving abilities to create innovative solutions in the digital world. Embracing new challenges and opportunities, I'm determined to make a positive impact through my work. As a dedicated and ambitious individual, I will continuously strive to broaden my skill set and stay ahead of the curve in the ever-evolving tech landscape.";
+
     return (
         <>
             <Grid id="about" container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -43,12 +46,7 @@ const AboutSection = () => {
                             About About About About About About
                         </Typography>
                         <Typography component="p" variant="p">
-                            Hi, I'm Vince Moschella, a second-year Computer Science student at the University of Guelph
-                            and an aspiring full stack developer. My passion lies in utilizing my technical knowledge
-                            and problem-solving abilities to create innovative solutions in the digital world. Embracing
-                            new challenges and opportunities, I'm determined to make a positive impact through my work.
-                            As a dedicated and ambitious individual, I will continuously strive to broaden my skill set
-                            and stay ahead of the curve in the ever-evolving tech landscape.
+                            {aboutText}
                         </Typography>
                     </Box>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>

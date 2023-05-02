@@ -34,7 +34,7 @@ const HeroModel = ({ setSceneLoaded }) => {
         return () => {
             clearTimeout(heroLoadedTimeout);
         };
-    }, []);
+    }, [setSceneLoaded]);
 
     return (
         <>
