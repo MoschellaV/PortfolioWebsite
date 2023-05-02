@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Box, Link, useTheme, Typography } from "@mui/material";
 import Image from "next/image";
 import Carousel from "./Carousel";
+import DisplayAboutImage from "./DisplayAboutImage";
 
 const AboutSection = () => {
     const theme = useTheme();
@@ -21,7 +22,8 @@ const AboutSection = () => {
                         minHeight: { sx: "100vh", md: "140vh" },
                     }}
                 >
-                    <Carousel />
+                    <DisplayAboutImage />
+                    {/* <Carousel /> */}
                 </Grid>
                 <Grid
                     item
