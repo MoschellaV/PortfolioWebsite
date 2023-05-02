@@ -14,6 +14,8 @@ const useUserDataHook = () => {
                     if (res.status == 200) setUserData(res.data);
                 })
                 .catch((err) => {
+                    console.log(err);
+
                     const errObj = {
                         errStatus: err.status,
                         errMessage: err.messsage,
