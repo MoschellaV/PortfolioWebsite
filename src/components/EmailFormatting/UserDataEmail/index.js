@@ -89,22 +89,23 @@ const UserDataEmail = ({ userData, userDeviceData, timeAccessed }) => {
     return (
         <div style={{ color: "#000" }}>
             <h2>Website Accessed at {timeAccessed}</h2>
-            {errData[0].value !== "Unknown" && errData[1].value !== "Unknown" && (
-                <div>
-                    <p>
-                        <strong>{errData[0].label}: </strong>
-                        {errData[0].value}
-                    </p>
-                    <p>
-                        <strong>{errData[1].label}: </strong>
-                        {errData[1].value}
-                    </p>
-                    <p>
-                        Unable to retrive local userData. The error is likely caused by an ad blocker or some other
-                        tool.
-                    </p>
-                </div>
-            )}
+            {errData[0].value !== "Unknown" ||
+                (errData[1].value !== "Unknown" && (
+                    <div>
+                        <p>
+                            <strong>{errData[0].label}: </strong>
+                            {errData[0].value}
+                        </p>
+                        <p>
+                            <strong>{errData[1].label}: </strong>
+                            {errData[1].value}
+                        </p>
+                        <p>
+                            Unable to retrive local userData. The error is likely caused by an ad blocker or some other
+                            tool.
+                        </p>
+                    </div>
+                ))}
 
             {data && (
                 <table style={{ borderCollapse: "collapse", width: "100%" }}>
