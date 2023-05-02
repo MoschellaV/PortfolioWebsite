@@ -23,8 +23,6 @@ const ContactSection = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
-    const terminalStartText = "vincemoschella@Vinces-MacBook-Pro ~ %";
-
     const submitForm = () => {
         const sendUserData = async (emailContent) => {
             setIsConnecting(true);
@@ -132,36 +130,36 @@ const ContactSection = () => {
                 <Box sx={{ display: "flex", mb: 3 }}>{renderControlButtons}</Box>
 
                 <Typography variant="terminalText" component="p">
-                    {terminalStartText} <br />
+                    vincemoschella@Vinces-MacBook-Pro ~ % <br />
                     connect-with-vince \
                 </Typography>
                 <Box sx={{ ml: { xs: 2, md: 3 } }}>
                     {/* NAME */}
                     <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
                         <Typography variant="terminalText" component="p" sx={{ mr: 1 }}>
-                            --name="
+                            --name=&quot;
                         </Typography>
                         <InputField textFieldWidth={20} value={nameValue} setValue={setNameValue} />
                         <Typography variant="terminalText" component="p" sx={{ ml: 1 }}>
-                            " \
+                            &quot; \
                         </Typography>
                     </Box>
 
                     {/* EMAIL */}
                     <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
                         <Typography variant="terminalText" component="p" sx={{ mr: 1 }}>
-                            --email="
+                            --email=&quot;
                         </Typography>
                         <InputField textFieldWidth={30} value={emailValue} setValue={setEmailValue} />
                         <Typography variant="terminalText" component="p" sx={{ ml: 1 }}>
-                            " \
+                            &quot; \
                         </Typography>
                     </Box>
 
                     {/* MESSAGE */}
                     <Box sx={{ display: "flex", mb: 0.5, position: "relative" }}>
                         <Typography variant="terminalText" component="p" sx={{ alignSelf: "flex-start", mr: 1 }}>
-                            --message="
+                            --message=&quot;
                         </Typography>
                         <InputField
                             isMultiline={true}
@@ -170,7 +168,7 @@ const ContactSection = () => {
                             setValue={setMessageValue}
                         />
                         <Typography variant="terminalText" component="p" sx={{ alignSelf: "flex-end", ml: 1 }}>
-                            "
+                            &quot;
                         </Typography>
                     </Box>
 
@@ -197,7 +195,8 @@ const ContactSection = () => {
                 {/* CONNECTING MESSAGE */}
                 {isConnecting && (
                     <Typography variant="terminalText" component="p">
-                        {terminalStartText} <span style={{ color: theme.palette.blue.main }}>connecting</span>
+                        vincemoschella@Vinces-MacBook-Pro ~ %{" "}
+                        <span style={{ color: theme.palette.blue.main }}>connecting</span>
                         <br />
                         Establishing connection, please wait
                         <span className={!successMessage && !errorMessage && styles.loading} />
@@ -207,7 +206,7 @@ const ContactSection = () => {
                 {/* ERROR MESSAGE */}
                 {errorMessage && (
                     <Typography variant="terminalText" component="p">
-                        {terminalStartText} connection-failed
+                        vincemoschella@Vinces-MacBook-Pro ~ % connection-failed
                         <br />
                         <span style={{ color: theme.palette.red.main }}>Error: </span>
                         {errorMessage}
@@ -217,7 +216,7 @@ const ContactSection = () => {
                 {/* SUCCESS MESSAGE */}
                 {successMessage && (
                     <Typography variant="terminalText" component="p">
-                        {terminalStartText} connection-established
+                        vincemoschella@Vinces-MacBook-Pro ~ % connection-established
                         <br />
                         <span style={{ color: theme.palette.green.main }}>Success: </span>
                         {successMessage}
