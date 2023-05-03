@@ -14,15 +14,14 @@ const HeroModel = ({ setSceneLoaded }) => {
 
     useEffect(() => {
         let heroLoadedTimeout;
+        let fallbackTimeout;
 
         const checkHeroLoaded = () => {
             if (splineViewerHeroRef.current && splineViewerHeroRef.current.shadowRoot) {
                 const element = splineViewerHeroRef.current.shadowRoot.getElementById("spline");
-                console.warn("Element:", element);
 
                 if (element) {
                     const hasWidthAttribute = element.hasAttribute("width");
-                    console.warn("Has width attribute:", hasWidthAttribute);
 
                     if (!hasWidthAttribute) heroLoadedTimeout = setTimeout(checkHeroLoaded, 1000);
                     else setSceneLoaded(true);
@@ -34,8 +33,14 @@ const HeroModel = ({ setSceneLoaded }) => {
 
         checkHeroLoaded();
 
+        // fallback timeout to set sceneLoaded to true after 15 seconds
+        fallbackTimeout = setTimeout(() => {
+            setSceneLoaded(true);
+        }, 15000);
+
         return () => {
             clearTimeout(heroLoadedTimeout);
+            clearTimeout(fallbackTimeout);
         };
     }, [setSceneLoaded]);
 
