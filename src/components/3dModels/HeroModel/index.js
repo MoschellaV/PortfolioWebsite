@@ -18,9 +18,12 @@ const HeroModel = ({ setSceneLoaded }) => {
         const checkHeroLoaded = () => {
             if (splineViewerHeroRef.current && splineViewerHeroRef.current.shadowRoot) {
                 const element = splineViewerHeroRef.current.shadowRoot.getElementById("spline");
+                console.log("Element:", element);
 
                 if (element) {
                     const hasWidthAttribute = element.hasAttribute("width");
+                    console.log("Has width attribute:", hasWidthAttribute);
+
                     if (!hasWidthAttribute) heroLoadedTimeout = setTimeout(checkHeroLoaded, 500);
                     else setSceneLoaded(true);
                 } else {

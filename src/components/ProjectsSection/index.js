@@ -1,7 +1,6 @@
 import React from "react";
 import Project from "./Project";
 import { Box, Grid, Typography, useTheme } from "@mui/material";
-import FadeInWrapper from "../FadeInWrapper";
 
 // 3d models
 import GameController from "../3dModels/ProjectModels/GameController";
@@ -92,9 +91,7 @@ const ProjectSection = () => {
     const renderProjects = projectsInfo.map((projectData, index) => {
         return (
             <Grid key={index} xs={12} lg={6}>
-                <FadeInWrapper>
-                    <Project projectData={projectData} projectIndex={index} />
-                </FadeInWrapper>
+                <Project projectData={projectData} projectIndex={index} />
             </Grid>
         );
     });

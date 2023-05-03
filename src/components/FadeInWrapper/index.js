@@ -35,7 +35,6 @@ const FadeInWrapper = (props) => {
         };
     }, [isVisible]);
 
-    console.log("vis: " + isVisible);
     return (
         <Box
             className={`${!hasBeenVisible ? styles["fade-in-section"] : ""} ${isVisible ? styles["is-visible"] : ""}`}

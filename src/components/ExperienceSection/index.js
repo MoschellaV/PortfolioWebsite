@@ -1,8 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import { Box, useTheme, Typography } from "@mui/material";
 import WorkCard from "./WorkCard";
-import FadeInWrapper from "../FadeInWrapper";
 
 const ExperienceSection = () => {
     const theme = useTheme();
@@ -68,9 +66,7 @@ const ExperienceSection = () => {
             </Box>
             <Box sx={{ mt: 2 }}>
                 {/* handles rendering each job */}
-                <FadeInWrapper>
-                    <WorkCard jobInfo={jobInfo} />
-                </FadeInWrapper>
+                <WorkCard jobInfo={jobInfo} />
             </Box>
             <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "20vw", m: 5 }}>
                 <Typography
