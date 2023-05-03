@@ -40,9 +40,21 @@ export default function Home() {
         <>
             <Head>
                 <title>Vince Moschella</title>
-                <meta name="description" content="Vince Moschella Portfolio Website" />
+                <meta
+                    name="description"
+                    content="Hey there! I'm an aspiring full stack developer and a Computer Science student, with a passion for cooking up innovative digital solutions using the coolest tech around!"
+                />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
+
+                {/* og tags */}
+                <meta property="og:title" content="Vince Moschella" />
+                <meta property="og:description" content="Hey! Check out my portfolio website" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.vincemoschella.com" />
+                <meta property="og:image" content="https://www.yourwebsite.com/ogImage.png" />
+                <meta property="og:image:alt" content="Logo of VM initials" />
+                <meta property="og:site_name" content="Vince Moschella's Personal Website" />
             </Head>
             <main>
                 {!removeLoadingPage && <LoadingPage startFadeOut={startFadeOut} />}
