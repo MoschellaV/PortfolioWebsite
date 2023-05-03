@@ -13,30 +13,22 @@ const HeroModel = ({ setSceneLoaded }) => {
     const splineViewerHeroRef = useRef(null);
 
     useEffect(() => {
-        let heroLoadedTimeout;
-
         const checkHeroLoaded = () => {
             if (splineViewerHeroRef.current && splineViewerHeroRef.current.shadowRoot) {
                 const element = splineViewerHeroRef.current.shadowRoot.getElementById("spline");
-                // console.warn("Element:", element);
 
                 if (element) {
                     const hasWidthAttribute = element.hasAttribute("width");
-                    // console.warn("Has width attribute:", hasWidthAttribute);
 
-                    if (!hasWidthAttribute) heroLoadedTimeout = setTimeout(checkHeroLoaded, 500);
+                    if (!hasWidthAttribute) requestAnimationFrame(checkHeroLoaded);
                     else setSceneLoaded(true);
                 } else {
-                    heroLoadedTimeout = setTimeout(checkHeroLoaded, 500);
+                    requestAnimationFrame(checkHeroLoaded);
                 }
             }
         };
 
         checkHeroLoaded();
-
-        return () => {
-            clearTimeout(heroLoadedTimeout);
-        };
     }, [setSceneLoaded]);
 
     return (
