@@ -71,19 +71,17 @@ const UserDataEmail = ({ userData, userDeviceData, timeAccessed }) => {
     ];
 
     const renderRows = data.map((data, index) => {
-        return index % 2 === 0
-            ? data.value !== "Unknown" && (
-                  <tr key={index} style={{ backgroundColor: "#dddddd" }}>
-                      <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.label}</td>
-                      <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.value}</td>
-                  </tr>
-              )
-            : data.value !== "Unknown" && (
-                  <tr key={index}>
-                      <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.label}</td>
-                      <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.value}</td>
-                  </tr>
-              );
+        return index % 2 === 0 ? (
+            <tr key={index} style={{ backgroundColor: "#dddddd" }}>
+                <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.label}</td>
+                <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.value}</td>
+            </tr>
+        ) : (
+            <tr key={index}>
+                <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.label}</td>
+                <td style={{ border: "1px solid #dddddd", textAlign: "left", padding: "8px" }}>{data.value}</td>
+            </tr>
+        );
     });
 
     return (

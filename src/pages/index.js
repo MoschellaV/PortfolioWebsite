@@ -8,6 +8,7 @@ import {
     ProjectsSection,
     ContactSection,
     FadeInWrapper,
+    Footer,
 } from "@/components";
 
 export default function Home() {
@@ -66,6 +67,7 @@ export default function Home() {
                 <ExperienceSection />
                 <ProjectsSection />
                 <ContactSection />
+                <Footer />
             </main>
         </>
     );

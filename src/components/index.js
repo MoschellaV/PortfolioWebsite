@@ -1,4 +1,5 @@
 export { default as Navbar } from "./Navbar";
+export { default as NavbarWrapper } from "./NavbarWrapper";
 export { default as Footer } from "./Footer";
 export { default as LoadingPage } from "./LoadingPage";
 export { default as FadeInWrapper } from "./FadeInWrapper";
@@ -12,6 +13,7 @@ export { default as ContactSection } from "./ContactSection";
 
 // 3d models
 export { default as HeroModel } from "./3dModels/HeroModel";
+export { default as Error404Model } from "./3dModels/Error404Model";
 export { default as GameController } from "./3dModels/ProjectModels/GameController";
 export { default as SortingBars } from "./3dModels/ProjectModels/SortingBars";
 export { default as CraftACard } from "./3dModels/ProjectModels/CraftACard";
