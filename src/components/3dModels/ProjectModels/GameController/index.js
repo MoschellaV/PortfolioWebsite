@@ -1,14 +1,7 @@
-import React from "react";
+import Spline from "@splinetool/react-spline";
 
 const GameController = () => {
-    return (
-        <iframe
-            src="https://my.spline.design/websiteoverhaulcontroller-2f2982400b41640c7d09fdfb2dda728e/"
-            frameborder="0"
-            width="100%"
-            height="100%"
-        ></iframe>
-    );
+    return <Spline scene="https://prod.spline.design/k2vjqAdXBRg3ilNH/scene.splinecode" />;
 };
 
 export default GameController;

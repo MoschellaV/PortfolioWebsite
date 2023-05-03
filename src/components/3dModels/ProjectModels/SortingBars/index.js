@@ -1,14 +1,7 @@
-import React from "react";
+import Spline from "@splinetool/react-spline";
 
 const SortingBars = () => {
-    return (
-        <iframe
-            src="https://my.spline.design/websiteoverhaulsorting-a03f31a5e9acdc67826105d8ae78f16e/"
-            frameborder="0"
-            width="100%"
-            height="100%"
-        ></iframe>
-    );
+    return <Spline scene="https://prod.spline.design/EaPGOju5JgfVXAS9/scene.splinecode" />;
 };
 
 export default SortingBars;

@@ -1,14 +1,7 @@
-import React from "react";
+import Spline from "@splinetool/react-spline";
 
 const RingClone = () => {
-    return (
-        <iframe
-            src="https://my.spline.design/websiteoverhaulring-fec7c9a7c3e624828096984f6b64e303/"
-            frameborder="0"
-            width="100%"
-            height="100%"
-        ></iframe>
-    );
+    return <Spline scene="https://prod.spline.design/AkOWUJ0YHIIbG9zA/scene.splinecode" />;
 };
 
 export default RingClone;

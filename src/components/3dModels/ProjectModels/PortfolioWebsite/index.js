@@ -1,14 +1,7 @@
-import React from "react";
+import Spline from "@splinetool/react-spline";
 
 const PortfolioWebsite = () => {
-    return (
-        <iframe
-            src="https://my.spline.design/3dtextcopy-85b66e5398919e57c61157418f4a5f25/"
-            frameborder="0"
-            width="100%"
-            height="100%"
-        ></iframe>
-    );
+    return <Spline scene="https://prod.spline.design/3XWun1C5uOrfLGLa/scene.splinecode" />;
 };
 
 export default PortfolioWebsite;

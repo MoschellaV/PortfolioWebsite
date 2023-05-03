@@ -1,14 +1,7 @@
-import React from "react";
+import Spline from "@splinetool/react-spline";
 
 const CraftACard = () => {
-    return (
-        <iframe
-            src="https://my.spline.design/websiteoverhaulcraftacard-5bd01e1b5b067f3e68ce51b964cdca41/"
-            frameborder="0"
-            width="100%"
-            height="100%"
-        ></iframe>
-    );
+    return <Spline scene="https://prod.spline.design/I4uBhem60Jlx7mX1/scene.splinecode" />;
 };
 
 export default CraftACard;
