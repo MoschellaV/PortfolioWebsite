@@ -6,6 +6,8 @@ import { Error404Model, Footer } from "@/components";
 const Custom404 = () => {
     const theme = useTheme();
 
+    const text = "You're lost bud.";
+
     return (
         <>
             <Box sx={{ height: "70vh" }}>
@@ -14,7 +16,7 @@ const Custom404 = () => {
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-around" }}>
                 <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <Typography variant="h3" component="h2">
-                        You're lost bud.
+                        {text}
                     </Typography>
                     <Button
                         href="https://www.vincemoschella.com/"
