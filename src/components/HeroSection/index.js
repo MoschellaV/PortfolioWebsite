@@ -81,17 +81,37 @@ const HeroSection = ({ setSceneLoaded }) => {
                         flexDirection: "column",
                         alignItems: "flex-start",
                         justifyContent: "center",
-                        ml: "3rem",
+                        ml: {
+                            xs: "1.25rem",
+                            md: "3rem",
+                        },
                         zIndex: 10,
                         opacity: opacityMainText,
                     }}
                 >
-                    <Typography component="h1" variant="h1" sx={{ mt: 3 }}>
-                        Sup, <span style={{ "-webkit-text-stroke-color": theme.palette.orange.bright }}>hire</span>
+                    <Typography
+                        component="h1"
+                        variant="h1"
+                        sx={{
+                            mt: { xs: 0, md: 3 },
+                            color: { xs: theme.palette.secondary.main, md: "transparent" },
+                            "-webkit-text-stroke-width": { xs: "0", md: "3px" },
+                        }}
+                    >
+                        Sup,{" "}
+                        <Box
+                            component="span"
+                            sx={{
+                                "-webkit-text-stroke-color": theme.palette.orange.bright,
+                                color: { xs: theme.palette.orange.bright, md: "transparent" },
+                            }}
+                        >
+                            hire
+                        </Box>
                         <br />
                         me please
                     </Typography>
-                    <Typography component="p" variant="h4" sx={{ mt: 3 }}>
+                    <Typography component="p" variant="h4" sx={{ mt: 3, fontSize: { xs: 18, md: 22 } }}>
                         Software Developer and <br />
                         Student /
                     </Typography>

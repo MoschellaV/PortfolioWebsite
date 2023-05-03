@@ -10,7 +10,16 @@ const DisplayAboutImage = () => {
     };
 
     return (
-        <Box sx={{ position: "relative", minHeight: "100vh", mr: 5, mt: 5, mb: 5, ml: { xs: 5, md: 0 } }}>
+        <Box
+            sx={{
+                position: "relative",
+                minHeight: { xs: "50vh", sm: "75vh", md: "100vh" },
+                mr: 5,
+                mt: 5,
+                mb: 5,
+                ml: { xs: 5, md: 0 },
+            }}
+        >
             <Image src={pic.url} alt={pic.altText} fill style={{ zIndex: 1 }} />
         </Box>
     );

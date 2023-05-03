@@ -154,7 +154,13 @@ const Navbar = () => {
 
     return (
         <Box component="nav" sx={{ position: "fixed", top: "0", width: "100%", zIndex: 100 }}>
-            <Box sx={{ display: "flex", justifyContent: "space-between", margin: "2rem 0 2rem 3rem" }}>
+            <Box
+                sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    margin: { xs: "2rem 0 2rem 1.25rem", md: "2rem 0 2rem 3rem" },
+                }}
+            >
                 <Typography variant="h4" component="a" onClick={() => smoothScrollTo("home")} sx={{ ...NameLogoSX }}>
                     Vince
                     <br /> Moschella

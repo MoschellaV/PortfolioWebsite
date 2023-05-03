@@ -48,7 +48,9 @@ export default function Home() {
                 {!removeLoadingPage && <LoadingPage startFadeOut={startFadeOut} />}
 
                 <HeroSection setSceneLoaded={setSceneLoaded} />
-                <AboutSection />
+                <FadeInWrapper>
+                    <AboutSection />
+                </FadeInWrapper>
                 <ExperienceSection />
                 <ProjectsSection />
                 <ContactSection />

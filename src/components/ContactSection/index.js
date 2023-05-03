@@ -108,12 +108,18 @@ const ContactSection = () => {
                 <Typography
                     component="h3"
                     variant="h2"
-                    sx={{ "-webkit-text-stroke-color": theme.palette.primary.main, textAlign: "center", lineHeight: 1 }}
+                    sx={{
+                        "-webkit-text-stroke-color": theme.palette.primary.main,
+                        textAlign: "center",
+                        lineHeight: 1,
+                        fontSize: { xs: 85, md: 100 },
+                        m: 3,
+                        mb: 0,
+                    }}
                 >
                     Get in touch
                 </Typography>
             </Box>
-
             <Box
                 sx={{
                     m: { xs: 1, sm: 1, md: 4 },
@@ -121,7 +127,7 @@ const ContactSection = () => {
                     p: 3,
                     pt: 3,
                     pb: 5,
-                    minHeight: "90vh",
+                    minHeight: { xs: "55vh", sm: "70vh", md: "90vh" },
                     backgroundColor: theme.palette.primary.main,
                     borderRadius: 5,
                 }}

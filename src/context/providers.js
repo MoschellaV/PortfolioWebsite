@@ -87,7 +87,7 @@ export const theme = createTheme({
             textTransform: "none",
         },
         h1: {
-            fontSize: "clamp(4rem, 5.4vw, 9rem)",
+            fontSize: "clamp(2.6rem, 5.35vw, 8.8rem)",
             fontWeight: 800,
             letterSpacing: "0.4rem",
             color: "transparent",
@@ -143,7 +143,7 @@ export const theme = createTheme({
             color: "#E48115",
         },
         projectPoints: {
-            fontSize: "clamp(0.9rem, 1vw, 1.15rem)",
+            fontSize: "clamp(0.8rem, 1vw, 1.15rem)",
             opacity: 0.7,
             lineHeight: 2,
         },

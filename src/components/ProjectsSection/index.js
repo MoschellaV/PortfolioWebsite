@@ -1,6 +1,7 @@
 import React from "react";
 import Project from "./Project";
 import { Box, Grid, Typography, useTheme } from "@mui/material";
+import FadeInWrapper from "../FadeInWrapper";
 
 // 3d models
 import GameController from "../3dModels/ProjectModels/GameController";
@@ -59,7 +60,7 @@ const ProjectSection = () => {
         {
             name: "Sorting Visualizer",
             technologies: "React/Mantine",
-            chips: ["Algorithms", "Mesmerizing", "Interactive", "Sorting sorcery"],
+            chips: ["Algorithms", "Mesmerizing", "Interactive"],
             points: [
                 "Built with MERN stack with data storage and sending.",
                 "Responsive UI with React & React-Bootstrap.",
@@ -89,10 +90,11 @@ const ProjectSection = () => {
     ];
 
     const renderProjects = projectsInfo.map((projectData, index) => {
-        let numProjects = projectsInfo.length;
         return (
             <Grid key={index} xs={12} lg={6}>
-                <Project projectData={projectData} projectIndex={index} numProjects={numProjects} />
+                <FadeInWrapper>
+                    <Project projectData={projectData} projectIndex={index} />
+                </FadeInWrapper>
             </Grid>
         );
     });

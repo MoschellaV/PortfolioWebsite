@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Box, useTheme, Typography } from "@mui/material";
 import WorkCard from "./WorkCard";
+import FadeInWrapper from "../FadeInWrapper";
 
 const ExperienceSection = () => {
     const theme = useTheme();
@@ -56,15 +57,20 @@ const ExperienceSection = () => {
                     sx={{
                         position: "absolute",
                         top: "50%",
-                        left: "50%",
+                        left: { xs: "51%", sm: "50%" },
                         transform: "translate(-50%, -50%)",
+                        "-webkit-text-stroke-width": { xs: "1.5px", md: "3px" },
+                        fontSize: { xs: "clamp(1rem, 9vw, 10rem)", sm: 65, md: 100 },
                     }}
                 >
                     Experience
                 </Typography>
             </Box>
             <Box sx={{ mt: 2 }}>
-                <WorkCard jobInfo={jobInfo} />
+                {/* handles rendering each job */}
+                <FadeInWrapper>
+                    <WorkCard jobInfo={jobInfo} />
+                </FadeInWrapper>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "20vw", m: 5 }}>
                 <Typography

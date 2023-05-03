@@ -6,21 +6,62 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const Project = ({ projectData, projectIndex, numProjects }) => {
+const Project = ({ projectData, projectIndex }) => {
     const theme = useTheme();
     const [isHovered, setIsHovered] = useState(false);
 
     const mapChips = projectData.chips.map((chipContent, index) => {
         return (
-            <Chip key={index} label={chipContent} sx={{ mr: 1, mb: 1, pt: 0.3 }} variant="outlined" color="secondary" />
+            <Chip
+                key={index}
+                label={chipContent}
+                sx={{
+                    mr: 1,
+                    mb: 1,
+                    fontSize: {
+                        xs: "0.7rem",
+                        sm: "0.85rem",
+                        md: "1rem",
+                    },
+                    p: {
+                        xs: 0.2,
+                        sm: 0.75,
+                        md: 1,
+                    },
+                    pt: { sm: 0.8, md: 1.2 },
+                }}
+                variant="outlined"
+                color="secondary"
+            />
         );
     });
 
     const mapPoints = projectData.points.map((textContent, index) => {
         return (
             <Box key={index} sx={{ display: "flex" }}>
-                <ControlPointIcon color="secondary" sx={{ mt: 0.5, mr: 1, mb: 0.4, opacity: 0.7 }} />
-                <Typography component="p" variant="projectPoints">
+                <ControlPointIcon
+                    color="secondary"
+                    sx={{
+                        mt: 0.5,
+                        mr: 1,
+                        mb: 0.4,
+                        opacity: 0.7,
+                        fontSize: {
+                            xs: "1rem",
+                            md: "1.1rem",
+                        },
+                    }}
+                />
+                <Typography
+                    component="p"
+                    variant="projectPoints"
+                    sx={{
+                        fontSize: { xs: 12, sm: 15, md: 16, lg: 17 },
+                        "@media (min-width: 1200px) and (max-width: 1600px)": {
+                            fontSize: "clamp(0.5rem, 1vw, 1.6rem)",
+                        },
+                    }}
+                >
                     {textContent}
                 </Typography>
             </Box>
@@ -52,20 +93,27 @@ const Project = ({ projectData, projectIndex, numProjects }) => {
                     },
                 }}
             >
-                <Box sx={{ height: "90vh", position: "relative", border: `4px solid ${theme.palette.primary.main}` }}>
+                <Box
+                    sx={{
+                        height: { xs: "55vh", sm: "90vh" },
+                        position: "relative",
+                        border: `4px solid ${theme.palette.primary.main}`,
+                    }}
+                >
                     {projectData.model}
                     <Box
                         sx={{
                             position: "absolute",
                             bottom: 0,
                             width: "100%",
-                            height: { xs: "55vh", sm: "37vh" },
+                            height: { xs: "50vh", sm: "37vh" },
                             backgroundColor: "blue",
                             background: `linear-gradient(transparent, transparent 50%, ${theme.palette.primary.main} 50%, ${theme.palette.primary.main})`,
                             backgroundSize: "100% 200%",
                             transition: "background 0.4s, opacity 0.4s",
                             backgroundPosition: isHovered && "100% 100%",
                             opacity: isHovered ? 1 : 0,
+                            p: 1,
                         }}
                     >
                         <Box
@@ -112,7 +160,7 @@ const Project = ({ projectData, projectIndex, numProjects }) => {
                                     </IconButton>
                                 )}
                             </Box>
-                            <Box sx={{ display: "flex", flexDirection: "column", pt: 1, pb: 1 }}>{mapPoints}</Box>
+                            <Box sx={{ display: "flex", flexDirection: "column", pt: 0.3, pb: 1 }}>{mapPoints}</Box>
                         </Box>
                     </Box>
 

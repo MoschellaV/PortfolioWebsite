@@ -39,7 +39,7 @@ const AboutSection = () => {
                     <Box
                         sx={{
                             mr: { xs: 2, sm: 4, md: 6, lg: 10 },
-                            ml: { xs: 6, lg: 10 },
+                            ml: { xs: 3, lg: 10 },
                         }}
                     >
                         <Typography component="h3" variant="h3" sx={{ mb: 2, mr: -500 }}>
@@ -58,7 +58,7 @@ const AboutSection = () => {
                                 target="_blank"
                                 sx={{ "&:hover": { opacity: 0.7 } }}
                             >
-                                <Image src="/images/github.svg" alt="github icon" width={80} height={80} />{" "}
+                                <Image src="/images/soc-gh.svg" alt="Link to my Github" width={80} height={80} />
                             </Link>
                         </Box>
                         <Box sx={{ ml: 4 }}>
@@ -67,7 +67,7 @@ const AboutSection = () => {
                                 target="_blank"
                                 sx={{ "&:hover": { opacity: 0.7 } }}
                             >
-                                <Image src="/images/linkedin.svg" alt="linkedin icon" width={80} height={80} />
+                                <Image src="/images/soc-li.svg" alt="Link to my LinkedIn" width={80} height={80} />
                             </Link>
                         </Box>
                     </Box>
