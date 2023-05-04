@@ -99,7 +99,7 @@ const HeroSection = ({ setSceneLoaded }) => {
                             "-webkit-text-stroke-width": { xs: "0", md: "3px" },
                         }}
                     >
-                        Sup, look{" "}
+                        Vince <br />
                         <Box
                             component="span"
                             sx={{
@@ -107,7 +107,7 @@ const HeroSection = ({ setSceneLoaded }) => {
                                 color: { xs: theme.palette.orange.bright, md: "transparent" },
                             }}
                         >
-                            around!
+                            Moschella
                         </Box>
                     </Typography>
                     <Typography component="p" variant="h4" sx={{ mt: 3, fontSize: { xs: 18, md: 22 } }}>
