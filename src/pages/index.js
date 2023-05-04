@@ -53,7 +53,7 @@ export default function Home() {
                 <meta property="og:description" content="Hey, check out my portfolio website!" />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://www.vincemoschella.com" />
-                <meta property="og:image" content="https://www.vincemoschella.com/ogImage.png" />
+                <meta property="og:image" content="https://www.vincemoschella.com/images/og-image.png" />
                 <meta property="og:image:alt" content="Logo of VM initials" />
                 <meta property="og:site_name" content="vincemoschella.com" />
             </Head>
