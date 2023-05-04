@@ -43,7 +43,7 @@ export default function Home() {
                 <title>Vince Moschella</title>
                 <meta
                     name="description"
-                    content="Hey there! I'm an aspiring full stack developer and a Computer Science student, with a passion for cooking up innovative digital solutions using the coolest tech around!"
+                    content="Hey, I'm an aspiring full stack developer and a Computer Science student, with a passion for cooking up innovative digital solutions!"
                 />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
@@ -56,6 +56,8 @@ export default function Home() {
                 <meta property="og:image" content="https://www.vincemoschella.com/images/og-image.png" />
                 <meta property="og:image:alt" content="Logo of VM initials" />
                 <meta property="og:site_name" content="vincemoschella.com" />
+
+                <meta name="theme-color" content="#f6f6f6" />
             </Head>
             <main>
                 {!removeLoadingPage && <LoadingPage startFadeOut={startFadeOut} />}
