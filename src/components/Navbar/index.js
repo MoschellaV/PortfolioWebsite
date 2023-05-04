@@ -161,10 +161,16 @@ const Navbar = () => {
                     margin: { xs: "2rem 0 2rem 1.25rem", md: "2rem 0 2rem 3rem" },
                 }}
             >
-                <Typography variant="h4" component="a" onClick={() => smoothScrollTo("home")} sx={{ ...NameLogoSX }}>
-                    Vince
-                    <br /> Moschella
-                </Typography>
+                <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+                    <Typography
+                        variant="h4"
+                        component="a"
+                        onClick={() => smoothScrollTo("home")}
+                        sx={{ ...NameLogoSX }}
+                    >
+                        VM
+                    </Typography>
+                </Box>
                 <Hidden mdDown>
                     <Box sx={{ display: "flex", alignItems: "flex-end" }}>
                         {navItems.map(({ label, location }) => {
