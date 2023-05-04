@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "@/styles/ContactSection.module.css";
+import styles from "@/styles/Animations.module.css";
 import { useUserData } from "@/context/providers";
 import { Box, Typography, Button, useTheme } from "@mui/material";
 

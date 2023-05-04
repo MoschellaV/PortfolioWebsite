@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "@/styles/Animations.module.css";
 import { useScrollY, useUserData } from "@/context/providers";
 import { HeroModel, UserDataEmail } from "@/components";
 import { Box, Typography, useTheme } from "@mui/material";
@@ -98,7 +99,7 @@ const HeroSection = ({ setSceneLoaded }) => {
                             "-webkit-text-stroke-width": { xs: "0", md: "3px" },
                         }}
                     >
-                        Sup,{" "}
+                        Sup, look{" "}
                         <Box
                             component="span"
                             sx={{
@@ -106,14 +107,13 @@ const HeroSection = ({ setSceneLoaded }) => {
                                 color: { xs: theme.palette.orange.bright, md: "transparent" },
                             }}
                         >
-                            hire
+                            around!
                         </Box>
                         <br />
-                        me please
                     </Typography>
                     <Typography component="p" variant="h4" sx={{ mt: 3, fontSize: { xs: 18, md: 22 } }}>
                         Software Developer and <br />
-                        Student /
+                        Student <span className={styles.blink}>/</span>
                     </Typography>
                 </Box>
             </Box>
