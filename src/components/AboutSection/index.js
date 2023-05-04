@@ -22,7 +22,7 @@ const AboutSection = () => {
                         minHeight: { sx: "100vh", md: "140vh" },
                     }}
                 >
-                    <DisplayAboutImage />
+                    {/* <DisplayAboutImage /> */}
                     {/* <Carousel /> */}
                 </Grid>
                 <Grid

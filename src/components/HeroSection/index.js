@@ -109,7 +109,6 @@ const HeroSection = ({ setSceneLoaded }) => {
                         >
                             around!
                         </Box>
-                        <br />
                     </Typography>
                     <Typography component="p" variant="h4" sx={{ mt: 3, fontSize: { xs: 18, md: 22 } }}>
                         Software Developer and <br />
