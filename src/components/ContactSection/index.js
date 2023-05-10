@@ -112,8 +112,8 @@ const ContactSection = () => {
                         "-webkit-text-stroke-color": theme.palette.primary.main,
                         textAlign: "center",
                         lineHeight: 1,
-                        fontSize: { xs: 85, md: 100 },
-                        m: 3,
+                        fontSize: { xs: 75, md: 100 },
+                        m: 0,
                         mb: 0,
                     }}
                 >
@@ -124,7 +124,7 @@ const ContactSection = () => {
                 sx={{
                     m: { xs: 1, sm: 1, md: 4 },
                     mt: { xs: 1, sm: 1, md: 1, lg: 1 },
-                    p: 3,
+                    p: { xs: 1.5, sm: 3 },
                     pt: 3,
                     pb: 5,
                     minHeight: { xs: "55vh", sm: "70vh", md: "90vh" },

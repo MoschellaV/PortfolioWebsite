@@ -148,7 +148,7 @@ export const theme = createTheme({
             lineHeight: 2,
         },
         terminalText: {
-            fontSize: "clamp(0.9rem, 1.15vw, 1.4rem)",
+            fontSize: "clamp(0.75rem, 1.15vw, 1.4rem)",
             lineHeight: 3,
             color: "#fff",
         },

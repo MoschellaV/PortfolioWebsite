@@ -57,7 +57,7 @@ export default function Home() {
                 <meta property="og:image:alt" content="Logo of VM initials" />
                 <meta property="og:site_name" content="vincemoschella.com" />
 
-                <meta name="theme-color" content="#f6f6f6" />
+                <meta name="theme-color" content="#171717" />
             </Head>
             <main>
                 {!removeLoadingPage && <LoadingPage startFadeOut={startFadeOut} />}
