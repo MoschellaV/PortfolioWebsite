@@ -48,9 +48,9 @@ const AboutSection = () => {
                             About About About About About About
                         </Typography>
                         <Typography component="p" variant="p">
-                            Hi, I'm Vince and I'm glad you found my site! I'm a student based in Toronto where I study
-                            Computer Science. I love to take on challenges and make things that solve real world
-                            problems. When I'm not breaking prod, I'm{" "}
+                            Hi, I&apos;m Vince and I&apos;m glad you found my site! I&apos;m a student based in Toronto
+                            where I study Computer Science. I love to take on challenges and make things that solve real
+                            world problems. When I&apos;m not breaking prod, I'm{" "}
                             <HoverTextAppear newText={"(how it will inevitably replace me)"}>
                                 learning about AI
                             </HoverTextAppear>
