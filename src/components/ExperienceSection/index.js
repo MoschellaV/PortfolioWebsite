@@ -17,7 +17,7 @@ const ExperienceSection = () => {
             },
             technologies: "React, Flask, SQL, Scripting",
             descriptionText:
-                "At KnockNow, I had the opportunity to learn and grow as a developer. I played a pivotal role in various projects some of which include leading the redesign of company's flagship app while collaborating with the design team. I also worked closely with the data science team to integrate AI-driven research into multiple aspects of the KnockNow app.  My proficiency in both front-end and back-end technologies has allowed me to substantially contribute to the company's growth, while at the same time fostering my professional growth in the field of software engineering.",
+                "I learned so much at KnockNow and took on a lot of responsibility. I led the redesign of the company's flagship app, working with the design team. I got to work closely with data scientists and integrated AI-driven research into multiple aspects of the app. Being proficient in both front-end and back-end technologies allowed me to substantially contribute to the start up's growth.",
             jobDuration: "Jan 2023 - Present",
         },
     ];
@@ -80,7 +80,7 @@ const ExperienceSection = () => {
                         textAlign: "center",
                     }}
                 >
-                    more experience to come... hopefully
+                    more to come...
                 </Typography>
             </Box>
         </>

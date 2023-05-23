@@ -3,12 +3,12 @@ import { Grid, Box, Link, useTheme, Typography } from "@mui/material";
 import Image from "next/image";
 import Carousel from "./Carousel";
 import DisplayAboutImage from "./DisplayAboutImage";
+import HoverTextAppear from "../HoverTextAppear";
 
 const AboutSection = () => {
     const theme = useTheme();
 
-    const aboutText =
-        "Hi, I'm Vince Moschella, a second-year Computer Science student at the University of Guelph and an aspiring full stack developer. My passion lies in utilizing my technical knowledge and problem-solving abilities to create innovative solutions in the digital world. Embracing new challenges and opportunities, I'm determined to make a positive impact through my work. As a dedicated and ambitious individual, I will continuously strive to broaden my skill set and stay ahead of the curve in the ever-evolving tech landscape.";
+    // const aboutText = `Hi, I'm Vince and I'm glad you found my site! I'm a student based in Toronto where I study Computer Science. I love to take on challenges and make things that solve real world problems. When I'm not breaking prod, I'm learning about AI, practicing some calisthenics at the gym, creating a culinary masterpiece in the kitchen at 3am, or crafting a new spotify playlist.`;
 
     return (
         <>
@@ -48,7 +48,17 @@ const AboutSection = () => {
                             About About About About About About
                         </Typography>
                         <Typography component="p" variant="p">
-                            {aboutText}
+                            Hi, I'm Vince and I'm glad you found my site! I'm a student based in Toronto where I study
+                            Computer Science. I love to take on challenges and make things that solve real world
+                            problems. When I'm not breaking prod, I'm{" "}
+                            <HoverTextAppear newText={"(how it will inevitably replace me)"}>
+                                learning about AI
+                            </HoverTextAppear>
+                            , practicing some calisthenics at the gym, crafting a new spotify playlist, or{" "}
+                            <HoverTextAppear newText={"(I make eggs)"}>
+                                creating a culinary masterpiece in the kitchen at 3am
+                            </HoverTextAppear>
+                            .
                         </Typography>
                     </Box>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>

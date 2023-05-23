@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "@mui/material/";
+import { Typography, useTheme } from "@mui/material/";
 import Box from "@mui/material/Box";
 
 export default function LoadingPage({ startFadeOut }) {
@@ -63,6 +63,9 @@ export default function LoadingPage({ startFadeOut }) {
                     },
                 }}
             ></Box>
+            <Typography component="h3" variant="h4" sx={{ mt: 5, opacity: startFadeOut ? 0 : 1 }}>
+                This might take a bit...
+            </Typography>
         </Box>
     );
 }

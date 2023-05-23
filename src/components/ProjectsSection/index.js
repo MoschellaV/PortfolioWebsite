@@ -15,15 +15,15 @@ const ProjectSection = () => {
     const projectsInfo = [
         {
             name: "Ring Clone",
-            technologies: "OpenCV/Flask/React",
-            chips: ["In Progress", "Computer vision", "Sneaky surveillance"],
+            technologies: "OpenCV/React/Node",
+            chips: ["Supports Multiple Cams", "Computer vision", "Video Streaming"],
             points: [
-                "Raspberry Pi, face detection using Python & OpenCV.",
-                "Node/Express server for data transmission.",
+                "Raspberry Pi, face recognition using Python & OpenCV.",
+                "Node/Express & WebSockets for data transmission.",
+                "Firebase for data management & user account integration.",
                 "Cross-platform mobile app with React Native.",
-                "MySQL for data management & user account integration.",
             ],
-            githubLink: null, // "https://github.com/MoschellaV/RingClone", // leave as null if there is not link
+            githubLink: "https://github.com/MoschellaV/RingClone", // leave as null if there is not link
             externalLink: null, // leave as null if there is not link
             model: <RingClone />,
         },
