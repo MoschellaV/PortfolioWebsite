@@ -35,7 +35,7 @@ I wanted my portfolio website to provide an interactive and immersive experience
 ### 🚀 Features
 
 - **Custom 3D models:** Users can interact with custom 3D models.
-- **Material UI:** Responsive design that works seamlessly across devices and screen sizes.
+- **Responsive:** Responsive design that works seamlessly across devices and screen sizes.
 - **Transitions:** Smooth transitions and animations to keep users engaged and encourage them to explore the entire site.
 - **Optimization:** Optimized loading times for speed and performance (considering the size of the 3D models it's optimized lol).
 - **Contact form:** Contact form is also provided if you want to get in touch with me.
