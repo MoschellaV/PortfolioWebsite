@@ -37,7 +37,7 @@ const ProjectSection = () => {
                 "Integrated & optimized models for user experience.",
                 "Used Figma for prototyping and design iteration.",
             ],
-            githubLink: null, // "https://github.com/MoschellaV/portfolio_website",
+            githubLink: "https://github.com/MoschellaV/PortfolioWebsite",
             externalLink: null,
             model: <PortfolioWebsite />,
         },
@@ -53,7 +53,7 @@ const ProjectSection = () => {
                 "Hosted on Heroku for easy deployment & scaling.",
             ],
             githubLink: "https://github.com/MoschellaV/CraftACardWebProject",
-            externalLink: "https://craftacard.herokuapp.com/",
+            externalLink: null,
             model: <CraftACard />,
         },
         {
