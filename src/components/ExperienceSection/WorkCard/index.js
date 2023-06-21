@@ -40,7 +40,7 @@ const WorkCard = ({ jobInfo }) => {
                             p: 5,
                         }}
                     >
-                        <Box sx={{ position: "relative", width: "50%", height: "100%" }}>
+                        <Box sx={{ position: "relative", width: "70%", height: "100%" }}>
                             <Link href={props.companyWebsite} target="_blank">
                                 <CustomToolTipl
                                     title={props.companyName}
@@ -110,7 +110,7 @@ const WorkCard = ({ jobInfo }) => {
                         }}
                     >
                         <Grid container spacing={0} sx={{ flexGrow: 1 }}>
-                            <Grid xs={9}>
+                            <Grid xs={8}>
                                 <Typography component="h4" variant="jobTitleText">
                                     <span style={{ color: theme.palette.orange.bright }}>
                                         {props.positionTitle.orangePortion}
@@ -125,8 +125,8 @@ const WorkCard = ({ jobInfo }) => {
                                     {props.technologies}
                                 </Typography>
                             </Grid>
-                            <Grid xs={3}>
-                                <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
+                            <Grid xs={4} sx={{ display: "flex", alignItems: "center" }}>
+                                <Box sx={{ position: "relative", width: "100%", height: "80%", ml: 1 }}>
                                     <Link href={props.companyWebsite} target="_blank">
                                         <CustomToolTipl
                                             title={props.companyName}

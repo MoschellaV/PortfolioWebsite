@@ -7,17 +7,17 @@ const ExperienceSection = () => {
 
     const jobInfo = [
         {
-            companyName: "KnockNow",
-            companyWebsite: "https://www.knocknow.ca/",
-            imageUrl: "/images/companyImages/KnockNowLogo.svg",
-            altText: "KnockNowLogo",
+            companyName: "realsaige.com",
+            companyWebsite: "https://www.realsaige.com/",
+            imageUrl: "/images/companyImages/SaigeLogo.svg",
+            altText: "SaigeLogo",
             positionTitle: {
                 orangePortion: "Full Stack",
                 blackPortion: "Software Developer",
             },
             technologies: "React, Flask, SQL, Scripting",
             descriptionText:
-                "I learned so much at KnockNow and took on a lot of responsibility. I led the redesign of the company's flagship app, working with the design team. I got to work closely with data scientists and integrated AI-driven research into multiple aspects of the app. Being proficient in both front-end and back-end technologies allowed me to substantially contribute to the start up's growth.",
+                "I learned so much at Saige and took on a lot of responsibility. I led the redesign of the company's flagship app, working with the design team. I got to work closely with data scientists and integrated AI-driven research into multiple aspects of the app. Being proficient in both front-end and back-end technologies allowed me to substantially contribute to the start up's growth.",
             jobDuration: "Jan 2023 - Present",
         },
     ];

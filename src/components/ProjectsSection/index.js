@@ -15,7 +15,7 @@ const ProjectSection = () => {
     const projectsInfo = [
         {
             name: "Ring Clone",
-            technologies: "OpenCV/React/Node",
+            technologies: "OpenCV/React/Firebase",
             chips: ["Supports Multiple Cams", "Computer vision", "Video Streaming"],
             points: [
                 "Raspberry Pi, face recognition using Python & OpenCV.",
