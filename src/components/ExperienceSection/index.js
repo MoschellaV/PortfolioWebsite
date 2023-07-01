@@ -15,7 +15,7 @@ const ExperienceSection = () => {
                 orangePortion: "Full Stack",
                 blackPortion: "Software Developer",
             },
-            technologies: "React, Flask, SQL, Scripting",
+            technologies: "React, Flask, SQL, AWS, Scripting",
             descriptionText:
                 "I learned so much at Saige and took on a lot of responsibility. I led the redesign of the company's flagship app, working with the design team. I got to work closely with data scientists and integrated AI-driven research into multiple aspects of the app. Being proficient in both front-end and back-end technologies allowed me to substantially contribute to the start up's growth.",
             jobDuration: "Jan 2023 - Present",
