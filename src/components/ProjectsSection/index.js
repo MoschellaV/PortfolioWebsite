@@ -52,7 +52,7 @@ const ProjectSection = () => {
                 "Backend powered by Node.js/Express for API integrations.",
                 "Hosted on Heroku for easy deployment & scaling.",
             ],
-            githubLink: "https://github.com/MoschellaV/CraftACardWebProject",
+            githubLink: "https://github.com/MoschellaV/CraftACard",
             externalLink: null,
             model: <CraftACard />,
         },
