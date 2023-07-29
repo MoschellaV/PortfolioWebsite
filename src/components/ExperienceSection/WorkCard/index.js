@@ -31,6 +31,7 @@ const WorkCard = ({ jobInfo }) => {
                     }}
                 >
                     <Grid
+                        item
                         xs={5}
                         sx={{
                             display: "flex",
@@ -48,12 +49,13 @@ const WorkCard = ({ jobInfo }) => {
                                     TransitionComponent={Fade}
                                     TransitionProps={{ timeout: 600 }}
                                 >
-                                    <Image src={props.imageUrl} alt={props.altText} fill />
+                                    <Image src={props.imageUrl} alt={props.altText} fill draggable={false} />
                                 </CustomToolTipl>
                             </Link>
                         </Box>
                     </Grid>
                     <Grid
+                        item
                         xs={7}
                         sx={{
                             display: "flex",
@@ -101,6 +103,7 @@ const WorkCard = ({ jobInfo }) => {
                     }}
                 >
                     <Grid
+                        item
                         xs={12}
                         md={7}
                         sx={{
@@ -110,7 +113,7 @@ const WorkCard = ({ jobInfo }) => {
                         }}
                     >
                         <Grid container spacing={0} sx={{ flexGrow: 1 }}>
-                            <Grid xs={8}>
+                            <Grid item xs={8}>
                                 <Typography component="h4" variant="jobTitleText">
                                     <span style={{ color: theme.palette.orange.bright }}>
                                         {props.positionTitle.orangePortion}
@@ -125,19 +128,21 @@ const WorkCard = ({ jobInfo }) => {
                                     {props.technologies}
                                 </Typography>
                             </Grid>
-                            <Grid xs={4} sx={{ display: "flex", alignItems: "center" }}>
-                                <Box sx={{ position: "relative", width: "100%", height: "80%", ml: 1 }}>
-                                    <Link href={props.companyWebsite} target="_blank">
-                                        <CustomToolTipl
-                                            title={props.companyName}
-                                            placement="top"
-                                            TransitionComponent={Fade}
-                                            TransitionProps={{ timeout: 600 }}
-                                        >
-                                            <Image src={props.imageUrl} alt={props.altText} fill />
-                                        </CustomToolTipl>
-                                    </Link>
-                                </Box>
+                            <Grid item xs={4} sx={{ display: "flex", alignItems: "center" }}>
+                                <Link
+                                    href={props.companyWebsite}
+                                    target="_blank"
+                                    sx={{ position: "relative", width: "100%", height: "80%", ml: 1 }}
+                                >
+                                    <CustomToolTipl
+                                        title={props.companyName}
+                                        placement="top"
+                                        TransitionComponent={Fade}
+                                        TransitionProps={{ timeout: 600 }}
+                                    >
+                                        <Image src={props.imageUrl} alt={props.altText} fill draggable={false} />
+                                    </CustomToolTipl>
+                                </Link>
                             </Grid>
                         </Grid>
                         <Typography component="p" variant="p" sx={{ mr: { xs: 0, md: 4 }, mt: 3 }}>

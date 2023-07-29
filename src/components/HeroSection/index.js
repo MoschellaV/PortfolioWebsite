@@ -96,14 +96,14 @@ const HeroSection = ({ setSceneLoaded }) => {
                         sx={{
                             mt: { xs: 0, md: 3 },
                             color: { xs: theme.palette.secondary.main, md: "transparent" },
-                            "-webkit-text-stroke-width": { xs: "0", md: "3px" },
+                            WebkitTextStrokeWidth: { xs: "0", md: "3px" },
                         }}
                     >
                         Vince <br />
                         <Box
                             component="span"
                             sx={{
-                                "-webkit-text-stroke-color": theme.palette.orange.bright,
+                                WebkitTextStrokeColor: theme.palette.orange.bright,
                                 color: { xs: theme.palette.orange.bright, md: "transparent" },
                             }}
                         >

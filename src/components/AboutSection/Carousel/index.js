@@ -79,7 +79,13 @@ const Carousel = () => {
                         </IconButton>
                     </Box>
                 </Box>
-                <Image src={pics[picIndex].url} alt={pics[picIndex].altText} fill style={{ zIndex: 1 }} />
+                <Image
+                    src={pics[picIndex].url}
+                    alt={pics[picIndex].altText}
+                    fill
+                    style={{ zIndex: 1 }}
+                    draggable={false}
+                />
             </Box>
         </>
     );

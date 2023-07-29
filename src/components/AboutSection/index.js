@@ -43,7 +43,7 @@ const AboutSection = () => {
                         }}
                     >
                         <Typography component="h3" variant="h3" sx={{ mb: 2, mr: -500 }}>
-                            <span style={{ "-webkit-text-stroke-color": theme.palette.orange.bright }}>About </span>
+                            <span style={{ WebkitTextStrokeColor: theme.palette.orange.bright }}>About </span>
                             About About About About About <br />
                             About About About About About About
                         </Typography>
@@ -68,7 +68,13 @@ const AboutSection = () => {
                                 target="_blank"
                                 sx={{ "&:hover": { opacity: 0.7 } }}
                             >
-                                <Image src="/images/soc-gh.svg" alt="Link to my Github" width={80} height={80} />
+                                <Image
+                                    src="/images/soc-gh.svg"
+                                    alt="Link to my Github"
+                                    width={80}
+                                    height={80}
+                                    draggable={false}
+                                />
                             </Link>
                         </Box>
                         <Box sx={{ ml: 4 }}>
@@ -77,7 +83,13 @@ const AboutSection = () => {
                                 target="_blank"
                                 sx={{ "&:hover": { opacity: 0.7 } }}
                             >
-                                <Image src="/images/soc-li.svg" alt="Link to my LinkedIn" width={80} height={80} />
+                                <Image
+                                    src="/images/soc-li.svg"
+                                    alt="Link to my LinkedIn"
+                                    width={80}
+                                    height={80}
+                                    draggable={false}
+                                />
                             </Link>
                         </Box>
                     </Box>

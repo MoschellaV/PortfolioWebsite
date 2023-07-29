@@ -4,48 +4,48 @@ import { Typography, Box, Button, Link, Hidden, Drawer, List, ListItem, useTheme
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-const NavContactButton = ({ children, ...props }) => {
+const NavContactButton = ({ children, darkNav, onClick }) => {
     const theme = useTheme();
 
     return (
         <Button
             variant="contained"
             sx={{
-                backgroundColor: !props.darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
-                color: props.darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+                backgroundColor: !darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+                color: darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
                 "&:hover": {
-                    backgroundColor: props.darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
-                    color: !props.darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+                    backgroundColor: darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
+                    color: !darkNav ? theme.palette.primary.main : theme.palette.secondary.main,
                 },
                 borderRadius: "0",
                 margin: "0 0 0 2.5vw",
                 padding: "1rem",
                 textTransform: "none",
             }}
-            {...props}
+            onClick={onClick}
         >
             {children}
         </Button>
     );
 };
 
-const NavLink = ({ children, ...props }) => {
+const NavLink = ({ children, isButtonText, variant, component, onClick, darkNav }) => {
     const theme = useTheme();
 
     return (
         <Link
-            variant="h6"
-            component="a"
+            variant={variant}
+            component={component}
             sx={{
-                color: props.darkNav ? theme.palette.black.main : theme.palette.secondary.main,
+                color: isButtonText ? "inherit" : darkNav ? theme.palette.black.main : theme.palette.secondary.main,
                 textDecoration: "none",
-                margin: "0 2.5vw",
+                margin: isButtonText ? 0 : "0 2.5vw",
                 "&:hover": {
                     cursor: "pointer",
-                    opacity: 0.7,
+                    opacity: !isButtonText && 0.7,
                 },
             }}
-            {...props}
+            onClick={onClick}
         >
             {children}
         </Link>
@@ -76,20 +76,13 @@ const DrawerOptions = ({ navItems, setDrawerOpen, darkNav, smoothScrollTo }) => 
                     <NavContactButton
                         darkNav={!darkNav}
                         onClick={() => {
-                            smoothScrollTo("contact");
                             setDrawerOpen(false);
+                            setTimeout(() => {
+                                smoothScrollTo("contact");
+                            }, 50);
                         }}
                     >
-                        <NavLink
-                            component="p"
-                            darkNav={!darkNav}
-                            variant="h6"
-                            sx={{
-                                margin: "normal",
-                                textDecoration: "none",
-                                color: "inherit",
-                            }}
-                        >
+                        <NavLink isButtonText={true} component="p" variant="h6">
                             Reach out
                         </NavLink>
                     </NavContactButton>
@@ -186,15 +179,7 @@ const Navbar = () => {
                             );
                         })}
                         <NavContactButton darkNav={!darkNav} onClick={() => smoothScrollTo("contact")}>
-                            <NavLink
-                                component="p"
-                                variant="h6"
-                                sx={{
-                                    margin: "normal",
-                                    textDecoration: "none",
-                                    color: "inherit",
-                                }}
-                            >
+                            <NavLink isButtonText={true} component="p" variant="h6">
                                 Reach out
                             </NavLink>
                         </NavContactButton>
@@ -224,7 +209,7 @@ const Navbar = () => {
                             sx: {
                                 backgroundColor: darkNav ? theme.palette.secondary.main : theme.palette.black.main,
                             },
-                        }} // Set the background color here
+                        }} // set the background color here
                     >
                         <IconButton
                             onClick={handleDrawerToggle}

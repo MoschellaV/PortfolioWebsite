@@ -20,7 +20,7 @@ const DisplayAboutImage = () => {
                 ml: { xs: 5, md: 0 },
             }}
         >
-            <Image src={pic.url} alt={pic.altText} fill style={{ zIndex: 1 }} />
+            <Image src={pic.url} alt={pic.altText} fill style={{ zIndex: 1 }} draggable={false} />
         </Box>
     );
 };

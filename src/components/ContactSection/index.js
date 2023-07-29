@@ -109,7 +109,7 @@ const ContactSection = () => {
                     component="h3"
                     variant="h2"
                     sx={{
-                        "-webkit-text-stroke-color": theme.palette.primary.main,
+                        WebkitTextStrokeColor: theme.palette.primary.main,
                         textAlign: "center",
                         lineHeight: 1,
                         fontSize: { xs: 75, md: 100 },

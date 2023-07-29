@@ -15,7 +15,7 @@ const ExperienceSection = () => {
                 orangePortion: "Full Stack",
                 blackPortion: "Software Developer",
             },
-            technologies: "React, Flask, SQL, AWS, Scripting",
+            technologies: "React, Next, Flask, SQL, AWS, Firebase",
             descriptionText:
                 "I learned so much at Saige and took on a lot of responsibility. I led the redesign of the company's flagship app, working with the design team. I got to work closely with data scientists and integrated AI-driven research into multiple aspects of the app. Being proficient in both front-end and back-end technologies allowed me to substantially contribute to the start up's growth.",
             jobDuration: "Jan 2023 - Present",
@@ -40,7 +40,7 @@ const ExperienceSection = () => {
                     sx={{
                         ml: -20,
                         mr: -500,
-                        "-webkit-text-stroke-color": theme.palette.secondary.main,
+                        WebkitTextStrokeColor: theme.palette.secondary.main,
                         opacity: 0.1,
                     }}
                 >
@@ -57,7 +57,7 @@ const ExperienceSection = () => {
                         top: "50%",
                         left: { xs: "51%", sm: "50%" },
                         transform: "translate(-50%, -50%)",
-                        "-webkit-text-stroke-width": { xs: "1.5px", md: "3px" },
+                        WebkitTextStrokeWidth: { xs: "1.5px", md: "3px" },
                         fontSize: { xs: "clamp(1rem, 9vw, 10rem)", sm: 65, md: 100 },
                     }}
                 >
@@ -76,7 +76,7 @@ const ExperienceSection = () => {
                         opacity: 0.2,
                         color: theme.palette.primary.main,
                         fontWeight: 400,
-                        "-webkit-text-stroke-width": 0,
+                        WebkitTextStrokeWidth: 0,
                         textAlign: "center",
                     }}
                 >

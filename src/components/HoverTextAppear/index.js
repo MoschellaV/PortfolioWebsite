@@ -4,18 +4,22 @@ import { useTheme } from "@mui/material";
 const HoverTextAppear = ({ children, newText }) => {
     const theme = useTheme();
 
-    const [isHovered, setIsHovered] = useState(false);
+    const [showHiddenText, setShowHiddenText] = useState(false);
 
-    const handleMouseEnter = () => {
-        setIsHovered(true);
+    const showHiddenTextHandler = () => {
+        setShowHiddenText(true);
     };
 
-    const handleMouseLeave = () => {
-        setIsHovered(false);
+    const hideHiddenTextHandler = () => {
+        setShowHiddenText(false);
+    };
+
+    const clickForHiddenTextHandler = () => {
+        setShowHiddenText(!showHiddenText);
     };
 
     const renderAdditionalText = () => {
-        if (isHovered) {
+        if (showHiddenText) {
             return <span> {newText}</span>;
         }
         return null;
@@ -24,8 +28,9 @@ const HoverTextAppear = ({ children, newText }) => {
     return (
         <>
             <span
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onMouseEnter={showHiddenTextHandler}
+                onClick={clickForHiddenTextHandler}
+                // onMouseLeave={hideHiddenTextHandler}
                 style={{
                     textDecoration: "underline",
                     cursor: "pointer",

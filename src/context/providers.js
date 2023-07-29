@@ -91,8 +91,8 @@ export const theme = createTheme({
             fontWeight: 800,
             letterSpacing: "0.4rem",
             color: "transparent",
-            "-webkit-text-stroke-width": "3px",
-            "-webkit-text-stroke-color": "#F6F6F6",
+            WebkitTextStrokeWidth: "3px",
+            WebkitTextStrokeColor: "#F6F6F6",
         },
         h2: {
             fontSize: 100,
@@ -100,8 +100,8 @@ export const theme = createTheme({
             lineHeight: 1.5,
             letterSpacing: "0.6rem",
             color: "transparent",
-            "-webkit-text-stroke-width": "3px",
-            "-webkit-text-stroke-color": "#fff",
+            WebkitTextStrokeWidth: "3px",
+            WebkitTextStrokeColor: "#fff",
         },
         h3: {
             fontSize: 40,
@@ -109,8 +109,8 @@ export const theme = createTheme({
             lineHeight: 1.5,
             letterSpacing: "0.3rem",
             color: "transparent",
-            "-webkit-text-stroke-width": "2px",
-            "-webkit-text-stroke-color": "#171717",
+            WebkitTextStrokeWidth: "2px",
+            WebkitTextStrokeColor: "#171717",
         },
         h4: {
             fontSize: 22,

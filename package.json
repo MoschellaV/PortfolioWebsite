@@ -14,6 +14,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.1",
     "@splinetool/react-spline": "^2.2.6",
+    "@splinetool/runtime": "^0.9.405",
     "@vercel/analytics": "^1.0.0",
     "axios": "^1.4.0",
     "eslint": "8.39.0",
