@@ -30,7 +30,10 @@ const useUserDataHook = () => {
 
         setUserDeviceData(deviceData);
 
-        fetchUserData();
+        // don't send email on dev
+        if (!window.location.href.includes("localhost:3000")) {
+            fetchUserData();
+        }
     }, []);
 
     return { userData, userDeviceData };

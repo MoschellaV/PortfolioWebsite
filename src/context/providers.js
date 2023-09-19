@@ -123,12 +123,19 @@ export const theme = createTheme({
             fontSize: "clamp(0.9rem, 1.15vw, 1.4rem)",
             lineHeight: 2,
         },
-        jobTitleText: {
+        companyNameText: {
             fontSize: 35,
             fontWeight: 400,
             color: "#171717",
         },
         jobSubTitleText: {
+            fontFamily: "Roboto, sans-serif",
+            fontSize: 26,
+            fontWeight: 800,
+            color: "#171717",
+        },
+        jobDescriptionText: {
+            fontFamily: "Roboto, sans-serif",
             fontSize: 20,
             fontWeight: 400,
             color: "#171717",
