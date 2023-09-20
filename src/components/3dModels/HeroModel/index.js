@@ -34,9 +34,10 @@ const HeroModel = ({ setSceneLoaded }) => {
         checkHeroLoaded();
 
         // fallback timeout to set sceneLoaded to true after X seconds
+        // used to wait for main scene to load since there is no onLoad callback
         fallbackTimeout = setTimeout(() => {
             setSceneLoaded(true);
-        }, 20000);
+        }, 15000);
 
         return () => {
             clearTimeout(heroLoadedTimeout);
