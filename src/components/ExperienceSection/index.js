@@ -9,20 +9,20 @@ const ExperienceSection = () => {
 
     const jobInfo = [
         {
-            company: "Google",
+            company: "Google Developer Student Clubs",
             companyName: "gdscguelph.com",
             companyWebsite: "https://www.gdscguelph.com/",
             imageUrl: "/images/companyImages/GDSCLogo.png",
             altText: "Google Logo",
             positionTitle: (
                 <>
-                    Developer Student Club <span style={{ color: theme.palette.orange.bright }}>Lead</span>
+                    <span style={{ color: theme.palette.orange.bright }}>Lead / President</span>
                 </>
             ),
 
             technologies: "Leadership, Team Management, Event Planning, Web/Mobile Development",
             descriptionText:
-                "I currently Lead the Google Developer Student Club at the University of Guelph! The club focuses on connecting like-minded developers and giving students the resources to help them grow their careers. The club has hosted events, workshops, and hackathons aimed at teaching students and giving them the tools to create positive social impact.",
+                "I currently lead the Google Developer Student Club at the University of Guelph! The club focuses on connecting like-minded developers and giving students the resources to help them grow their careers. The club has hosted events, workshops, and hackathons aimed at teaching students and giving them the tools to create positive social impact.",
             jobDuration: "Aug 2023 - Present",
             location: "Guelph, ON",
             isFlipped: false,
