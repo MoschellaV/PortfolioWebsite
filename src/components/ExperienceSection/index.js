@@ -10,8 +10,8 @@ const ExperienceSection = () => {
     const jobInfo = [
         {
             company: "Google",
-            companyName: "developers.google.com",
-            companyWebsite: "https://developers.google.com/community/gdsc",
+            companyName: "gdscguelph.com",
+            companyWebsite: "https://www.gdscguelph.com/",
             imageUrl: "/images/companyImages/GDSCLogo.png",
             altText: "Google Logo",
             positionTitle: (
@@ -20,7 +20,7 @@ const ExperienceSection = () => {
                 </>
             ),
 
-            technologies: "Web & Mobile Technologies - React, Flutter, GCP, Firebase",
+            technologies: "Leadership, Team Management, Event Planning, Web/Mobile Development",
             descriptionText:
                 "I currently Lead the Google Developer Student Club at the University of Guelph! The club focuses on connecting like-minded developers and giving students the resources to help them grow their careers. The club has hosted events, workshops, and hackathons aimed at teaching students and giving them the tools to create positive social impact.",
             jobDuration: "Aug 2023 - Present",
@@ -38,11 +38,11 @@ const ExperienceSection = () => {
                     <span style={{ color: theme.palette.orange.bright }}>Full Stack</span> Software Developer
                 </>
             ),
-            technologies: "React, Next, Flask, SQL, AWS, Firebase",
+            technologies: "React, Next.js, Python, Flask, SQL, AWS, Firebase, Twilio",
             descriptionText:
-                "I learned so much during my time at Saige! From managing a team of interns to lead the redesign of the company's flagship app, to building a multi-channel notification system and deploying it to production. I really enjoyed working within the start-up's small team as it allowed me to witness firsthand how my contributions had a meaningful impact. I saw how our collaborative efforts translated into tangible improvements for the company and its users.",
+                "I learned so much during my time at Saige! I managed a team of interns, led the redesign of the company's flagship app, and developed and deployed a multi-channel notification system to production. I really enjoyed working within the start-up's small team as it allowed me to witness firsthand how my contributions had a meaningful impact. I saw how our collaborative efforts translate into tangible improvements for the company and its users.",
             jobDuration: "Jan 2023 - Aug 2023",
-            location: "Vancouver, BC",
+            location: "Vancouver, BC • Remote",
             isFlipped: true,
         },
         {
@@ -53,7 +53,8 @@ const ExperienceSection = () => {
             altText: "University of Ottawa Logo",
             positionTitle: (
                 <>
-                    <span style={{ color: theme.palette.orange.bright }}>Data Engineer</span> Undergraduate Researcher
+                    Undergraduate <span style={{ color: theme.palette.orange.bright }}> Research Analyst</span> &mdash;
+                    Clinical COVID-19 Study
                 </>
             ),
             technologies: "Python, R, SPSS, Excel",
