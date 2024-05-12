@@ -9,6 +9,25 @@ const ExperienceSection = () => {
 
     const jobInfo = [
         {
+            company: "Ansys",
+            companyName: "ansys.com/fluent",
+            companyWebsite: "https://www.ansys.com/products/fluids/ansys-fluent",
+            imageUrl: "/images/companyImages/Ansys.png",
+            altText: "Ansys Logo",
+            positionTitle: (
+                <>
+                    <span style={{ color: theme.palette.orange.bright }}>Software Engineer Intern</span>
+                </>
+            ),
+
+            technologies: "React, Redux, Azure DevOps",
+            descriptionText:
+                "Working on the Fluent CFD simulations team to develop a web-based application to allow users to leverage the power of Fluent from any device.",
+            jobDuration: "May 2024 - Present",
+            location: "Waterloo, ON",
+            isFlipped: false,
+        },
+        {
             company: "Google Developer Student Clubs",
             companyName: "gdscguelph.com",
             companyWebsite: "https://www.gdscguelph.com/",
@@ -22,10 +41,10 @@ const ExperienceSection = () => {
 
             technologies: "Leadership, Team Management, Event Planning, Web/Mobile Development",
             descriptionText:
-                "I currently lead the Google Developer Student Club at the University of Guelph! The club focuses on connecting like-minded developers and giving students the resources to help them grow their careers. The club has hosted events, workshops, and hackathons aimed at teaching students and giving them the tools to create positive social impact.",
+                "I was the lead for the Google Developer Student Club at the University of Guelph during the academic 2023/2024 year! I directed multiple teams, planned workshops, ran a hackathon, and it was all great but what I loved most was being able to build a community of over 250 developers and students. It's awesome seeing people learn and make memories!",
             jobDuration: "Aug 2023 - Present",
             location: "Guelph, ON",
-            isFlipped: false,
+            isFlipped: true,
         },
         {
             company: "Saige",
@@ -35,7 +54,7 @@ const ExperienceSection = () => {
             altText: "Saige Logo",
             positionTitle: (
                 <>
-                    <span style={{ color: theme.palette.orange.bright }}>Full Stack</span> Software Developer
+                    <span style={{ color: theme.palette.orange.bright }}>Software Engineer Intern</span>
                 </>
             ),
             technologies: "React, Next.js, Python, Flask, SQL, AWS, Firebase, Twilio",
@@ -43,7 +62,7 @@ const ExperienceSection = () => {
                 "I learned so much during my time at Saige! I managed a team of interns, led the redesign of the company's flagship app, and developed and deployed a multi-channel notification system to production. I really enjoyed working within the start-up's small team as it allowed me to witness firsthand how my contributions had a meaningful impact. I saw how our collaborative efforts translate into tangible improvements for the company and its users.",
             jobDuration: "Jan 2023 - Aug 2023",
             location: "Vancouver, BC • Remote",
-            isFlipped: true,
+            isFlipped: false,
         },
         {
             company: "University of Ottawa",
@@ -62,7 +81,7 @@ const ExperienceSection = () => {
                 "I had the exciting opportunity to collaborate with researchers and provide statistical analysis insights for a clinical COVID-19 study. I got to dive headfirst into the world of data engineering and gained valuable experience preparing datasets and conducting statistical tests with empirical data.",
             jobDuration: "June 2023 - July 2023",
             location: "Toronto, ON",
-            isFlipped: false,
+            isFlipped: true,
         },
     ];
 

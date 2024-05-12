@@ -92,7 +92,7 @@ const ProjectSection = () => {
         },
         {
             name: "Kuiper Space",
-            technologies: "Unity",
+            technologies: "Unity/C#",
             chips: ["2D Game", "Dynamic Mechanics", "Enemy Algorithm", "High School Project"],
             points: [
                 "2D space shooter, destroy asteroids to gain score",
