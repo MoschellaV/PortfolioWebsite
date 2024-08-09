@@ -42,7 +42,7 @@ const NavLink = ({ children, isButtonText, variant, component, onClick, darkNav 
                 margin: isButtonText ? 0 : "0 2.5vw",
                 "&:hover": {
                     cursor: "pointer",
-                    opacity: !isButtonText && 0.7,
+                    opacity: !isButtonText && 0.6,
                 },
             }}
             onClick={onClick}
@@ -146,12 +146,22 @@ const Navbar = () => {
     };
 
     return (
-        <Box component="nav" sx={{ position: "fixed", top: "0", width: "100%", zIndex: 100 }}>
+        <Box
+            component="nav"
+            sx={{
+                position: "fixed",
+                top: "0",
+                width: "100%",
+                zIndex: 100,
+            }}
+            className={darkNav ? "glass-bg" : ""}
+        >
             <Box
                 sx={{
                     display: "flex",
+                    alignItems: "center",
                     justifyContent: "space-between",
-                    margin: { xs: "2rem 0 2rem 1.25rem", md: "2rem 0 2rem 3rem" },
+                    margin: { xs: "0.5rem 0 0.5rem 1.25rem", md: "1rem 0 1rem 3rem" },
                 }}
             >
                 <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
@@ -165,7 +175,7 @@ const Navbar = () => {
                     </Typography>
                 </Box>
                 <Hidden mdDown>
-                    <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
                         {navItems.map(({ label, location }) => {
                             return (
                                 <NavLink
