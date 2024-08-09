@@ -189,6 +189,7 @@ const WorkCard2 = ({ jobInfo }) => {
                                 alt=" "
                                 fill
                                 draggable={false}
+                                style={{ userSelect: "none" }}
                             />
                         </Box>
                     </Grid>
