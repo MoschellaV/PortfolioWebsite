@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Typography, Chip, IconButton, useTheme } from "@mui/material";
+import { Box, Typography, Chip, IconButton, useTheme, useMediaQuery } from "@mui/material";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
@@ -11,6 +11,7 @@ import devpostIcon from "@/assets/icons/devpost-icon.png";
 const Project = ({ projectData, projectIndex }) => {
     const theme = useTheme();
     const [isHovered, setIsHovered] = useState(false);
+    const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down("sm"));
 
     const mapChips = projectData.chips.map((chipContent, index) => {
         return (
@@ -20,7 +21,7 @@ const Project = ({ projectData, projectIndex }) => {
                 sx={{
                     mr: 1,
                     mb: 1,
-                    fontSize: 11,
+                    fontSize: { xs: 9, sm: 11 },
                     p: 0.5,
                 }}
                 variant="outlined"
@@ -40,17 +41,14 @@ const Project = ({ projectData, projectIndex }) => {
                         mr: 1,
                         mb: 0.4,
                         opacity: 0.7,
-                        fontSize: 16,
+                        fontSize: { xs: 14, sm: 16 },
                     }}
                 />
                 <Typography
                     component="p"
                     variant="projectPoints"
                     sx={{
-                        fontSize: 12,
-                        // "@media (min-width: 1200px) and (max-width: 1600px)": {
-                        //     fontSize: "clamp(0.5rem, 1vw, 1.6rem)",
-                        // },
+                        fontSize: { xs: 10, sm: 12 },
                     }}
                 >
                     {textContent}
@@ -97,7 +95,8 @@ const Project = ({ projectData, projectIndex }) => {
                             position: "absolute",
                             bottom: 0,
                             width: "100%",
-                            height: 280,
+                            height: { xs: 330, sm: 280 },
+                            overflow: "hidden",
                             backgroundColor: "blue",
                             background: `linear-gradient(transparent, transparent 50%, ${theme.palette.primary.main} 50%, ${theme.palette.primary.main})`,
                             backgroundSize: "100% 200%",
@@ -130,7 +129,16 @@ const Project = ({ projectData, projectIndex }) => {
                             </IconButton>
                             <Box>
                                 <Box sx={{ pr: 1 }}>{mapChips}</Box>
-                                <Box sx={{ display: "flex", flexDirection: "column", pt: 0.3, pb: 1 }}>{mapPoints}</Box>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        pt: 0.3,
+                                        pb: 1,
+                                    }}
+                                >
+                                    {mapPoints}
+                                </Box>
                             </Box>
                             <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                                 {projectData.githubLink && (
@@ -141,7 +149,7 @@ const Project = ({ projectData, projectIndex }) => {
                                         color="secondary"
                                         sx={{ mr: 1, mb: 1 }}
                                     >
-                                        <GitHubIcon fontSize="large" />
+                                        <GitHubIcon sx={{ fontSize: { xs: 25, sm: 35 } }} />
                                     </IconButton>
                                 )}
                                 {projectData.devpostLink && (
@@ -152,7 +160,12 @@ const Project = ({ projectData, projectIndex }) => {
                                         color="secondary"
                                         sx={{ mr: 1, mb: 1 }}
                                     >
-                                        <Image src={devpostIcon} alt="devpost icon" width={35} height={35} />
+                                        <Image
+                                            src={devpostIcon}
+                                            alt="devpost icon"
+                                            width={isSmallBreakpoint ? 25 : 35}
+                                            height={isSmallBreakpoint ? 25 : 35}
+                                        />
                                     </IconButton>
                                 )}
                                 {projectData.externalLink && (
@@ -163,7 +176,7 @@ const Project = ({ projectData, projectIndex }) => {
                                         color="secondary"
                                         sx={{ mr: 1, mb: 1 }}
                                     >
-                                        <OpenInNewIcon fontSize="large" />
+                                        <OpenInNewIcon sx={{ fontSize: { xs: 25, sm: 35 } }} />
                                     </IconButton>
                                 )}
                             </Box>
@@ -201,7 +214,18 @@ const Project = ({ projectData, projectIndex }) => {
                     <Typography variant="projectTitle" component="h4" sx={{ color: "inherit", fontSize: 20 }}>
                         {projectData.name}
                     </Typography>
-                    <Typography variant="projectTechnology" component="p" sx={{ fontSize: 14 }}>
+
+                    <Typography
+                        variant="projectTechnology"
+                        component="p"
+                        sx={{
+                            fontSize: 14,
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            maxWidth: "50%",
+                        }}
+                    >
                         {projectData.technologies}
                     </Typography>
                 </Box>
