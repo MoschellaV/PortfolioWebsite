@@ -1,9 +1,10 @@
 import React from "react";
-import { Typography, useTheme } from "@mui/material/";
+import { Stack, Typography, useMediaQuery, useTheme } from "@mui/material/";
 import Box from "@mui/material/Box";
 
 export default function LoadingPage({ startFadeOut }) {
     const theme = useTheme();
+    const isMobile = useMediaQuery(`(max-width: 768px)`);
 
     return (
         <Box
@@ -63,9 +64,25 @@ export default function LoadingPage({ startFadeOut }) {
                     },
                 }}
             ></Box>
-            <Typography component="h3" variant="h4" sx={{ mt: 5, opacity: startFadeOut ? 0 : 1 }}>
-                This might take a bit...
-            </Typography>
+            <Stack spacing={2} sx={{ mt: 5, opacity: startFadeOut ? 0 : 1, textAlign: "center" }}>
+                <Typography component="h3" variant="h4" sx={{ fontSize: 18 }}>
+                    {`This might take a bit (loading asset)...`}
+                </Typography>
+                {isMobile && (
+                    <Typography
+                        component="p"
+                        variant="body1"
+                        sx={{ color: "#F6F6F6", fontStyle: "italic", fontSize: 12, opacity: 0.7 }}
+                    >
+                        best viewed on larger screens
+                    </Typography>
+                )}
+
+                <Typography component="p" variant="body1" sx={{ color: "#F6F6F6", fontSize: 12, opacity: 0.7, pt: 4 }}>
+                    {`it'll `}
+                    <span style={{ fontStyle: "italic" }}>hopefully</span> {` be worth it though`}
+                </Typography>
+            </Stack>
         </Box>
     );
 }
