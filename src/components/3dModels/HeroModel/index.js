@@ -13,37 +13,21 @@ const HeroModel = ({ setSceneLoaded }) => {
     const splineViewerHeroRef = useRef(null);
 
     useEffect(() => {
-        let heroLoadedTimeout;
-        let fallbackTimeout;
-
-        const checkHeroLoaded = () => {
-            if (splineViewerHeroRef.current && splineViewerHeroRef.current.shadowRoot) {
-                const element = splineViewerHeroRef.current.shadowRoot.getElementById("spline");
-
-                if (element) {
-                    const hasWidthAttribute = element.hasAttribute("width");
-
-                    if (!hasWidthAttribute) heroLoadedTimeout = setTimeout(checkHeroLoaded, 1000);
-                    else setSceneLoaded(true);
-                } else {
-                    heroLoadedTimeout = setTimeout(checkHeroLoaded, 1000);
-                }
-            }
+        const handleLoadComplete = () => {
+            setSceneLoaded(true);
         };
 
-        checkHeroLoaded();
-
-        // fallback timeout to set sceneLoaded to true after X seconds
-        // used to wait for main scene to load since there is no onLoad callback
-        fallbackTimeout = setTimeout(() => {
-            setSceneLoaded(true);
-        }, 20000);
+        const splineViewerElement = splineViewerHeroRef.current;
+        if (splineViewerElement) {
+            splineViewerElement.addEventListener("load-complete", handleLoadComplete);
+        }
 
         return () => {
-            clearTimeout(heroLoadedTimeout);
-            clearTimeout(fallbackTimeout);
+            if (splineViewerElement) {
+                splineViewerElement.removeEventListener("load-complete", handleLoadComplete);
+            }
         };
-    }, [setSceneLoaded]);
+    }, []);
 
     return (
         <>
