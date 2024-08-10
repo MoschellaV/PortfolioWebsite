@@ -223,7 +223,7 @@ const Project = ({ projectData, projectIndex }) => {
                             textOverflow: "ellipsis",
                             whiteSpace: "nowrap",
                             overflow: "hidden",
-                            maxWidth: "50%",
+                            maxWidth: "70%",
                         }}
                     >
                         {projectData.technologies}
