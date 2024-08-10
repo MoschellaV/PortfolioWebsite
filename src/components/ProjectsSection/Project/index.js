@@ -5,6 +5,8 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Image from "next/image";
+import devpostIcon from "@/assets/icons/devpost-icon.png";
 
 const Project = ({ projectData, projectIndex }) => {
     const theme = useTheme();
@@ -18,20 +20,12 @@ const Project = ({ projectData, projectIndex }) => {
                 sx={{
                     mr: 1,
                     mb: 1,
-                    fontSize: {
-                        xs: "0.7rem",
-                        sm: "0.85rem",
-                        md: "1rem",
-                    },
-                    p: {
-                        xs: 0.2,
-                        sm: 0.75,
-                        md: 1,
-                    },
-                    pt: { sm: 0.8, md: 1.2 },
+                    fontSize: 11,
+                    p: 0.5,
                 }}
                 variant="outlined"
                 color="secondary"
+                size="small"
             />
         );
     });
@@ -46,20 +40,17 @@ const Project = ({ projectData, projectIndex }) => {
                         mr: 1,
                         mb: 0.4,
                         opacity: 0.7,
-                        fontSize: {
-                            xs: "1rem",
-                            md: "1.1rem",
-                        },
+                        fontSize: 16,
                     }}
                 />
                 <Typography
                     component="p"
                     variant="projectPoints"
                     sx={{
-                        fontSize: { xs: 12, sm: 15, md: 16, lg: 17 },
-                        "@media (min-width: 1200px) and (max-width: 1600px)": {
-                            fontSize: "clamp(0.5rem, 1vw, 1.6rem)",
-                        },
+                        fontSize: 12,
+                        // "@media (min-width: 1200px) and (max-width: 1600px)": {
+                        //     fontSize: "clamp(0.5rem, 1vw, 1.6rem)",
+                        // },
                     }}
                 >
                     {textContent}
@@ -95,7 +86,7 @@ const Project = ({ projectData, projectIndex }) => {
             >
                 <Box
                     sx={{
-                        height: { xs: "55vh", sm: "90vh" },
+                        height: 500,
                         position: "relative",
                         border: `4px solid ${theme.palette.primary.main}`,
                     }}
@@ -106,7 +97,7 @@ const Project = ({ projectData, projectIndex }) => {
                             position: "absolute",
                             bottom: 0,
                             width: "100%",
-                            height: { xs: "50vh", sm: "37vh" },
+                            height: 280,
                             backgroundColor: "blue",
                             background: `linear-gradient(transparent, transparent 50%, ${theme.palette.primary.main} 50%, ${theme.palette.primary.main})`,
                             backgroundSize: "100% 200%",
@@ -118,25 +109,30 @@ const Project = ({ projectData, projectIndex }) => {
                     >
                         <Box
                             sx={{
-                                p: 3,
-                                pl: 0,
-                                pr: 0,
+                                pt: 3,
                                 transition: "opacity 0.35s ease-in-out",
                                 opacity: isHovered ? 1 : 0,
                                 transitionDelay: isHovered ? "0.1s" : "0s",
+                                height: "100%",
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "space-between",
                             }}
                         >
                             <IconButton
-                                size="small"
+                                // size="small"
                                 aria-label="ExpandLess"
                                 color="secondary"
-                                sx={{ position: "absolute", top: 10, right: 10 }}
+                                sx={{ position: "absolute", top: 10, right: 10, p: 0.2 }}
                                 onClick={() => setIsHovered(false)}
                             >
                                 <ExpandMoreIcon fontSize="large" />
                             </IconButton>
-                            <Box sx={{}}>
-                                {mapChips}
+                            <Box>
+                                <Box sx={{ pr: 1 }}>{mapChips}</Box>
+                                <Box sx={{ display: "flex", flexDirection: "column", pt: 0.3, pb: 1 }}>{mapPoints}</Box>
+                            </Box>
+                            <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                                 {projectData.githubLink && (
                                     <IconButton
                                         href={projectData.githubLink}
@@ -146,6 +142,17 @@ const Project = ({ projectData, projectIndex }) => {
                                         sx={{ mr: 1, mb: 1 }}
                                     >
                                         <GitHubIcon fontSize="large" />
+                                    </IconButton>
+                                )}
+                                {projectData.devpostLink && (
+                                    <IconButton
+                                        href={projectData.devpostLink}
+                                        target="_blank"
+                                        aria-label={`Go to ${projectData.devpostLink}`}
+                                        color="secondary"
+                                        sx={{ mr: 1, mb: 1 }}
+                                    >
+                                        <Image src={devpostIcon} alt="devpost icon" width={35} height={35} />
                                     </IconButton>
                                 )}
                                 {projectData.externalLink && (
@@ -160,7 +167,6 @@ const Project = ({ projectData, projectIndex }) => {
                                     </IconButton>
                                 )}
                             </Box>
-                            <Box sx={{ display: "flex", flexDirection: "column", pt: 0.3, pb: 1 }}>{mapPoints}</Box>
                         </Box>
                     </Box>
 
@@ -170,19 +176,19 @@ const Project = ({ projectData, projectIndex }) => {
                                 position: "absolute",
                                 bottom: 0,
                                 width: "100%",
-                                height: "7.4vh",
+                                height: 40,
                                 backgroundColor: theme.palette.primary.main,
                                 display: "flex",
                                 justifyContent: "flex-end",
                                 alignItems: "center",
                             }}
                         >
-                            <Box sx={{ mr: 1 }}>
+                            <Box sx={{ mt: 1, mr: 1 }}>
                                 <IconButton
-                                    size="small"
                                     aria-label="ExpandLess"
                                     color="secondary"
                                     onClick={() => setIsHovered(true)}
+                                    sx={{ p: 0.2 }}
                                 >
                                     <ExpandLessIcon fontSize="large" />
                                 </IconButton>
@@ -192,14 +198,10 @@ const Project = ({ projectData, projectIndex }) => {
                 </Box>
 
                 <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                    <Typography
-                        variant="projectTitle"
-                        component="h4"
-                        sx={{ color: "inherit", fontSize: { xs: 24, sm: 40, md: 36 } }}
-                    >
+                    <Typography variant="projectTitle" component="h4" sx={{ color: "inherit", fontSize: 20 }}>
                         {projectData.name}
                     </Typography>
-                    <Typography variant="projectTechnology" component="p" sx={{ fontSize: { xs: 18, sm: 25 } }}>
+                    <Typography variant="projectTechnology" component="p" sx={{ fontSize: 14 }}>
                         {projectData.technologies}
                     </Typography>
                 </Box>

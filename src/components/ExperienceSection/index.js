@@ -20,7 +20,7 @@ const ExperienceSection = () => {
                 </>
             ),
 
-            technologies: "React, Redux, Azure DevOps",
+            technologies: "React, Redux, Cypress, Azure DevOps",
             descriptionText:
                 "Working on the Fluent CFD simulations team to develop a web-based application to allow users to leverage the power of Fluent from any device.",
             jobDuration: "May 2024 - Present",

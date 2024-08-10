@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Project from "./Project";
-import { Box, Button, CircularProgress, Grid, Typography, useTheme } from "@mui/material";
+import { Box, CircularProgress, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 
@@ -11,26 +11,58 @@ import CraftACard from "../3dModels/ProjectModels/CraftACard";
 import PortfolioWebsite from "../3dModels/ProjectModels/PortfolioWebsite";
 import RingClone from "../3dModels/ProjectModels/RingClone";
 import HabitStep from "../3dModels/ProjectModels/HabitStep";
+import CallMeMaybe from "../3dModels/ProjectModels/CallMeMaybe";
+import DropModel from "../3dModels/ProjectModels/CallMeMaybe copy";
 
 const ProjectSection = () => {
     const theme = useTheme();
-    const [itemsToShow, setItemsToShow] = useState(4);
+    const [itemsToShow, setItemsToShow] = useState(6);
     const [isLoadMore, setIsLoadMore] = useState(true);
     const [loading, setLoading] = useState(false);
+    const isMedium = useMediaQuery("(min-width:900px) and (max-width:1200px)");
 
     const projectsInfo = [
         {
+            name: "Call Me Maybe",
+            technologies: "React/OpenAI/Twilio",
+            chips: ["Hack The 6ix 2024", "AI Phone Calls", "Human Emoition"],
+            points: [
+                "Hey, I just met you, and this is crazy...",
+                "Make phone calls with human-like AI voices",
+                "Decide the tone and stability of the AI's voice",
+                "AI pipeline with OpenAI, 11ElevenLabs & Twilio",
+            ],
+            githubLink: "https://github.com/MoschellaV/HackThe6ix2024", // leave as null if there is not link
+            externalLink: "https://hack-the6ix2024.vercel.app/", // leave as null if there is not link
+            devpostLink: "https://devpost.com/software/call-me-maybe-c7u2d3",
+            model: <CallMeMaybe />,
+        },
+        {
+            name: "DropModel",
+            technologies: "TensorFlow/FastAPI/React",
+            chips: ["Hack The North 2023", "ML Training", "Full Stack"],
+            points: [
+                "Train a custom ML Model by uploading your data",
+                "Watch your custom ML model train in real-time",
+                "Generate predictions from unique data sets",
+                "Step-by-step guide for model training",
+            ],
+            githubLink: "https://github.com/MoschellaV/HackTheNorth2023", // leave as null if there is not link
+            devpostLink: "https://devpost.com/software/dropmodel", // leave as null if there is not link
+            model: <DropModel />,
+        },
+        {
             name: "Habit Step",
-            technologies: "Next/Prisma/PostgreSQL",
-            chips: ["Hackathon", "AI Powered", "Serverless"],
+            technologies: "Next/Prisma/OpenAI",
+            chips: ["GryphHacks 2023", "AI Powered", "Serverless"],
             points: [
                 "Develop step-by-step plans to build habits",
-                "Zero-Shot Text Classification for targeted questions",
-                "Deeply personalized AI generated questionnaire",
-                "Created in less than 48 hours with a teammate",
+                "Used zero-shot text classification to create general questions",
+                "OpenAI to generate personal AI questionnaire",
+                "Prisma for easy and efficient data storage",
             ],
             githubLink: "https://github.com/MoschellaV/GryphHacks2023", // leave as null if there is not link
-            externalLink: "https://devpost.com/software/habit-plan", // leave as null if there is not link
+            devpostLink: "https://devpost.com/software/habit-plan", // leave as null if there is not link
             model: <HabitStep />,
         },
         {
@@ -38,9 +70,9 @@ const ProjectSection = () => {
             technologies: "OpenCV/React/Firebase",
             chips: ["Supports Multiple Cams", "Computer vision", "Video Streaming"],
             points: [
-                "Raspberry Pi, face recognition using Python & OpenCV",
-                "Node/Express & WebSockets for data transmission",
-                "Firebase for data management & user account integration",
+                "Face recognition using Python & OpenCV",
+                "Live data transmission with WebSockets",
+                "Ring Doorbell built with Raspberry Pi and camera",
                 "Cross-platform mobile app with React Native",
             ],
             githubLink: "https://github.com/MoschellaV/RingClone",
@@ -52,10 +84,10 @@ const ProjectSection = () => {
             technologies: "Next/Spline",
             chips: ["3D Models", "Handcrafted", "Magic Touch", "User Experience"],
             points: [
-                "Employed Next.js for swift, reliable web app",
-                "3D modeled all assets using Spline",
-                "Integrated & optimized models for user experience",
-                "Used Figma for prototyping and design iteration",
+                "Next.js for fast, optimized performance",
+                "3D modeled unique assets for personal touch",
+                "Integrated models with Spline for a 3D experience",
+                "Handcrafted design in Figma",
             ],
             githubLink: "https://github.com/MoschellaV/PortfolioWebsite",
             externalLink: null,
@@ -66,11 +98,10 @@ const ProjectSection = () => {
             technologies: "MERN Stack",
             chips: ["Full-Stack", "Data Storage", "NoSQL Here"],
             points: [
-                "Built with MERN stack with data storage and sending",
+                "Easily create and send custom ecards",
                 "Responsive UI with React & React-Bootstrap",
-                "Secure & efficient user data storage using MongoDB",
-                "Backend powered by Node.js/Express for API integrations",
-                "Hosted on Heroku for easy deployment & scaling",
+                "Efficient user data storage using MongoDB",
+                "RESTful API's with Node.js and Express",
             ],
             githubLink: "https://github.com/MoschellaV/CraftACard",
             externalLink: null,
@@ -81,10 +112,10 @@ const ProjectSection = () => {
             technologies: "React/Mantine",
             chips: ["Algorithms", "Mesmerizing", "Interactive"],
             points: [
-                "Real-time algorithm swapping during visualization",
-                "User-customizable array size and sorting speed",
+                "Real-time algorithm visualization",
+                "Customize array size and sorting speed",
                 "Utilizes React and Mantine for responsive design",
-                "Adaptive color schemes for improved user experience",
+                "Watch the magic of sorting algorithms in action",
             ],
             githubLink: "https://github.com/MoschellaV/SortingVisualizer",
             externalLink: "https://moschella-sorting-visualizer.netlify.app/",
@@ -95,11 +126,10 @@ const ProjectSection = () => {
             technologies: "Unity/C#",
             chips: ["2D Game", "Dynamic Mechanics", "Enemy Algorithm", "High School Project"],
             points: [
-                "2D space shooter, destroy asteroids to gain score",
-                "Online leaderboard for player competition",
-                "Multiple playable ships with unique behaviors",
-                "Varied enemies and custom particle effects",
-                "Difficulty increases with player score via algorithm",
+                "2D endless space shooter",
+                "Online leaderboard for competition",
+                "Multiple spacecraft with unique behaviors",
+                "Destroy enemy asteroids for score",
             ],
             githubLink: "https://github.com/MoschellaV/KuiperSpace",
             externalLink: "https://vmoschella.itch.io/kuiper-space",
@@ -109,7 +139,7 @@ const ProjectSection = () => {
 
     const renderProjects = projectsInfo.slice(0, itemsToShow).map((projectData, index) => {
         return (
-            <Grid item key={index} xs={12} lg={6}>
+            <Grid item key={index} xs={isMedium ? 6 : 12} md={isMedium ? 6 : 4}>
                 <Project projectData={projectData} projectIndex={index} />
             </Grid>
         );
@@ -123,7 +153,7 @@ const ProjectSection = () => {
                 setLoading(false);
             }, 1000);
         } else {
-            setItemsToShow(4);
+            setItemsToShow(6);
         }
 
         setIsLoadMore(!isLoadMore);
