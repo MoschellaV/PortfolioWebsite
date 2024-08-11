@@ -15,7 +15,17 @@ const WorkCard2 = ({ jobInfo }) => {
     const resizeCompanyImage = useMediaQuery(`(max-width: 1214px)`);
 
     const CustomToolTipl = styled(({ className, ...props }) => (
-        <Tooltip {...props} componentsProps={{ tooltip: { className: className } }} />
+        <Tooltip
+            {...props}
+            componentsProps={{
+                tooltip: { className: className },
+                popper: {
+                    sx: {
+                        zIndex: 99,
+                    },
+                },
+            }}
+        />
     ))(`
         background-color: ${theme.palette.primary.main};
         color: ${theme.palette.secondary.main};
