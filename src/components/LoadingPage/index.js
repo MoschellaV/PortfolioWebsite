@@ -66,7 +66,7 @@ export default function LoadingPage({ startFadeOut }) {
             ></Box>
             <Stack spacing={2} sx={{ mt: 5, opacity: startFadeOut ? 0 : 1, textAlign: "center" }}>
                 <Typography component="h3" variant="h4" sx={{ fontSize: 18 }}>
-                    {`This might take a bit (loading assets)...`}
+                    {`This might take a second...`}
                 </Typography>
                 {isMobile && (
                     <Typography
@@ -79,8 +79,8 @@ export default function LoadingPage({ startFadeOut }) {
                 )}
 
                 <Typography component="p" variant="body1" sx={{ color: "#F6F6F6", fontSize: 12, opacity: 0.7, pt: 4 }}>
-                    {`it'll `}
-                    <span style={{ fontStyle: "italic" }}>hopefully</span> {` be worth it though`}
+                    {`loading a kinda `}
+                    <span style={{ fontStyle: "italic" }}>big</span> {` 3D asset 👀`}
                 </Typography>
             </Stack>
         </Box>
