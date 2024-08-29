@@ -80,7 +80,7 @@ const ExperienceSection = () => {
             descriptionText:
                 "I had the exciting opportunity to collaborate with researchers and provide statistical analysis insights for a clinical COVID-19 study. I got to dive headfirst into the world of data engineering and gained valuable experience preparing datasets and conducting statistical tests with empirical data.",
             jobDuration: "June 2023 - July 2023",
-            location: "Toronto, ON",
+            location: "Toronto, ON • Remote",
             isFlipped: true,
         },
     ];
