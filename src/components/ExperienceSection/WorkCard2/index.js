@@ -67,7 +67,7 @@ const WorkCard2 = ({ jobInfo }) => {
                                     TransitionProps={{ timeout: 600 }}
                                 >
                                     <Image
-                                        style={{ objectFit: "contain" }}
+                                        style={{ objectFit: "contain",  userSelect: "none"}}
                                         draggable={false}
                                         src={props.imageUrl}
                                         alt={props.altText}
@@ -157,12 +157,13 @@ const WorkCard2 = ({ jobInfo }) => {
                                     TransitionProps={{ timeout: 600 }}
                                 >
                                     <Image
-                                        style={{ objectFit: "contain" }}
+                                        style={{ objectFit: "contain",  userSelect: "none" }}
                                         draggable={false}
                                         src={props.imageUrl}
                                         alt={props.altText}
                                         width={resizeCompanyImage ? (isMobile ? 150 : 190) : 240}
                                         height={resizeCompanyImage ? (isMobile ? 150 : 190) : 230}
+                                        
                                     />
                                 </CustomToolTipl>
                             </Link>
