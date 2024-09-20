@@ -79,8 +79,8 @@ export default function LoadingPage({ startFadeOut }) {
                 )}
 
                 <Typography component="p" variant="body1" sx={{ color: "#F6F6F6", fontSize: 12, opacity: 0.7, pt: 4 }}>
-                    {`loading a kinda `}
-                    <span style={{ fontStyle: "italic" }}>big</span> {` 3D asset 👀`}
+                    {`loading something special ✨`}
+                    {/* <span style={{ fontStyle: "italic" }}>special</span> {` ✨`} */}
                 </Typography>
             </Stack>
         </Box>
