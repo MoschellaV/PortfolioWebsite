@@ -23,7 +23,7 @@ const ExperienceSection = () => {
             technologies: "React, Redux, Cypress, Azure DevOps",
             descriptionText:
                 "Working on the Fluent CFD simulations team to develop a web-based application to allow users to leverage the power of Fluent from any device.",
-            jobDuration: "May 2024 - Present",
+            jobDuration: "May 2024 - Dec 2024",
             location: "Waterloo, ON",
             isFlipped: false,
         },
@@ -35,14 +35,14 @@ const ExperienceSection = () => {
             altText: "Google Logo",
             positionTitle: (
                 <>
-                    <span style={{ color: theme.palette.orange.bright }}>Lead / President</span>
+                    <span style={{ color: theme.palette.orange.bright }}>President & Software Developer</span>
                 </>
             ),
 
             technologies: "Leadership, Team Management, Event Planning, Web/Mobile Development",
             descriptionText:
                 "I was the lead for the Google Developer Student Club at the University of Guelph during the academic 2023/2024 year! I directed multiple teams, planned workshops, ran a hackathon, and it was all great but what I loved most was being able to build a community of over 250 developers and students. It's awesome seeing people learn and make memories!",
-            jobDuration: "Aug 2023 - Present",
+            jobDuration: "Aug 2023 - Aug 2024",
             location: "Guelph, ON",
             isFlipped: true,
         },
@@ -61,7 +61,7 @@ const ExperienceSection = () => {
             descriptionText:
                 "I learned so much during my time at Saige! I managed a team of interns, led the redesign of the company's flagship app, and developed and deployed a multi-channel notification system to production. I really enjoyed working within the start-up's small team as it allowed me to witness firsthand how my contributions had a meaningful impact. I saw how our collaborative efforts translate into tangible improvements for the company and its users.",
             jobDuration: "Jan 2023 - Aug 2023",
-            location: "Vancouver, BC • Remote",
+            location: "Vancouver, BC",
             isFlipped: false,
         },
         {
@@ -72,7 +72,7 @@ const ExperienceSection = () => {
             altText: "University of Ottawa Logo",
             positionTitle: (
                 <>
-                    Undergraduate <span style={{ color: theme.palette.orange.bright }}> Research Analyst</span> &mdash;
+                    <span style={{ color: theme.palette.orange.bright }}> Undergraduate Research Analyst</span> &mdash;
                     Clinical COVID-19 Study
                 </>
             ),
@@ -80,7 +80,7 @@ const ExperienceSection = () => {
             descriptionText:
                 "I had the exciting opportunity to collaborate with researchers and provide statistical analysis insights for a clinical COVID-19 study. I got to dive headfirst into the world of data engineering and gained valuable experience preparing datasets and conducting statistical tests with empirical data.",
             jobDuration: "June 2023 - July 2023",
-            location: "Toronto, ON • Remote",
+            location: "Toronto, ON",
             isFlipped: true,
         },
     ];
