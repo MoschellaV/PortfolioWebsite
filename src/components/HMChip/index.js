@@ -67,7 +67,7 @@ const HMChip = () => {
                             component="p"
                             sx={{ fontSize: 11, color: theme.palette.secondary.main }}
                         >
-                            Click here to see the CV
+                            Click here to see my CV
                         </Typography>
                     </Box>
                 </Box>
