@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 import { createTheme } from "@mui/material/styles";
 import useUserDataHook from "@/hooks/userDataHook";
 
@@ -159,5 +159,65 @@ export const theme = createTheme({
             lineHeight: 3,
             color: "#fff",
         },
+        CVHeader: {
+            fontFamily: "Inter, sans-serif",
+            fontSize: 80,
+            fontWeight: 600,
+            lineHeight: 1,
+            color: "#fff",
+            [`@media (max-width:600px)`]: {
+                fontSize: 60,
+            },
+            [`@media (max-width:480px)`]: {
+                fontSize: 40,
+            },
+        },
+        CVText: {
+            fontFamily: "Inter, sans-serif",
+            fontSize: 16,
+            fontWeight: 400,
+            lineHeight: 1.5,
+            color: "#fff",
+            [`@media (max-width:900px)`]: {
+                fontSize: 14,
+            },
+            [`@media (max-width:600px)`]: {
+                fontSize: 12,
+            },
+        },
+        CVSmallText: {
+            fontFamily: "Inter, sans-serif",
+            fontSize: 12,
+            fontWeight: 400,
+            lineHeight: 1.2,
+            color: "#fff",
+            [`@media (max-width:900px)`]: {
+                fontSize: 10,
+            },
+        },
+        CVTitle: {
+            fontFamily: "Inter, sans-serif",
+            fontSize: 20,
+            fontWeight: 700,
+            lineHeight: 1.4,
+            color: "#fff",
+            [`@media (max-width:900px)`]: {
+                fontSize: 16,
+            },
+            [`@media (max-width:600px)`]: {
+                fontSize: 14,
+            },
+        },
     },
 });
+
+// hero model
+const SplineHeroContext = createContext(null);
+
+export const useSplineHero = () => useContext(SplineHeroContext);
+
+export const SplineHeroProvider = ({ children }) => {
+    const splineHeroViewerRef = useRef(null);
+
+    return <SplineHeroContext.Provider value={splineHeroViewerRef}>{children}</SplineHeroContext.Provider>;
+};

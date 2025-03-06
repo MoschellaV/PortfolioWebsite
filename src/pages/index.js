@@ -9,6 +9,7 @@ import {
     ContactSection,
     FadeInWrapper,
     Footer,
+    NavbarWrapper,
 } from "@/components";
 
 export default function Home() {
@@ -24,11 +25,11 @@ export default function Home() {
         if (sceneLoaded) {
             fadeOutTimer = setTimeout(() => {
                 setStartFadeOut(true);
-            }, 2000); // tells loading page to start fading after X seconds
+            }, 1500); // tells loading page to start fading after X seconds
 
             removeTimer = setTimeout(() => {
                 setRemoveLoadingPage(true);
-            }, 4000); // time value X, for loading page's opacity fading out
+            }, 3000); // time value X, for loading page's opacity fading out
         }
 
         return () => {
@@ -60,16 +61,18 @@ export default function Home() {
                 <meta name="theme-color" content="#171717" />
             </Head>
             <main>
-                {!removeLoadingPage && <LoadingPage startFadeOut={startFadeOut} />}
+                <NavbarWrapper>
+                    {!removeLoadingPage && <LoadingPage startFadeOut={startFadeOut} />}
 
-                <HeroSection setSceneLoaded={setSceneLoaded} />
-                <FadeInWrapper>
-                    <AboutSection />
-                </FadeInWrapper>
-                <ExperienceSection />
-                <ProjectsSection />
-                <ContactSection />
-                <Footer />
+                    <HeroSection setSceneLoaded={setSceneLoaded} />
+                    <FadeInWrapper>
+                        <AboutSection />
+                    </FadeInWrapper>
+                    <ExperienceSection />
+                    <ProjectsSection />
+                    <ContactSection />
+                    <Footer />
+                </NavbarWrapper>
             </main>
         </>
     );

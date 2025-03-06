@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useScrollY } from "@/context/providers";
+import { useScrollY, useSplineHero } from "@/context/providers";
 import { Box } from "@mui/material";
 
 const HeroModel = ({ setSceneLoaded }) => {
@@ -10,7 +10,7 @@ const HeroModel = ({ setSceneLoaded }) => {
         setShouldScrollOff(scrollY >= 1000);
     }, [scrollY]);
 
-    const splineViewerHeroRef = useRef(null);
+    const splineViewerHeroRef = useSplineHero();
 
     useEffect(() => {
         const handleLoadComplete = () => {

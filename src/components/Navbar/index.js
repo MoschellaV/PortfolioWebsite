@@ -3,6 +3,7 @@ import { useScrollY } from "@/context/providers";
 import { Typography, Box, Button, Link, Hidden, Drawer, List, ListItem, useTheme, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { useRouter } from "next/router";
 
 const NavContactButton = ({ children, darkNav, onClick }) => {
     const theme = useTheme();
@@ -29,8 +30,18 @@ const NavContactButton = ({ children, darkNav, onClick }) => {
     );
 };
 
-const NavLink = ({ children, isButtonText, variant, component, onClick, darkNav }) => {
+const NavLink = ({ children, isButtonText, variant, component, onClick, darkNav, href }) => {
     const theme = useTheme();
+    const router = useRouter();
+
+    const handleClick = (e) => {
+        if (href.startsWith("/")) {
+            e.preventDefault();
+            router.push(href);
+        } else {
+            onClick?.();
+        }
+    };
 
     return (
         <Link
@@ -45,7 +56,7 @@ const NavLink = ({ children, isButtonText, variant, component, onClick, darkNav 
                     opacity: !isButtonText && 0.6,
                 },
             }}
-            onClick={onClick}
+            onClick={handleClick}
         >
             {children}
         </Link>
@@ -61,6 +72,7 @@ const DrawerOptions = ({ navItems, setDrawerOpen, darkNav, smoothScrollTo }) => 
                         <NavLink
                             darkNav={darkNav}
                             variant="h6"
+                            href={location}
                             onClick={() => {
                                 setDrawerOpen(false);
                                 setTimeout(() => {
@@ -117,10 +129,6 @@ const Navbar = () => {
 
     const navItems = [
         {
-            label: "Home",
-            location: "home",
-        },
-        {
             label: "About",
             location: "about",
         },
@@ -131,6 +139,10 @@ const Navbar = () => {
         {
             label: "Projects",
             location: "projects",
+        },
+        {
+            label: "Resume",
+            location: "/cv",
         },
     ];
 
@@ -182,6 +194,7 @@ const Navbar = () => {
                                     darkNav={darkNav}
                                     key={label}
                                     variant="h6"
+                                    href={location}
                                     onClick={() => smoothScrollTo(location)}
                                 >
                                     {label}

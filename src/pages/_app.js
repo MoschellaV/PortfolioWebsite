@@ -1,7 +1,7 @@
 import React from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import { UserDataProvider, ScrollYProvider, theme } from "@/context/providers";
+import { UserDataProvider, ScrollYProvider, theme, SplineHeroProvider } from "@/context/providers";
 import "@/styles/globals.css";
 import { Footer, Navbar, NavbarWrapper } from "@/components";
 
@@ -10,12 +10,12 @@ export default function App({ Component, pageProps }) {
         <>
             <UserDataProvider>
                 <ScrollYProvider>
-                    <ThemeProvider theme={theme}>
-                        <CssBaseline />
-                        <NavbarWrapper>
+                    <SplineHeroProvider>
+                        <ThemeProvider theme={theme}>
+                            <CssBaseline />
                             <Component {...pageProps} />
-                        </NavbarWrapper>
-                    </ThemeProvider>
+                        </ThemeProvider>
+                    </SplineHeroProvider>
                 </ScrollYProvider>
             </UserDataProvider>
             <Analytics />
