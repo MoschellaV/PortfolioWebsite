@@ -7,26 +7,26 @@ import Image from "next/image";
 import WestIcon from "@mui/icons-material/West";
 
 const jobs = [
-    // {
-    //     id: 1,
-    //     company: "Amazon Web Services",
-    //     role: "Software Development Engineer Intern",
-    //     duration: "Sept 2025 - Dec 2025",
-    //     location: "Vancouver, BC, Canada",
-    //     imageURL: "/images/cv/amazon-web-services-nobg.png",
-    //     hoverImage: "/images/cv/amazon-logo.png",
-    //     bulletPoints: [<>Incoming Fall 2025</>],
-    // },
-    // {
-    //     id: 2,
-    //     company: "Shopify",
-    //     role: "Software Engineer Intern",
-    //     duration: "May 2025 - Aug 2025",
-    //     location: "Toronto, ON, Canada",
-    //     imageURL: "/images/cv/shopify.png",
-    //     hoverImage: "/images/cv/shopify-long.png",
-    //     bulletPoints: [<>Incoming Summer 2025</>],
-    // },
+    {
+        id: 1,
+        company: "Amazon",
+        role: "Software Development Engineer Intern",
+        duration: "Sept 2025 - Dec 2025",
+        location: "Vancouver, BC, Canada",
+        imageURL: "/images/cv/amazon-logo-nobg.png",
+        hoverImage: "/images/cv/amazon-logo.png",
+        bulletPoints: [<>Incoming Fall 2025</>],
+    },
+    {
+        id: 2,
+        company: "Shopify",
+        role: "Software Engineer Intern",
+        duration: "May 2025 - Aug 2025",
+        location: "Toronto, ON, Canada",
+        imageURL: "/images/cv/shopify.png",
+        hoverImage: "/images/cv/shopify-long.png",
+        bulletPoints: [<>Incoming Summer 2025</>],
+    },
     {
         id: 3,
         company: "Ansys",
