@@ -6,7 +6,7 @@ import { Error404Model, Footer } from "@/components";
 const Custom404 = () => {
     const theme = useTheme();
 
-    const text = "You're lost bud.";
+    const text = "Got lost?";
 
     return (
         <>

@@ -13,9 +13,9 @@ const jobs = [
         role: "Software Development Engineer Intern",
         duration: "Sept 2025 - Dec 2025",
         location: "Vancouver, BC, Canada",
-        imageURL: "/images/cv/amazon-logo-nobg.png",
+        imageURL: "/images/cv/amazon-web-services-nobg.png",
         hoverImage: "/images/cv/amazon-logo.png",
-        bulletPoints: [<>Incoming Fall 2025</>],
+        bulletPoints: [<>Incoming SDE Intern on RDS for Oracle team building cloud database services</>],
     },
     {
         id: 2,
@@ -25,7 +25,7 @@ const jobs = [
         location: "Toronto, ON, Canada",
         imageURL: "/images/cv/shopify.png",
         hoverImage: "/images/cv/shopify-long.png",
-        bulletPoints: [<>Incoming Summer 2025</>],
+        bulletPoints: [<>Just wrapped up my Summer 2025 internship at Shopify</>],
     },
     {
         id: 3,

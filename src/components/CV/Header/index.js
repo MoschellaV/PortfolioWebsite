@@ -15,7 +15,7 @@ const Header = () => {
                 </Typography>
             </Box>
             <Typography variant="CVSmallText" sx={{ opacity: 0.5 }}>
-                updated March 4th 2025
+                updated August 26th 2025
             </Typography>
         </>
     );

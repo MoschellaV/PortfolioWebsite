@@ -9,6 +9,43 @@ const ExperienceSection = () => {
 
     const jobInfo = [
         {
+            company: "Amazon Web Services",
+            companyName: "aws.amazon.com/rds",
+            companyWebsite: "http://aws.amazon.com/rds/oracle/",
+            imageUrl: "/images/companyImages/AWS.png",
+            altText: "AWS Logo",
+            positionTitle: (
+                <>
+                    <span style={{ color: theme.palette.orange.bright }}>Software Development Engineer Intern</span>
+                </>
+            ),
+
+            technologies: "Java, React, Typescript, AWS",
+            descriptionText: "Incoming SDE Intern on RDS for Oracle team building cloud database services",
+            jobDuration: "Sept 2025 - Dec 2025",
+            location: "Vancouver, BC, Canada",
+            isFlipped: false,
+        },
+        {
+            company: "Shopify",
+            companyName: "shopify.com",
+            companyWebsite: "https://www.shopify.com/",
+            imageUrl: "/images/companyImages/Shopify.png",
+            altText: "Shopify Logo",
+            positionTitle: (
+                <>
+                    <span style={{ color: theme.palette.orange.bright }}>Software Engineer Intern</span>
+                </>
+            ),
+
+            technologies: "Typescript, React, Ruby, GraphQL",
+            descriptionText:
+                "I worked on features that made it easier for merchants to set up social logins like Google, Facebook, and Shop for their storefronts. I also focused on strengthening customer account security by building session revocation logic and creating OAuth endpoints that gave merchants more flexibility in how customers sign in.",
+            jobDuration: "May 2025 - Aug 2025",
+            location: "Toronto, ON, Canada",
+            isFlipped: true,
+        },
+        {
             company: "Ansys",
             companyName: "ansys.com/fluent",
             companyWebsite: "https://www.ansys.com/products/fluids/ansys-fluent",
