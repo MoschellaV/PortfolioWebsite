@@ -38,7 +38,7 @@ export default function Home() {
             </Head>
             <main>
                 <Box sx={{ backgroundColor: theme.palette.primary.main }}>
-                    <CV />
+                    <CV disableJobHoverDetails />
                     <Footer whiteFont={true} marginTop={6} />
                 </Box>
             </main>

@@ -150,7 +150,7 @@ const techStack2 =
 const techStack3 =
     "Node.js • Docker • Next.js • Google Cloud Platform • JavaScript • Express • HTML • CSS • React • Python • Java • TypeScript • C • SQL • Flask • Redux • Amazon Web Services • Node.js • Docker • Next.js • Google Cloud Platform • JavaScript • Express • HTML • CSS • React • Python • Java • TypeScript • C • SQL • Flask • Redux • Amazon Web Services";
 
-const CV = () => {
+const CV = ({ disableJobHoverDetails = false }) => {
     const theme = useTheme();
     const [hoverId, setHoverId] = useState(1);
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -221,11 +221,21 @@ const CV = () => {
 
                 {jobs.map((item) => (
                     <Box key={item.id} sx={{ my: 1 }}>
-                        <JobItem job={item} isHovered={hoverId === item.id} setHoverId={setHoverId} />
+                        <JobItem
+                            job={item}
+                            isHovered={hoverId === item.id}
+                            setHoverId={setHoverId}
+                            disableHoverDetails={disableJobHoverDetails}
+                        />
                     </Box>
                 ))}
                 <Divider color="white" sx={{ my: 4 }} />
-                <JobItem job={university} isHovered={hoverId === university.id} setHoverId={setHoverId} />
+                <JobItem
+                    job={university}
+                    isHovered={hoverId === university.id}
+                    setHoverId={setHoverId}
+                    disableHoverDetails={disableJobHoverDetails}
+                />
             </Box>
 
             <Box sx={{ mt: 5 }} />
