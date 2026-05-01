@@ -2,15 +2,21 @@ import React from "react";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 
-const JobItem = ({ job, isHovered, setHoverId, disableHoverDetails = false }) => {
+const JobItem = ({
+    job,
+    isHovered,
+    setHoverId,
+    disableHoverDetails = false,
+    enableHoverLogo = true,
+}) => {
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
     const showDetails = !disableHoverDetails && isHovered;
 
     return (
         <Box
-            onMouseEnter={() => !disableHoverDetails && setHoverId(job.id)}
-            onMouseLeave={() => !disableHoverDetails && setHoverId(null)}
+            onMouseEnter={() => enableHoverLogo && setHoverId(job.id)}
+            onMouseLeave={() => enableHoverLogo && setHoverId(null)}
             sx={{
                 display: "flex",
                 alignItems: "flex-start",

@@ -150,7 +150,7 @@ const techStack2 =
 const techStack3 =
     "Node.js • Docker • Next.js • Google Cloud Platform • JavaScript • Express • HTML • CSS • React • Python • Java • TypeScript • C • SQL • Flask • Redux • Amazon Web Services • Node.js • Docker • Next.js • Google Cloud Platform • JavaScript • Express • HTML • CSS • React • Python • Java • TypeScript • C • SQL • Flask • Redux • Amazon Web Services";
 
-const CV = ({ disableJobHoverDetails = false }) => {
+const CV = ({ disableJobHoverDetails = false, enableHoverLogo = true }) => {
     const theme = useTheme();
     const [hoverId, setHoverId] = useState(1);
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -226,6 +226,7 @@ const CV = ({ disableJobHoverDetails = false }) => {
                             isHovered={hoverId === item.id}
                             setHoverId={setHoverId}
                             disableHoverDetails={disableJobHoverDetails}
+                            enableHoverLogo={enableHoverLogo}
                         />
                     </Box>
                 ))}
@@ -235,6 +236,7 @@ const CV = ({ disableJobHoverDetails = false }) => {
                     isHovered={hoverId === university.id}
                     setHoverId={setHoverId}
                     disableHoverDetails={disableJobHoverDetails}
+                    enableHoverLogo={enableHoverLogo}
                 />
             </Box>
 
