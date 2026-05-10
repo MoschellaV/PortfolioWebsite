@@ -15,7 +15,7 @@
     "@mui/material": "^5.12.1",
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^0.9.405",
-    "@vercel/analytics": "^1.0.0",
+    "@vercel/speed-insights": "^2.0.0",
     "axios": "^1.4.0",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
