@@ -1,88 +1,81 @@
-import React from "react";
-import { Stack, Typography, useMediaQuery, useTheme } from "@mui/material/";
+import React, { memo } from "react";
+import { Stack, Typography, useMediaQuery } from "@mui/material/";
 import Box from "@mui/material/Box";
+import styles from "@/styles/Animations.module.css";
 
-export default function LoadingPage({ startFadeOut }) {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(`(max-width: 768px)`);
+const LOADER_DELAYS = [
+  "0s",
+  "0.1s",
+  "0.2s",
+  "0.15s",
+  "0.25s",
+  "0.35s",
+  "0.3s",
+  "0.4s",
+  "0.5s",
+];
 
-    return (
-        <Box
+function LoadingPage({ startFadeOut }) {
+  const isMobile = useMediaQuery("(max-width:768px)");
+
+  return (
+    <Box
+      sx={{
+        width: "100%",
+        height: "100%",
+        position: "fixed",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#171717",
+        zIndex: 10000,
+        opacity: startFadeOut ? 0 : 1,
+        transition: "opacity 4s ease-out",
+        pointerEvents: startFadeOut ? "none" : "auto",
+      }}
+    >
+      <div className={styles.loaderGrid}>
+        {LOADER_DELAYS.map((delay, index) => (
+          <span
+            key={index}
+            className={styles.loaderDot}
+            style={{ animationDelay: delay }}
+          />
+        ))}
+      </div>
+      <Stack
+        spacing={2}
+        sx={{ mt: 5, opacity: startFadeOut ? 0 : 1, textAlign: "center" }}
+      >
+        <Typography component="h3" variant="h4" sx={{ fontSize: 18 }}>
+          One sec...
+        </Typography>
+        {isMobile && (
+          <Typography
+            component="p"
+            variant="body1"
             sx={{
-                width: "100%",
-                height: "100%",
-                position: "fixed",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: theme.palette.primary.main,
-                zIndex: 10000,
-                opacity: startFadeOut ? 0 : 1,
-                transition: "opacity 4s ease-out",
+              color: "#F6F6F6",
+              fontStyle: "italic",
+              fontSize: 12,
+              opacity: 0.7,
             }}
-        >
-            <Box
-                sx={{
-                    opacity: startFadeOut ? 0 : 1,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "100%",
-                    height: "100vh",
-                    "--c": `linear-gradient(${theme.palette.orange.main} 0 0)`,
-                    background: `
-                        var(--c),
-                        var(--c),
-                        var(--c),
-                        var(--c),
-                        var(--c),
-                        var(--c),
-                        var(--c),
-                        var(--c),
-                        var(--c)
-                        `,
-                    backgroundSize: "16px 16px",
-                    backgroundRepeat: "no-repeat",
-                    animation: `
-                        sh2-1 1s infinite,
-                        sh2-2 1s infinite
-                        `,
-                    "@keyframes sh2-1": {
-                        "0%, 100%": { width: "45px", height: "45px" },
-                        "35%, 65%": { width: "65px", height: "65px" },
-                    },
-                    "@keyframes sh2-2": {
-                        "0%, 40%": {
-                            backgroundPosition:
-                                "0 0, 0 50%, 0 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0, 50% 0, 50% 50%",
-                        },
-                        "60%, 100%": {
-                            backgroundPosition:
-                                "0 50%, 0 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0, 50% 0, 0 0, 50% 50%",
-                        },
-                    },
-                }}
-            ></Box>
-            <Stack spacing={2} sx={{ mt: 5, opacity: startFadeOut ? 0 : 1, textAlign: "center" }}>
-                <Typography component="h3" variant="h4" sx={{ fontSize: 18 }}>
-                    {`This might take a second...`}
-                </Typography>
-                {isMobile && (
-                    <Typography
-                        component="p"
-                        variant="body1"
-                        sx={{ color: "#F6F6F6", fontStyle: "italic", fontSize: 12, opacity: 0.7 }}
-                    >
-                        best viewed on larger screens
-                    </Typography>
-                )}
+          >
+            best viewed on larger screens
+          </Typography>
+        )}
 
-                <Typography component="p" variant="body1" sx={{ color: "#F6F6F6", fontSize: 12, opacity: 0.7, pt: 4 }}>
-                    {`loading something special ✨`}
-                    {/* <span style={{ fontStyle: "italic" }}>special</span> {` ✨`} */}
-                </Typography>
-            </Stack>
-        </Box>
-    );
+        <Typography
+          component="p"
+          variant="body1"
+          sx={{ color: "#F6F6F6", fontSize: 12, opacity: 0.7, pt: 4 }}
+        >
+          loading something handcrafted ✨
+        </Typography>
+      </Stack>
+    </Box>
+  );
 }
+
+export default memo(LoadingPage);
