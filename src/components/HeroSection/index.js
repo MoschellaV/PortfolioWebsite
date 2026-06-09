@@ -8,7 +8,7 @@ import { renderToString } from "react-dom/server";
 import { currentDateTime } from "@/lib/utils";
 
 import { sendEmail } from "@/pages/api/outboundRequests";
-import HMChip from "../HMChip";
+// import HMChip from "../HMChip";
 
 const HeroSection = ({ setSceneLoaded }) => {
   const theme = useTheme();

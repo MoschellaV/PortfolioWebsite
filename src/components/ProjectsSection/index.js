@@ -3,25 +3,25 @@ import Project from "./Project";
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import { enableSplineQueue, QUEUE_START_DELAY_MS } from "./splineLoadQueue";
+import { useScrollY } from "@/context/providers";
+import { HERO_SCROLL_THRESHOLD } from "@/lib/scroll";
+import { enableSplineQueue } from "./splineLoadQueue";
 
 const INITIAL_PROJECT_COUNT = 4;
 
 const ProjectSection = ({ sceneLoaded = false }) => {
     const theme = useTheme();
+    const scrollY = useScrollY();
+    const scrolledPastHero = scrollY >= HERO_SCROLL_THRESHOLD;
     const [itemsToShow, setItemsToShow] = useState(INITIAL_PROJECT_COUNT);
     const [isLoadMore, setIsLoadMore] = useState(true);
     const isMedium = useMediaQuery("(min-width:900px) and (max-width:1200px)");
 
     useEffect(() => {
-        if (!sceneLoaded) return;
-
-        const timer = setTimeout(() => {
+        if (sceneLoaded && scrolledPastHero) {
             enableSplineQueue();
-        }, QUEUE_START_DELAY_MS);
-
-        return () => clearTimeout(timer);
-    }, [sceneLoaded]);
+        }
+    }, [sceneLoaded, scrolledPastHero]);
 
     const projectsInfo = [
         {
@@ -201,7 +201,8 @@ const ProjectSection = ({ sceneLoaded = false }) => {
                             projectData={projectData}
                             projectIndex={index}
                             sceneLoaded={sceneLoaded}
-                            queueOnHeroLoad={index < INITIAL_PROJECT_COUNT}
+                            scrolledPastHero={scrolledPastHero}
+                            queueInitialBatch={index < INITIAL_PROJECT_COUNT}
                         />
                     </Grid>
                 ))}

@@ -2,8 +2,7 @@ const queue = [];
 let isRunning = false;
 let isQueueEnabled = false;
 
-const STAGGER_MS = 1200;
-export const QUEUE_START_DELAY_MS = 3000;
+const STAGGER_MS = 1800;
 
 function pump() {
   if (!isQueueEnabled || isRunning || queue.length === 0) return;

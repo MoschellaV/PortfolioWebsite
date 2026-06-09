@@ -53,7 +53,8 @@ export default function LazySplineModel({
   modelKey,
   loadOrder,
   heroLoaded,
-  queueOnHeroLoad = false,
+  scrolledPastHero,
+  queueInitialBatch = false,
 }) {
   const containerRef = useRef(null);
   const [inView, setInView] = useState(false);
@@ -61,10 +62,11 @@ export default function LazySplineModel({
     () => modelComponents.get(modelKey) ?? null,
   );
 
-  const readyToLoad = heroLoaded && (queueOnHeroLoad || inView);
+  const readyToLoad =
+    heroLoaded && scrolledPastHero && (queueInitialBatch || inView);
 
   useEffect(() => {
-    if (!heroLoaded || queueOnHeroLoad) return;
+    if (!heroLoaded || !scrolledPastHero || queueInitialBatch) return;
 
     const element = containerRef.current;
     if (!element) return;
@@ -81,7 +83,7 @@ export default function LazySplineModel({
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, [heroLoaded, queueOnHeroLoad]);
+  }, [heroLoaded, scrolledPastHero, queueInitialBatch]);
 
   useEffect(() => {
     if (!readyToLoad || !modelKey) return;

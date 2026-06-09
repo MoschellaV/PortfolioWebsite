@@ -1,0 +1,1 @@
+export const HERO_SCROLL_THRESHOLD = 1000;

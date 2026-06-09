@@ -9,7 +9,13 @@ import Image from "next/image";
 import devpostIcon from "@/assets/icons/devpost-icon.png";
 import LazySplineModel from "../LazySplineModel";
 
-const Project = ({ projectData, projectIndex, sceneLoaded, queueOnHeroLoad }) => {
+const Project = ({
+    projectData,
+    projectIndex,
+    sceneLoaded,
+    scrolledPastHero,
+    queueInitialBatch,
+}) => {
     const theme = useTheme();
     const [isHovered, setIsHovered] = useState(false);
     const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down("sm"));
@@ -94,7 +100,8 @@ const Project = ({ projectData, projectIndex, sceneLoaded, queueOnHeroLoad }) =>
                         modelKey={projectData.modelKey}
                         loadOrder={projectIndex}
                         heroLoaded={sceneLoaded}
-                        queueOnHeroLoad={queueOnHeroLoad}
+                        scrolledPastHero={scrolledPastHero}
+                        queueInitialBatch={queueInitialBatch}
                     />
                     <Box
                         sx={{
