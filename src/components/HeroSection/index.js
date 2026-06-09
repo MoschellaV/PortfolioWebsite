@@ -156,7 +156,7 @@ const HeroSection = ({ setSceneLoaded }) => {
           scroll to explore
         </Typography>
       </Box>
-      <HMChip />
+      {/* <HMChip /> */}
     </>
   );
 };
