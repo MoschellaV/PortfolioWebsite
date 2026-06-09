@@ -51,21 +51,6 @@ const HeroModel = ({ setSceneLoaded }) => {
         }}
       >
         <Box sx={{ width: "100%", height: "100%" }}>
-          {/* <script
-                        type="module"
-                        src="https://unpkg.com/@splinetool/viewer@0.9.304/build/spline-viewer.js"
-                    ></script>
-                    <spline-viewer
-                        ref={splineViewerHeroRef}
-                        loading-anim
-                        url="https://prod.spline.design/nVr30ytQDIRKxKW6/scene.splinecode"
-                        
-                    ></spline-viewer> */}
-
-          <script
-            type="module"
-            src="https://unpkg.com/@splinetool/viewer@1.12.97/build/spline-viewer.js"
-          ></script>
           <spline-viewer
             ref={setSplineViewerRef}
             loading="eager"

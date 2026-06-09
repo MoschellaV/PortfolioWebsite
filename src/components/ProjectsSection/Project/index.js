@@ -7,8 +7,9 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Image from "next/image";
 import devpostIcon from "@/assets/icons/devpost-icon.png";
+import LazySplineModel from "../LazySplineModel";
 
-const Project = ({ projectData, projectIndex }) => {
+const Project = ({ projectData, projectIndex, sceneLoaded, queueOnHeroLoad }) => {
     const theme = useTheme();
     const [isHovered, setIsHovered] = useState(false);
     const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down("sm"));
@@ -89,7 +90,12 @@ const Project = ({ projectData, projectIndex }) => {
                         border: `4px solid ${theme.palette.primary.main}`,
                     }}
                 >
-                    {projectData.model}
+                    <LazySplineModel
+                        modelKey={projectData.modelKey}
+                        loadOrder={projectIndex}
+                        heroLoaded={sceneLoaded}
+                        queueOnHeroLoad={queueOnHeroLoad}
+                    />
                     <Box
                         sx={{
                             position: "absolute",

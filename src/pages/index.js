@@ -1,5 +1,11 @@
 import Head from "next/head";
+import Script from "next/script";
 import React, { useState, useEffect } from "react";
+
+const HERO_SPLINE_VIEWER =
+  "https://unpkg.com/@splinetool/viewer@1.12.97/build/spline-viewer.js";
+const HERO_SPLINE_SCENE =
+  "https://prod.spline.design/UOcALzk3C6peWtlh/scene.splinecode";
 import {
   HeroSection,
   AboutSection,
@@ -68,7 +74,16 @@ export default function Home() {
         <meta property="og:site_name" content="vincemoschella.com" />
 
         <meta name="theme-color" content="#171717" />
+
+        <link rel="modulepreload" href={HERO_SPLINE_VIEWER} />
+        <link
+          rel="preload"
+          href={HERO_SPLINE_SCENE}
+          as="fetch"
+          crossOrigin="anonymous"
+        />
       </Head>
+      <Script src={HERO_SPLINE_VIEWER} type="module" strategy="afterInteractive" />
       <main>
         <NavbarWrapper>
           {!removeLoadingPage && <LoadingPage startFadeOut={startFadeOut} />}
@@ -78,7 +93,7 @@ export default function Home() {
             <AboutSection />
           </FadeInWrapper>
           <ExperienceSection />
-          <ProjectsSection />
+          <ProjectsSection sceneLoaded={sceneLoaded} />
           <ContactSection />
           <Footer />
         </NavbarWrapper>

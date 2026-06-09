@@ -1,25 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Project from "./Project";
-import { Box, CircularProgress, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { enableSplineQueue, QUEUE_START_DELAY_MS } from "./splineLoadQueue";
 
-// 3d models
-import GameController from "../3dModels/ProjectModels/GameController";
-import SortingBars from "../3dModels/ProjectModels/SortingBars";
-import CraftACard from "../3dModels/ProjectModels/CraftACard";
-import PortfolioWebsite from "../3dModels/ProjectModels/PortfolioWebsite";
-import RingClone from "../3dModels/ProjectModels/RingClone";
-import HabitStep from "../3dModels/ProjectModels/HabitStep";
-import CallMeMaybe from "../3dModels/ProjectModels/CallMeMaybe";
-import DropModel from "../3dModels/ProjectModels/CallMeMaybe copy";
+const INITIAL_PROJECT_COUNT = 4;
 
-const ProjectSection = () => {
+const ProjectSection = ({ sceneLoaded = false }) => {
     const theme = useTheme();
-    const [itemsToShow, setItemsToShow] = useState(6);
+    const [itemsToShow, setItemsToShow] = useState(INITIAL_PROJECT_COUNT);
     const [isLoadMore, setIsLoadMore] = useState(true);
-    const [loading, setLoading] = useState(false);
     const isMedium = useMediaQuery("(min-width:900px) and (max-width:1200px)");
+
+    useEffect(() => {
+        if (!sceneLoaded) return;
+
+        const timer = setTimeout(() => {
+            enableSplineQueue();
+        }, QUEUE_START_DELAY_MS);
+
+        return () => clearTimeout(timer);
+    }, [sceneLoaded]);
 
     const projectsInfo = [
         {
@@ -35,7 +37,7 @@ const ProjectSection = () => {
             githubLink: "https://github.com/MoschellaV/HackThe6ix2024", // leave as null if there is not link
             externalLink: "https://hack-the6ix2024.vercel.app/", // leave as null if there is not link
             devpostLink: "https://devpost.com/software/call-me-maybe-c7u2d3",
-            model: <CallMeMaybe />,
+            modelKey: "CallMeMaybe",
         },
         {
             name: "DropModel",
@@ -49,7 +51,7 @@ const ProjectSection = () => {
             ],
             githubLink: "https://github.com/MoschellaV/HackTheNorth2023", // leave as null if there is not link
             devpostLink: "https://devpost.com/software/dropmodel", // leave as null if there is not link
-            model: <DropModel />,
+            modelKey: "DropModel",
         },
         {
             name: "Habit Step",
@@ -63,7 +65,7 @@ const ProjectSection = () => {
             ],
             githubLink: "https://github.com/MoschellaV/GryphHacks2023", // leave as null if there is not link
             devpostLink: "https://devpost.com/software/habit-plan", // leave as null if there is not link
-            model: <HabitStep />,
+            modelKey: "HabitStep",
         },
         {
             name: "Ring Clone",
@@ -77,7 +79,7 @@ const ProjectSection = () => {
             ],
             githubLink: "https://github.com/MoschellaV/RingClone",
             externalLink: null,
-            model: <RingClone />,
+            modelKey: "RingClone",
         },
         {
             name: "Portfolio Website",
@@ -91,7 +93,7 @@ const ProjectSection = () => {
             ],
             githubLink: "https://github.com/MoschellaV/PortfolioWebsite",
             externalLink: null,
-            model: <PortfolioWebsite />,
+            modelKey: "PortfolioWebsite",
         },
         {
             name: "CraftACard",
@@ -105,7 +107,7 @@ const ProjectSection = () => {
             ],
             githubLink: "https://github.com/MoschellaV/CraftACard",
             externalLink: null,
-            model: <CraftACard />,
+            modelKey: "CraftACard",
         },
         {
             name: "Sorting Visualizer",
@@ -119,7 +121,7 @@ const ProjectSection = () => {
             ],
             githubLink: "https://github.com/MoschellaV/SortingVisualizer",
             externalLink: "https://moschella-sorting-visualizer.netlify.app/",
-            model: <SortingBars />,
+            modelKey: "SortingBars",
         },
         {
             name: "Kuiper Space",
@@ -133,27 +135,17 @@ const ProjectSection = () => {
             ],
             githubLink: "https://github.com/MoschellaV/KuiperSpace",
             externalLink: "https://vmoschella.itch.io/kuiper-space",
-            model: <GameController />,
+            modelKey: "GameController",
         },
     ];
 
-    const renderProjects = projectsInfo.slice(0, itemsToShow).map((projectData, index) => {
-        return (
-            <Grid item key={index} xs={isMedium ? 6 : 12} md={isMedium ? 6 : 4}>
-                <Project projectData={projectData} projectIndex={index} />
-            </Grid>
-        );
-    });
+    const visibleProjects = projectsInfo.slice(0, itemsToShow);
 
-    const showProjectshandler = () => {
+    const showProjectsHandler = () => {
         if (isLoadMore) {
-            setLoading(true);
-            setTimeout(() => {
-                setItemsToShow(projectsInfo.length);
-                setLoading(false);
-            }, 1000);
+            setItemsToShow(projectsInfo.length);
         } else {
-            setItemsToShow(6);
+            setItemsToShow(INITIAL_PROJECT_COUNT);
         }
 
         setIsLoadMore(!isLoadMore);
@@ -198,36 +190,46 @@ const ProjectSection = () => {
                 </Typography>
             </Box>
             <Grid container spacing={0} sx={{ flexGrow: 1 }}>
-                {renderProjects}
+                {visibleProjects.map((projectData, index) => (
+                    <Grid
+                        item
+                        key={projectData.name}
+                        xs={isMedium ? 6 : 12}
+                        md={isMedium ? 6 : 4}
+                    >
+                        <Project
+                            projectData={projectData}
+                            projectIndex={index}
+                            sceneLoaded={sceneLoaded}
+                            queueOnHeroLoad={index < INITIAL_PROJECT_COUNT}
+                        />
+                    </Grid>
+                ))}
             </Grid>
             <Box sx={{ display: "flex", justifyContent: "space-around", my: 10 }}>
-                {!loading ? (
-                    <Box
+                <Box
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        opacity: 0.7,
+                        "&:hover": {
+                            textDecoration: "underline",
+                            cursor: "pointer",
+                        },
+                    }}
+                    onClick={showProjectsHandler}
+                >
+                    <Typography
+                        component="p"
+                        variant="p"
                         sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            opacity: 0.7,
-                            "&:hover": {
-                                textDecoration: "underline",
-                                cursor: "pointer",
-                            },
+                            textDecoration: "inherit",
                         }}
-                        onClick={showProjectshandler}
                     >
-                        <Typography
-                            component="p"
-                            variant="p"
-                            sx={{
-                                textDecoration: "inherit",
-                            }}
-                        >
-                            {isLoadMore ? "Show More" : "Show Less"}
-                        </Typography>
-                        {isLoadMore ? <ExpandMoreIcon /> : <ExpandLessIcon />}
-                    </Box>
-                ) : (
-                    <CircularProgress />
-                )}
+                        {isLoadMore ? "Show More" : "Show Less"}
+                    </Typography>
+                    {isLoadMore ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+                </Box>
             </Box>
         </>
     );
